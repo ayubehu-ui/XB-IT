@@ -494,6 +494,152 @@
     }
 
 
+    /* SECRET REVEAL */
+
+    .secret-section {
+      margin-top: 38px;
+
+      padding-top: 30px;
+
+      border-top:
+        1px solid #e5e5e7;
+    }
+
+
+    .secret-title {
+      font-size: 23px;
+
+      font-weight: 700;
+
+      letter-spacing: -0.035em;
+
+      margin-bottom: 10px;
+    }
+
+
+    .secret-description {
+      font-size: 15px;
+
+      line-height: 1.5;
+
+      color: #6e6e73;
+
+      margin: 0 auto 23px;
+
+      max-width: 500px;
+    }
+
+
+    .letter-reveal {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      justify-content: center;
+
+      gap: 7px;
+
+      margin-bottom: 26px;
+    }
+
+
+    .reveal-tile {
+      width: 40px;
+
+      height: 47px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      background:
+        linear-gradient(
+          145deg,
+          #ffffff,
+          #e9e9eb
+        );
+
+      border:
+        1px solid rgba(0, 0, 0, 0.08);
+
+      border-radius: 10px;
+
+      font-size: 19px;
+
+      font-weight: 700;
+
+      box-shadow:
+        0 3px 8px
+        rgba(0, 0, 0, 0.07);
+    }
+
+
+    .colleague-list {
+      text-align: left;
+
+      max-width: 430px;
+
+      margin: 0 auto;
+    }
+
+
+    .colleague {
+      display: flex;
+
+      align-items: center;
+
+      gap: 12px;
+
+      padding: 8px 0;
+
+      border-bottom:
+        1px solid #f0f0f2;
+    }
+
+
+    .colleague-initial {
+      width: 34px;
+
+      height: 34px;
+
+      flex-shrink: 0;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border-radius: 9px;
+
+      background: #f5f5f7;
+
+      font-weight: 700;
+
+      font-size: 14px;
+    }
+
+
+    .colleague-name {
+      font-size: 14px;
+
+      color: #1d1d1f;
+    }
+
+
+    .secret-footer {
+      margin-top: 25px;
+
+      font-size: 13px;
+
+      color: #86868b;
+
+      letter-spacing: 0.02em;
+    }
+
+
     /* GAME OVER */
 
     .game-over {
@@ -568,7 +714,9 @@
 
       .card {
         border-radius: 23px;
-        padding: 20px 16px 22px;
+
+        padding:
+          20px 16px 22px;
       }
 
 
@@ -609,6 +757,15 @@
         height: 54px;
       }
 
+
+      .reveal-tile {
+        width: 37px;
+
+        height: 44px;
+
+        font-size: 18px;
+      }
+
     }
 
 
@@ -616,12 +773,20 @@
 
       .tile {
         width: 40px;
+
         height: 50px;
       }
 
 
       .tiles {
         gap: 6px;
+      }
+
+
+      .reveal-tile {
+        width: 35px;
+
+        height: 42px;
       }
 
     }
@@ -671,10 +836,7 @@
 
         <!-- INSTRUCTIONS -->
 
-        <div
-          class="instructions"
-          id="instructions"
-        >
+        <div class="instructions">
 
           <div class="instructions-title">
             Find the largest word.
@@ -690,125 +852,82 @@
         </div>
 
 
-        <!-- TILES -->
+        <!-- 14 GAME TILES -->
 
         <div
           class="tiles"
           id="tiles"
         >
 
-
-          <!-- G -->
-
           <div class="tile">
             <span class="tile-letter">G</span>
             <span class="tile-value">2</span>
           </div>
-
-
-          <!-- H -->
 
           <div class="tile">
             <span class="tile-letter">H</span>
             <span class="tile-value">4</span>
           </div>
 
-
-          <!-- S -->
-
           <div class="tile">
             <span class="tile-letter">S</span>
             <span class="tile-value">1</span>
           </div>
 
-
-          <!-- O -->
-
           <div class="tile">
             <span class="tile-letter">O</span>
             <span class="tile-value">1</span>
           </div>
-
-
-          <!-- K -->
 
           <div class="tile">
             <span class="tile-letter">K</span>
             <span class="tile-value">5</span>
           </div>
 
-
-          <!-- W -->
-
           <div class="tile">
             <span class="tile-letter">W</span>
             <span class="tile-value">4</span>
           </div>
-
-
-          <!-- M -->
 
           <div class="tile">
             <span class="tile-letter">M</span>
             <span class="tile-value">3</span>
           </div>
 
-
-          <!-- R -->
-
           <div class="tile">
             <span class="tile-letter">R</span>
             <span class="tile-value">1</span>
           </div>
-
-
-          <!-- H -->
 
           <div class="tile">
             <span class="tile-letter">H</span>
             <span class="tile-value">4</span>
           </div>
 
-
-          <!-- V -->
-
           <div class="tile">
             <span class="tile-letter">V</span>
             <span class="tile-value">4</span>
           </div>
-
-
-          <!-- O -->
 
           <div class="tile">
             <span class="tile-letter">O</span>
             <span class="tile-value">1</span>
           </div>
 
-
-          <!-- E -->
-
           <div class="tile">
             <span class="tile-letter">E</span>
             <span class="tile-value">1</span>
           </div>
-
-
-          <!-- S -->
 
           <div class="tile">
             <span class="tile-letter">S</span>
             <span class="tile-value">1</span>
           </div>
 
-
-          <!-- G -->
-
           <div class="tile">
             <span class="tile-letter">G</span>
             <span class="tile-value">2</span>
           </div>
-
 
         </div>
 
@@ -966,10 +1085,6 @@
             .toUpperCase();
 
 
-        /*
-         * NAME REQUIRED
-         */
-
         if (!name) {
 
           showError(
@@ -981,10 +1096,6 @@
           return;
         }
 
-
-        /*
-         * ANSWER REQUIRED
-         */
 
         if (!answer) {
 
@@ -998,10 +1109,6 @@
         }
 
 
-        /*
-         * DISABLE BUTTON
-         */
-
         button.disabled = true;
 
         button.textContent =
@@ -1014,11 +1121,6 @@
 
 
         try {
-
-
-          /*******************************************
-           * SEND TO APPS SCRIPT
-           *******************************************/
 
           const response =
             await fetch(
@@ -1044,9 +1146,9 @@
             await response.json();
 
 
-          /*******************************************
+          /*
            * GAME ALREADY WON
-           *******************************************/
+           */
 
           if (
             result.gameOver === true
@@ -1060,9 +1162,9 @@
           }
 
 
-          /*******************************************
-           * WINNER
-           *******************************************/
+          /*
+           * CORRECT ANSWER
+           */
 
           if (
             result.ok === true
@@ -1076,9 +1178,9 @@
           }
 
 
-          /*******************************************
+          /*
            * WRONG ANSWER
-           *******************************************/
+           */
 
           showError(
             result.message ||
@@ -1097,7 +1199,6 @@
 
 
         } catch (error) {
-
 
           console.error(
             "Game error:",
@@ -1129,7 +1230,6 @@
 
       try {
 
-
         const response =
           await fetch(
             API_URL,
@@ -1154,7 +1254,6 @@
 
         }
 
-
       } catch (error) {
 
         console.log(
@@ -1168,7 +1267,7 @@
 
 
     /*************************************************
-     * WRONG ANSWER
+     * ERROR MESSAGE
      *************************************************/
 
     function showError(text) {
@@ -1194,9 +1293,98 @@
         );
 
 
+      const people = [
+
+        ["S", "Adam Shapiro"],
+
+        ["S", "Andrea Serur"],
+
+        ["O", "Andres Ortiz"],
+
+        ["W", "Anna Wind"],
+
+        ["H", "Ayube Hussain"],
+
+        ["E", "Chiric Emanuels"],
+
+        ["G", "Daniel Garcia"],
+
+        ["K", "Daniel Kondratowitch"],
+
+        ["H", "Fabiana Hernandez"],
+
+        ["R", "Juan Rodriguez"],
+
+        ["M", "Marisa Meyer"],
+
+        ["G", "Monica Giunchi"],
+
+        ["V", "Raul Valenzuela"]
+
+      ];
+
+
+      const letters = [
+        "S",
+        "S",
+        "O",
+        "W",
+        "H",
+        "E",
+        "G",
+        "K",
+        "H",
+        "R",
+        "M",
+        "G",
+        "V"
+      ];
+
+
+      const letterTiles =
+        letters
+          .map(function(letter) {
+
+            return `
+
+              <div class="reveal-tile">
+                ${letter}
+              </div>
+
+            `;
+
+          })
+          .join("");
+
+
+      const colleagueRows =
+        people
+          .map(function(person) {
+
+            return `
+
+              <div class="colleague">
+
+                <div class="colleague-initial">
+                  ${person[0]}
+                </div>
+
+                <div class="colleague-name">
+                  ${escapeHtml(person[1])}
+                </div>
+
+              </div>
+
+            `;
+
+          })
+          .join("");
+
+
       card.innerHTML = `
 
         <div class="winner">
+
 
           <div class="winner-icon">
             🎃
@@ -1213,7 +1401,7 @@
             Congratulations,
             ${escapeHtml(name)}!
 
-            <br>
+            <br><br>
 
             You were the first to find
             the winning word.
@@ -1224,6 +1412,50 @@
           <div class="winner-word">
             HOMEWORK
           </div>
+
+
+          <!-- SECRET REVEAL -->
+
+          <div class="secret-section">
+
+
+            <div class="secret-title">
+              The Secret Behind the Letters
+            </div>
+
+
+            <div class="secret-description">
+
+              Each letter in the challenge was
+              selected from the first initial of
+              an XB-IT colleague's last name.
+
+            </div>
+
+
+            <div class="letter-reveal">
+
+              ${letterTiles}
+
+            </div>
+
+
+            <div class="colleague-list">
+
+              ${colleagueRows}
+
+            </div>
+
+
+            <div class="secret-footer">
+
+              One team. One puzzle. One winner.
+
+            </div>
+
+
+          </div>
+
 
         </div>
 
@@ -1312,7 +1544,7 @@
 
 
     /*************************************************
-     * INITIALIZE GAME
+     * INITIALIZE
      *************************************************/
 
     checkGameStatus();
