@@ -45,7 +45,6 @@
 
     body {
       margin: 0;
-
       width: 100%;
 
       min-height: 100vh;
@@ -88,7 +87,6 @@
         max(32px, env(safe-area-inset-bottom));
 
       display: flex;
-
       justify-content: center;
     }
 
@@ -100,7 +98,9 @@
     }
 
 
-    /* HEADER */
+    /* ==========================================
+       HEADER
+       ========================================== */
 
     .header {
       text-align: center;
@@ -150,7 +150,9 @@
     }
 
 
-    /* MAIN CARD */
+    /* ==========================================
+       MAIN CARD
+       ========================================== */
 
     .card {
       background:
@@ -176,11 +178,12 @@
     }
 
 
-    /* INSTRUCTIONS */
+    /* ==========================================
+       INSTRUCTIONS
+       ========================================== */
 
     .instructions {
       text-align: center;
-
       margin-bottom: 28px;
     }
 
@@ -209,7 +212,9 @@
     }
 
 
-    /* TILES */
+    /* ==========================================
+       GAME TILES
+       ========================================== */
 
     .tiles {
       display: flex;
@@ -229,7 +234,6 @@
 
     .tile {
       width: 52px;
-
       height: 62px;
 
       background:
@@ -286,7 +290,9 @@
     }
 
 
-    /* FORM */
+    /* ==========================================
+       FORM
+       ========================================== */
 
     .form {
       display: flex;
@@ -398,21 +404,20 @@
 
     button:active {
       transform: scale(0.985);
-
       opacity: 0.85;
     }
 
 
     button:disabled {
       opacity: 0.45;
-
       cursor: default;
-
       transform: none;
     }
 
 
-    /* MESSAGE */
+    /* ==========================================
+       MESSAGE
+       ========================================== */
 
     .message {
       min-height: 24px;
@@ -436,123 +441,247 @@
     }
 
 
-    /* WINNER */
+    /* ==========================================
+       PREMIUM WINNER SCREEN
+       ========================================== */
 
-    .winner {
+    .winner-premium {
       text-align: center;
 
       padding:
-        10px 0 4px;
+        8px 0 10px;
     }
 
 
-    .winner-icon {
-      font-size: 54px;
+    .winner-orb {
+      width: 78px;
+      height: 78px;
 
-      margin-bottom: 16px;
-    }
-
-
-    .winner-title {
-      font-size:
-        clamp(32px, 8vw, 48px);
-
-      font-weight: 700;
-
-      letter-spacing: -0.045em;
-
-      margin-bottom: 10px;
-    }
-
-
-    .winner-subtitle {
-      font-size: 17px;
-
-      color: #6e6e73;
-
-      line-height: 1.5;
-    }
-
-
-    .winner-word {
-      display: inline-block;
-
-      margin-top: 22px;
-
-      padding:
-        15px 24px;
-
-      border-radius: 16px;
-
-      background: #f5f5f7;
-
-      font-size: 30px;
-
-      font-weight: 700;
-
-      letter-spacing: 0.05em;
-    }
-
-
-    /* SECRET REVEAL */
-
-    .secret-section {
-      margin-top: 38px;
-
-      padding-top: 30px;
-
-      border-top:
-        1px solid #e5e5e7;
-    }
-
-
-    .secret-title {
-      font-size: 23px;
-
-      font-weight: 700;
-
-      letter-spacing: -0.035em;
-
-      margin-bottom: 10px;
-    }
-
-
-    .secret-description {
-      font-size: 15px;
-
-      line-height: 1.5;
-
-      color: #6e6e73;
-
-      margin: 0 auto 23px;
-
-      max-width: 500px;
-    }
-
-
-    .letter-reveal {
-      display: flex;
-
-      flex-wrap: wrap;
-
-      justify-content: center;
-
-      gap: 7px;
-
-      margin-bottom: 26px;
-    }
-
-
-    .reveal-tile {
-      width: 40px;
-
-      height: 47px;
+      margin:
+        0 auto 18px;
 
       display: flex;
 
       align-items: center;
 
       justify-content: center;
+
+      border-radius: 50%;
+
+      font-size: 38px;
+
+      background:
+        radial-gradient(
+          circle at 35% 30%,
+          #fff7ed,
+          #ffedd5 48%,
+          #fed7aa 100%
+        );
+
+      box-shadow:
+        0 12px 30px
+        rgba(245, 158, 11, 0.20);
+
+      animation:
+        winnerFloat 3s ease-in-out infinite;
+    }
+
+
+    @keyframes winnerFloat {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-5px);
+      }
+
+    }
+
+
+    .winner-kicker {
+      font-size: 11px;
+
+      font-weight: 700;
+
+      letter-spacing: 0.18em;
+
+      color: #86868b;
+
+      text-transform: uppercase;
+    }
+
+
+    .winner-title {
+      margin-top: 8px;
+
+      font-size:
+        clamp(38px, 9vw, 54px);
+
+      font-weight: 700;
+
+      letter-spacing: -0.055em;
+
+      line-height: 1;
+    }
+
+
+    .winner-congrats {
+      margin-top: 13px;
+
+      font-size: 17px;
+
+      color: #6e6e73;
+    }
+
+
+    .winner-word-premium {
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      margin-top: 25px;
+
+      padding:
+        17px 30px;
+
+      border-radius: 18px;
+
+      background:
+        linear-gradient(
+          145deg,
+          #1d1d1f,
+          #3a3a3c
+        );
+
+      color: white;
+
+      font-size:
+        clamp(28px, 7vw, 38px);
+
+      font-weight: 700;
+
+      letter-spacing: 0.08em;
+
+      box-shadow:
+        0 12px 28px
+        rgba(0, 0, 0, 0.16);
+    }
+
+
+    .winner-caption {
+      margin-top: 14px;
+
+      font-size: 14px;
+
+      color: #86868b;
+    }
+
+
+    /* ==========================================
+       TEAM REVEAL
+       ========================================== */
+
+    .reveal-divider {
+      height: 1px;
+
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          #dedee2,
+          transparent
+        );
+
+      margin:
+        40px 0 34px;
+    }
+
+
+    .team-reveal {
+      text-align: center;
+    }
+
+
+    .team-kicker {
+      font-size: 11px;
+
+      font-weight: 700;
+
+      letter-spacing: 0.18em;
+
+      color: #86868b;
+
+      text-transform: uppercase;
+    }
+
+
+    .team-title {
+      margin-top: 9px;
+
+      font-size:
+        clamp(27px, 6vw, 36px);
+
+      line-height: 1.08;
+
+      font-weight: 700;
+
+      letter-spacing: -0.045em;
+    }
+
+
+    .team-description {
+      max-width: 500px;
+
+      margin:
+        16px auto 25px;
+
+      font-size: 15px;
+
+      line-height: 1.55;
+
+      color: #6e6e73;
+    }
+
+
+    .team-description strong {
+      color: #1d1d1f;
+    }
+
+
+    /* LETTER STRIP */
+
+    .letter-strip {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      justify-content: center;
+
+      gap: 6px;
+
+      margin:
+        0 auto 30px;
+
+      max-width: 560px;
+    }
+
+
+    .letter-strip span {
+      width: 34px;
+      height: 40px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border-radius: 9px;
 
       background:
         linear-gradient(
@@ -562,46 +691,59 @@
         );
 
       border:
-        1px solid rgba(0, 0, 0, 0.08);
-
-      border-radius: 10px;
-
-      font-size: 19px;
-
-      font-weight: 700;
+        1px solid rgba(0, 0, 0, 0.07);
 
       box-shadow:
         0 3px 8px
-        rgba(0, 0, 0, 0.07);
+        rgba(0, 0, 0, 0.06);
+
+      font-size: 16px;
+
+      font-weight: 700;
     }
 
 
-    .colleague-list {
-      text-align: left;
+    /* ==========================================
+       PEOPLE
+       ========================================== */
 
-      max-width: 430px;
+    .people-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 8px;
+
+      max-width: 540px;
 
       margin: 0 auto;
+
+      text-align: left;
     }
 
 
-    .colleague {
+    .reveal-person {
       display: flex;
 
       align-items: center;
 
-      gap: 12px;
+      gap: 10px;
 
-      padding: 8px 0;
+      padding: 10px;
 
-      border-bottom:
-        1px solid #f0f0f2;
+      border-radius: 13px;
+
+      background:
+        rgba(245, 245, 247, 0.75);
+
+      border:
+        1px solid rgba(0, 0, 0, 0.04);
     }
 
 
-    .colleague-initial {
+    .reveal-letter {
       width: 34px;
-
       height: 34px;
 
       flex-shrink: 0;
@@ -614,33 +756,122 @@
 
       border-radius: 9px;
 
-      background: #f5f5f7;
+      background: white;
 
-      font-weight: 700;
+      box-shadow:
+        0 2px 6px
+        rgba(0, 0, 0, 0.06);
 
       font-size: 14px;
+
+      font-weight: 700;
     }
 
 
-    .colleague-name {
-      font-size: 14px;
+    .reveal-name {
+      font-size: 13px;
+
+      color: #6e6e73;
+
+      line-height: 1.25;
+    }
+
+
+    .reveal-name strong {
+      color: #1d1d1f;
+    }
+
+
+    /* ==========================================
+       BONUS O
+       ========================================== */
+
+    .bonus-letter {
+      max-width: 540px;
+
+      margin:
+        12px auto 0;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      gap: 12px;
+
+      padding: 13px;
+
+      border-radius: 14px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #fff7ed,
+          #ffffff
+        );
+
+      border:
+        1px solid #fed7aa;
+
+      text-align: left;
+    }
+
+
+    .bonus-icon {
+      width: 36px;
+      height: 36px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      border-radius: 9px;
+
+      background: #ffedd5;
+
+      color: #ea580c;
+
+      font-weight: 800;
+    }
+
+
+    .bonus-title {
+      font-size: 13px;
+
+      font-weight: 700;
 
       color: #1d1d1f;
     }
 
 
-    .secret-footer {
-      margin-top: 25px;
+    .bonus-text {
+      margin-top: 2px;
 
-      font-size: 13px;
+      font-size: 12px;
 
       color: #86868b;
-
-      letter-spacing: 0.02em;
     }
 
 
-    /* GAME OVER */
+    .team-footer {
+      margin-top: 28px;
+
+      font-size: 10px;
+
+      font-weight: 700;
+
+      letter-spacing: 0.13em;
+
+      color: #a1a1a6;
+    }
+
+
+    /* ==========================================
+       GAME OVER
+       ========================================== */
 
     .game-over {
       text-align: center;
@@ -680,7 +911,9 @@
     }
 
 
-    /* FOOTER */
+    /* ==========================================
+       FOOTER
+       ========================================== */
 
     .footer {
       text-align: center;
@@ -696,7 +929,24 @@
     }
 
 
-    /* MOBILE */
+    /* ==========================================
+       MOBILE
+       ========================================== */
+
+    @media (max-width: 520px) {
+
+      .people-grid {
+        grid-template-columns: 1fr;
+      }
+
+
+      .winner-word-premium {
+        padding:
+          15px 24px;
+      }
+
+    }
+
 
     @media (max-width: 480px) {
 
@@ -758,12 +1008,12 @@
       }
 
 
-      .reveal-tile {
-        width: 37px;
+      .letter-strip span {
+        width: 32px;
 
-        height: 44px;
+        height: 38px;
 
-        font-size: 18px;
+        font-size: 15px;
       }
 
     }
@@ -783,10 +1033,10 @@
       }
 
 
-      .reveal-tile {
-        width: 35px;
+      .letter-strip span {
+        width: 30px;
 
-        height: 42px;
+        height: 36px;
       }
 
     }
@@ -804,7 +1054,9 @@
     <main class="container">
 
 
-      <!-- HEADER -->
+      <!-- ========================================
+           HEADER
+           ======================================== -->
 
       <header class="header">
 
@@ -826,7 +1078,9 @@
       </header>
 
 
-      <!-- GAME CARD -->
+      <!-- ========================================
+           GAME
+           ======================================== -->
 
       <section
         class="card"
@@ -852,7 +1106,9 @@
         </div>
 
 
-        <!-- 14 GAME TILES -->
+        <!-- ======================================
+             14 GAME TILES
+             ====================================== -->
 
         <div
           class="tiles"
@@ -932,7 +1188,9 @@
         </div>
 
 
-        <!-- FORM -->
+        <!-- ======================================
+             FORM
+             ====================================== -->
 
         <form
           class="form"
@@ -1022,17 +1280,17 @@
   <script>
 
 
-    /*************************************************
-     * GOOGLE APPS SCRIPT BACKEND
-     *************************************************/
+    /* ==========================================
+       GOOGLE APPS SCRIPT BACKEND
+       ========================================== */
 
     const API_URL =
       "https://script.google.com/macros/s/AKfycbyi1UrD3g8dZERfifG1c7doFiqtidaPax-F4fsrhIR29tLkMppUtNYIFvwLk42hKA_X/exec";
 
 
-    /*************************************************
-     * ELEMENTS
-     *************************************************/
+    /* ==========================================
+       ELEMENTS
+       ========================================== */
 
     const form =
       document.getElementById(
@@ -1064,9 +1322,9 @@
       );
 
 
-    /*************************************************
-     * SUBMIT ANSWER
-     *************************************************/
+    /* ==========================================
+       SUBMIT ANSWER
+       ========================================== */
 
     form.addEventListener(
       "submit",
@@ -1146,9 +1404,7 @@
             await response.json();
 
 
-          /*
-           * GAME ALREADY WON
-           */
+          /* GAME ALREADY WON */
 
           if (
             result.gameOver === true
@@ -1162,9 +1418,7 @@
           }
 
 
-          /*
-           * CORRECT ANSWER
-           */
+          /* CORRECT ANSWER */
 
           if (
             result.ok === true
@@ -1178,9 +1432,7 @@
           }
 
 
-          /*
-           * WRONG ANSWER
-           */
+          /* WRONG ANSWER */
 
           showError(
             result.message ||
@@ -1222,9 +1474,9 @@
     );
 
 
-    /*************************************************
-     * CHECK GAME STATUS
-     *************************************************/
+    /* ==========================================
+       CHECK GAME STATUS
+       ========================================== */
 
     async function checkGameStatus() {
 
@@ -1266,9 +1518,9 @@
     }
 
 
-    /*************************************************
-     * ERROR MESSAGE
-     *************************************************/
+    /* ==========================================
+       ERROR MESSAGE
+       ========================================== */
 
     function showError(text) {
 
@@ -1281,9 +1533,9 @@
     }
 
 
-    /*************************************************
-     * WINNER SCREEN
-     *************************************************/
+    /* ==========================================
+       WINNER SCREEN
+       ========================================== */
 
     function showWinner(name) {
 
@@ -1292,6 +1544,11 @@
           "gameCard"
         );
 
+
+      /*
+       * XB-IT COLLEAGUES FROM
+       * THE PROVIDED SCREENSHOTS
+       */
 
       const people = [
 
@@ -1324,22 +1581,36 @@
       ];
 
 
+      /*
+       * FULL GAME LETTER SET
+       *
+       * The extra O is presented separately
+       * as a fun bonus tile.
+       */
+
       const letters = [
+
         "S",
         "S",
         "O",
+        "O",
         "W",
+        "H",
         "H",
         "E",
         "G",
+        "G",
         "K",
-        "H",
         "R",
         "M",
-        "G",
         "V"
+
       ];
 
+
+      /*
+       * CREATE LETTER TILES
+       */
 
       const letterTiles =
         letters
@@ -1347,31 +1618,60 @@
 
             return `
 
-              <div class="reveal-tile">
+              <span>
                 ${letter}
-              </div>
+              </span>
 
             `;
 
           })
           .join("");
 
+
+      /*
+       * CREATE COLLEAGUE CARDS
+       */
 
       const colleagueRows =
         people
           .map(function(person) {
 
+            const letter =
+              person[0];
+
+            const fullName =
+              person[1];
+
+            const parts =
+              fullName.split(" ");
+
+            const lastName =
+              parts.pop();
+
+            const firstName =
+              parts.join(" ");
+
+
             return `
 
-              <div class="colleague">
+              <div class="reveal-person">
 
-                <div class="colleague-initial">
-                  ${person[0]}
+
+                <div class="reveal-letter">
+                  ${letter}
                 </div>
 
-                <div class="colleague-name">
-                  ${escapeHtml(person[1])}
+
+                <div class="reveal-name">
+
+                  ${escapeHtml(firstName)}
+
+                  <strong>
+                    ${escapeHtml(lastName)}
+                  </strong>
+
                 </div>
+
 
               </div>
 
@@ -1381,13 +1681,24 @@
           .join("");
 
 
+      /*
+       * REPLACE GAME WITH WINNER SCREEN
+       */
+
       card.innerHTML = `
 
-        <div class="winner">
+        <div class="winner-premium">
 
 
-          <div class="winner-icon">
+          <!-- CELEBRATION -->
+
+          <div class="winner-orb">
             🎃
+          </div>
+
+
+          <div class="winner-kicker">
+            CHALLENGE COMPLETE
           </div>
 
 
@@ -1396,60 +1707,107 @@
           </div>
 
 
-          <div class="winner-subtitle">
-
+          <div class="winner-congrats">
             Congratulations,
-            ${escapeHtml(name)}!
-
-            <br><br>
-
-            You were the first to find
-            the winning word.
-
+            ${escapeHtml(name)}.
           </div>
 
 
-          <div class="winner-word">
+          <div class="winner-word-premium">
             HOMEWORK
           </div>
 
 
-          <!-- SECRET REVEAL -->
+          <div class="winner-caption">
+            You were the first to find
+            the winning word.
+          </div>
 
-          <div class="secret-section">
+
+          <!-- DIVIDER -->
+
+          <div class="reveal-divider"></div>
 
 
-            <div class="secret-title">
-              The Secret Behind the Letters
+          <!-- TEAM REVEAL -->
+
+          <div class="team-reveal">
+
+
+            <div class="team-kicker">
+              THE SECRET BEHIND THE LETTERS
             </div>
 
 
-            <div class="secret-description">
+            <div class="team-title">
+              This challenge was built
+              from our team.
+            </div>
 
-              Each letter in the challenge was
-              selected from the first initial of
-              an XB-IT colleague's last name.
+
+            <div class="team-description">
+
+              Each letter was selected from
+              the <strong>first initial of the
+              last name</strong> of an
+              XB-IT colleague.
 
             </div>
 
 
-            <div class="letter-reveal">
+            <!-- LETTER STRIP -->
+
+            <div class="letter-strip">
 
               ${letterTiles}
 
             </div>
 
 
-            <div class="colleague-list">
+            <!-- COLLEAGUES -->
+
+            <div class="people-grid">
 
               ${colleagueRows}
 
             </div>
 
 
-            <div class="secret-footer">
+            <!-- EXTRA O -->
 
-              One team. One puzzle. One winner.
+            <div class="bonus-letter">
+
+
+              <div class="bonus-icon">
+                O
+              </div>
+
+
+              <div>
+
+                <div class="bonus-title">
+                  One extra O
+                </div>
+
+
+                <div class="bonus-text">
+                  A little extra mystery
+                  for the challenge.
+                </div>
+
+              </div>
+
+
+            </div>
+
+
+            <div class="team-footer">
+
+              ONE TEAM
+              &nbsp;•&nbsp;
+              ONE PUZZLE
+              &nbsp;•&nbsp;
+              ONE WINNER
 
             </div>
 
@@ -1464,9 +1822,9 @@
     }
 
 
-    /*************************************************
-     * GAME OVER SCREEN
-     *************************************************/
+    /* ==========================================
+       GAME OVER SCREEN
+       ========================================== */
 
     function showGameOver(name) {
 
@@ -1479,6 +1837,7 @@
       card.innerHTML = `
 
         <div class="game-over">
+
 
           <div class="game-over-title">
             Game over.
@@ -1500,6 +1859,7 @@
 
           </div>
 
+
         </div>
 
       `;
@@ -1507,9 +1867,9 @@
     }
 
 
-    /*************************************************
-     * ESCAPE HTML
-     *************************************************/
+    /* ==========================================
+       ESCAPE HTML
+       ========================================== */
 
     function escapeHtml(value) {
 
@@ -1543,9 +1903,9 @@
     }
 
 
-    /*************************************************
-     * INITIALIZE
-     *************************************************/
+    /* ==========================================
+       INITIALIZE
+       ========================================== */
 
     checkGameStatus();
 
