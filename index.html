@@ -1,814 +1,1333 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Halloween Word Challenge</title>
-
-  <style>
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      -webkit-text-size-adjust: 100%;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "SF Pro Display",
-        "SF Pro Text",
-        "Helvetica Neue",
-        Arial,
-        sans-serif;
-
-      background:
-        radial-gradient(
-          circle at 50% -10%,
-          #ffffff 0%,
-          #f8f8fa 35%,
-          #f2f2f4 70%,
-          #e9e9ec 100%
-        );
-
-      color: #1d1d1f;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      padding: 24px;
-    }
-
-
-    /* --------------------------------------------------
-       MAIN CONTAINER
-    -------------------------------------------------- */
-
-    .container {
-      width: 100%;
-      max-width: 720px;
-    }
-
-
-    /* --------------------------------------------------
-       APPLE STYLE CARD
-    -------------------------------------------------- */
-
-    .game-card {
-      background: rgba(255,255,255,0.78);
-
-      backdrop-filter: blur(30px);
-      -webkit-backdrop-filter: blur(30px);
-
-      border: 1px solid rgba(0,0,0,0.08);
-
-      border-radius: 30px;
-
-      padding: 42px 34px 36px;
-
-      box-shadow:
-        0 30px 80px rgba(0,0,0,0.10),
-        0 8px 25px rgba(0,0,0,0.06);
-
-      overflow: hidden;
-    }
-
-
-    /* --------------------------------------------------
-       HEADER
-    -------------------------------------------------- */
-
-    .eyebrow {
-      text-align: center;
-
-      text-transform: uppercase;
-
-      letter-spacing: 3px;
-
-      font-size: 11px;
-
-      font-weight: 700;
-
-      color: #86868b;
-
-      margin-bottom: 14px;
-    }
-
-
-    h1 {
-      text-align: center;
-
-      font-size: clamp(40px, 9vw, 64px);
-
-      line-height: 0.98;
-
-      letter-spacing: -3px;
-
-      margin: 0;
-
-      font-weight: 800;
-
-      color: #1d1d1f;
-    }
-
-
-    .subtitle {
-      text-align: center;
-
-      color: #6e6e73;
-
-      font-size: 17px;
-
-      margin: 18px auto 34px;
-
-      line-height: 1.5;
-
-      max-width: 500px;
-    }
-
-
-    /* --------------------------------------------------
-       TILES
-    -------------------------------------------------- */
-
-    .tiles {
-      display: flex;
-
-      flex-wrap: wrap;
-
-      justify-content: center;
-
-      gap: 10px;
-
-      margin: 0 auto 34px;
-
-      max-width: 590px;
-    }
-
-
-    .tile {
-      width: 57px;
-      height: 57px;
-
-      background:
-        linear-gradient(
-          145deg,
-          #ffffff 0%,
-          #f7f7f7 45%,
-          #e8e8e8 100%
-        );
-
-      color: #1d1d1f;
-
-      border-radius: 11px;
-
-      display: flex;
-
-      align-items: center;
-
-      justify-content: center;
-
-      font-size: 25px;
-
-      font-weight: 800;
-
-      position: relative;
-
-      box-shadow:
-        0 8px 18px rgba(0,0,0,0.12),
-        inset 0 1px 0 rgba(255,255,255,1);
-
-      border: 1px solid rgba(0,0,0,0.06);
-
-      transition:
-        transform .2s ease,
-        box-shadow .2s ease;
-    }
-
-
-    .tile:hover {
-      transform: translateY(-3px);
-
-      box-shadow:
-        0 12px 22px rgba(0,0,0,0.14),
-        inset 0 1px 0 rgba(255,255,255,1);
-    }
-
-
-    .tile-value {
-      position: absolute;
-
-      bottom: 4px;
-      right: 6px;
-
-      font-size: 9px;
-
-      font-weight: 700;
-
-      color: #86868b;
-    }
-
-
-    /* --------------------------------------------------
-       INSTRUCTIONS
-    -------------------------------------------------- */
-
-    .instruction {
-      text-align: center;
-
-      font-size: 18px;
-
-      font-weight: 600;
-
-      line-height: 1.5;
-
-      margin-bottom: 26px;
-
-      color: #1d1d1f;
-    }
-
-
-    .only-one {
-      color: #ff6a00;
-
-      font-weight: 800;
-    }
-
-
-    /* --------------------------------------------------
-       INPUTS
-    -------------------------------------------------- */
-
-    input {
-      width: 100%;
-
-      height: 56px;
-
-      border-radius: 15px;
-
-      border: 1px solid #d2d2d7;
-
-      background: rgba(255,255,255,0.85);
-
-      color: #1d1d1f;
-
-      padding: 0 17px;
-
-      font-size: 17px;
-
-      outline: none;
-
-      margin-bottom: 12px;
-
-      -webkit-appearance: none;
-
-      transition:
-        border-color .2s ease,
-        box-shadow .2s ease;
-    }
-
-
-    input::placeholder {
-      color: #86868b;
-    }
-
-
-    input:focus {
-      border-color: #ff6a00;
-
-      box-shadow:
-        0 0 0 4px rgba(255,106,0,0.12);
-    }
-
-
-    /* --------------------------------------------------
-       BUTTON
-    -------------------------------------------------- */
-
-    button {
-      width: 100%;
-
-      height: 56px;
-
-      border: none;
-
-      border-radius: 15px;
-
-      background: #1d1d1f;
-
-      color: white;
-
-      font-size: 17px;
-
-      font-weight: 700;
-
-      cursor: pointer;
-
-      transition:
-        transform .15s ease,
-        opacity .15s ease,
-        background .2s ease;
-    }
-
-
-    button:hover {
-      background: #2c2c2e;
-    }
-
-
-    button:active {
-      transform: scale(.985);
-    }
-
-
-    button:disabled {
-      opacity: .5;
-
-      cursor: default;
-    }
-
-
-    /* --------------------------------------------------
-       MESSAGE
-    -------------------------------------------------- */
-
-    .message {
-      min-height: 24px;
-
-      text-align: center;
-
-      margin-top: 16px;
-
-      font-size: 15px;
-
-      font-weight: 600;
-
-      color: #6e6e73;
-    }
-
-
-    .loading {
-      text-align: center;
-
-      color: #86868b;
-
-      font-size: 13px;
-
-      margin-top: 12px;
-    }
-
-
-    /* --------------------------------------------------
-       WINNER SCREEN
-    -------------------------------------------------- */
-
-    .winner-screen {
-      text-align: center;
-
-      padding: 8px 0 4px;
-    }
-
-
-    .winner-icon {
-      font-size: 62px;
-
-      margin-bottom: 14px;
-    }
-
-
-    .winner-title {
-      font-size: clamp(38px, 9vw, 62px);
-
-      font-weight: 800;
-
-      letter-spacing: -3px;
-
-      margin: 0 0 14px;
-
-      line-height: 1;
-
-      color: #1d1d1f;
-    }
-
-
-    .winner-name {
-      font-size: 28px;
-
-      font-weight: 800;
-
-      color: #ff6a00;
-
-      margin: 8px 0 20px;
-    }
-
-
-    .winning-word {
-      display: inline-block;
-
-      font-size: clamp(28px, 7vw, 46px);
-
-      font-weight: 900;
-
-      letter-spacing: 6px;
-
-      color: #1d1d1f;
-
-      margin: 8px 0 26px;
-    }
-
-
-    .winner-message {
-      color: #6e6e73;
-
-      font-size: 16px;
-
-      line-height: 1.6;
-
-      margin-bottom: 32px;
-    }
-
-
-    /* --------------------------------------------------
-       REVEAL
-    -------------------------------------------------- */
-
-    .reveal {
-      border-top: 1px solid #e5e5e7;
-
-      padding-top: 26px;
-
-      margin-top: 10px;
-    }
-
-
-    .reveal-title {
-      font-size: 12px;
-
-      text-transform: uppercase;
-
-      letter-spacing: 2px;
-
-      color: #86868b;
-
-      margin-bottom: 18px;
-
-      font-weight: 700;
-    }
-
-
-    .people {
-      display: grid;
-
-      grid-template-columns: repeat(2, 1fr);
-
-      gap: 9px;
-
-      text-align: left;
-    }
-
-
-    .person {
-      background: #f5f5f7;
-
-      border: 1px solid #e8e8ed;
-
-      border-radius: 12px;
-
-      padding: 11px 13px;
-
-      font-size: 14px;
-
-      display: flex;
-
-      justify-content: space-between;
-
-      align-items: center;
-    }
-
-
-    .person-letter {
-      font-weight: 900;
-
-      color: #ff6a00;
-
-      font-size: 18px;
-    }
-
-
-    .extra-o {
-      margin-top: 12px;
-
-      color: #86868b;
-
-      font-size: 12px;
-    }
-
-
-    /* --------------------------------------------------
-       MOBILE
-    -------------------------------------------------- */
-
-    @media (max-width: 520px) {
-
-      body {
-        padding: 12px;
-        align-items: flex-start;
-        padding-top: 18px;
-      }
-
-      .game-card {
-        padding: 30px 18px 26px;
-
-        border-radius: 24px;
-      }
-
-      h1 {
-        font-size: 43px;
-
-        letter-spacing: -2.2px;
-      }
-
-      .subtitle {
-        font-size: 15px;
-
-        margin-bottom: 28px;
-      }
-
-      .tiles {
-        gap: 7px;
-
-        margin-bottom: 28px;
-      }
-
-      .tile {
-        width: 44px;
-        height: 44px;
-
-        border-radius: 9px;
-
-        font-size: 20px;
-      }
-
-      .tile-value {
-        font-size: 8px;
-
-        bottom: 3px;
-        right: 5px;
-      }
-
-      .instruction {
-        font-size: 16px;
-      }
-
-      .people {
-        grid-template-columns: 1fr;
-      }
-
-      .winner-title {
-        font-size: 43px;
-      }
-
-    }
-
-  </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#f5f1ea">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<title>Halloween Word Challenge</title>
+
+<style>
+:root {
+  --orange: #ff6a00;
+  --orange-dark: #e65300;
+  --orange-soft: #fff0e5;
+  --cream: #f7f4ef;
+  --cream-2: #eee9e1;
+  --ink: #151515;
+  --muted: #77736d;
+  --white: #ffffff;
+  --board: #d88b4a;
+  --board-dark: #b96a31;
+  --green: #2f9b62;
+  --shadow: 0 25px 70px rgba(38, 27, 17, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "SF Pro Text",
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 50% -10%, #ffffff 0%, #f7f3ed 40%, #ece7df 100%);
+  overflow-x: hidden;
+}
+
+/* -------------------------------------------------------
+   BACKGROUND
+------------------------------------------------------- */
+
+.background-glow {
+  position: fixed;
+  width: 650px;
+  height: 650px;
+  left: 50%;
+  top: -300px;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 133, 42, 0.16),
+    rgba(255, 133, 42, 0.05) 42%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.moon {
+  position: fixed;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  right: -190px;
+  top: 80px;
+  background: radial-gradient(
+    circle at 35% 35%,
+    rgba(255, 255, 255, 0.95),
+    rgba(255, 221, 180, 0.22) 45%,
+    transparent 70%
+  );
+  filter: blur(2px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bat {
+  position: fixed;
+  color: #191919;
+  font-size: 17px;
+  opacity: 0.14;
+  pointer-events: none;
+  z-index: 1;
+  animation: flyBat 18s linear infinite;
+}
+
+.bat.one {
+  top: 12%;
+  left: -40px;
+}
+
+.bat.two {
+  top: 22%;
+  left: 15%;
+  font-size: 12px;
+  animation-delay: -7s;
+  animation-duration: 23s;
+}
+
+.bat.three {
+  top: 9%;
+  left: 65%;
+  font-size: 10px;
+  animation-delay: -11s;
+  animation-duration: 25s;
+}
+
+@keyframes flyBat {
+  0% {
+    transform: translateX(-40px) translateY(0) rotate(-5deg);
+  }
+  50% {
+    transform: translateX(55vw) translateY(-30px) rotate(7deg);
+  }
+  100% {
+    transform: translateX(110vw) translateY(10px) rotate(-3deg);
+  }
+}
+
+/* -------------------------------------------------------
+   MAIN
+------------------------------------------------------- */
+
+.page {
+  position: relative;
+  z-index: 2;
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 26px 0 70px;
+}
+
+/* -------------------------------------------------------
+   TOP BAR
+------------------------------------------------------- */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #5f5b55;
+}
+
+.brand-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--orange);
+  box-shadow: 0 0 18px rgba(255, 106, 0, 0.45);
+}
+
+.live-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 12px;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(12px);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #66615a;
+  text-transform: uppercase;
+}
+
+.live-dot {
+  width: 7px;
+  height: 7px;
+  background: #2fbf71;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(47, 191, 113, 0.7);
+  animation: pulse 1.7s infinite;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.35;
+    transform: scale(0.7);
+  }
+}
+
+/* -------------------------------------------------------
+   HERO
+------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  min-height: 510px;
+  border-radius: 38px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.95), transparent 42%),
+    linear-gradient(135deg, #f9f7f3 0%, #f0ebe3 100%);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: var(--shadow);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      115deg,
+      transparent 0%,
+      transparent 48%,
+      rgba(255, 106, 0, 0.055) 48%,
+      rgba(255, 106, 0, 0.12) 62%,
+      transparent 75%
+    );
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 5;
+  padding: 72px 40px 45px;
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 18px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #77716a;
+}
+
+.eyebrow-line {
+  width: 28px;
+  height: 2px;
+  background: var(--orange);
+  border-radius: 2px;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(48px, 8vw, 88px);
+  line-height: 0.94;
+  letter-spacing: -0.055em;
+  font-weight: 850;
+}
+
+.halloween {
+  display: block;
+  color: var(--orange);
+  background: linear-gradient(100deg, #ff7b18, #f45a00);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.word-challenge {
+  display: block;
+  color: #161616;
+}
+
+.subtitle {
+  max-width: 560px;
+  margin: 22px auto 0;
+  color: #77726c;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+/* -------------------------------------------------------
+   FLOATING TILES
+------------------------------------------------------- */
+
+.floating-tile {
+  position: absolute;
+  width: 68px;
+  height: 68px;
+  border-radius: 13px;
+  background: linear-gradient(145deg, #fffefc, #e5dfd6);
+  border: 1px solid rgba(0, 0, 0, 0.09);
+  box-shadow:
+    0 17px 28px rgba(36, 27, 19, 0.13),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 850;
+  color: #202020;
+  font-size: 30px;
+  z-index: 3;
+  animation: floatTile 5s ease-in-out infinite;
+}
+
+.floating-tile small {
+  position: absolute;
+  right: 8px;
+  bottom: 6px;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.tile-a {
+  left: 7%;
+  top: 25%;
+  transform: rotate(-13deg);
+  animation-delay: -1s;
+}
+
+.tile-b {
+  right: 8%;
+  top: 24%;
+  transform: rotate(12deg);
+  animation-delay: -3s;
+}
+
+.tile-c {
+  left: 12%;
+  bottom: 15%;
+  transform: rotate(8deg);
+  animation-delay: -2s;
+}
+
+.tile-d {
+  right: 12%;
+  bottom: 13%;
+  transform: rotate(-10deg);
+  animation-delay: -4s;
+}
+
+@keyframes floatTile {
+  0%, 100% {
+    margin-top: 0;
+  }
+  50% {
+    margin-top: -15px;
+  }
+}
+
+/* -------------------------------------------------------
+   GAME CARD
+------------------------------------------------------- */
+
+.game-wrap {
+  position: relative;
+  z-index: 10;
+  margin: -5px auto 0;
+  width: min(820px, calc(100% - 24px));
+}
+
+.game-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 30px;
+  box-shadow:
+    0 30px 80px rgba(30, 22, 15, 0.15),
+    0 3px 10px rgba(30, 22, 15, 0.04);
+  padding: 28px;
+}
+
+/* -------------------------------------------------------
+   SCRABBLE BOARD
+------------------------------------------------------- */
+
+.board-section {
+  margin-bottom: 27px;
+}
+
+.board-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.board-label strong {
+  font-size: 12px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.board-label span {
+  color: #918b83;
+  font-size: 12px;
+}
+
+.scrabble-board {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: 4px;
+  padding: 10px;
+  border-radius: 17px;
+  background:
+    linear-gradient(145deg, #e2a263, #c97b3d);
+  box-shadow:
+    inset 0 2px 2px rgba(255,255,255,0.28),
+    inset 0 -5px 15px rgba(94, 44, 17, 0.16),
+    0 12px 30px rgba(104, 59, 28, 0.16);
+  overflow: hidden;
+}
+
+.board-cell {
+  aspect-ratio: 1;
+  min-height: 35px;
+  border-radius: 5px;
+  background: rgba(255, 240, 219, 0.18);
+  border: 1px solid rgba(255,255,255,0.13);
+}
+
+.board-cell.orange {
+  background: linear-gradient(145deg, #ff9a43, #ed6c14);
+}
+
+.board-cell.dark {
+  background: rgba(92, 43, 16, 0.23);
+}
+
+.board-center-word {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  pointer-events: none;
+}
+
+.mini-tile {
+  width: clamp(32px, 5vw, 46px);
+  height: clamp(32px, 5vw, 46px);
+  border-radius: 7px;
+  background: linear-gradient(145deg, #fffefb, #e7e0d6);
+  box-shadow:
+    0 5px 10px rgba(52, 31, 15, 0.2),
+    inset 0 1px 1px rgba(255,255,255,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1c1c1c;
+  font-size: clamp(15px, 2.5vw, 23px);
+  font-weight: 900;
+  transform: rotate(var(--r));
+  animation: boardWord 3.5s ease-in-out infinite;
+}
+
+.mini-tile:nth-child(2) { animation-delay: -0.2s; }
+.mini-tile:nth-child(3) { animation-delay: -0.4s; }
+.mini-tile:nth-child(4) { animation-delay: -0.6s; }
+.mini-tile:nth-child(5) { animation-delay: -0.8s; }
+.mini-tile:nth-child(6) { animation-delay: -1s; }
+.mini-tile:nth-child(7) { animation-delay: -1.2s; }
+.mini-tile:nth-child(8) { animation-delay: -1.4s; }
+
+@keyframes boardWord {
+  0%, 100% {
+    transform: translateY(0) rotate(var(--r));
+  }
+  50% {
+    transform: translateY(-5px) rotate(var(--r));
+  }
+}
+
+/* -------------------------------------------------------
+   INSTRUCTIONS
+------------------------------------------------------- */
+
+.instructions {
+  text-align: center;
+  margin: 26px 0 22px;
+}
+
+.instructions h2 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  letter-spacing: -0.025em;
+}
+
+.instructions p {
+  margin: 0 auto;
+  max-width: 560px;
+  color: #77726b;
+  line-height: 1.55;
+  font-size: 14px;
+}
+
+/* -------------------------------------------------------
+   TILE RACK
+------------------------------------------------------- */
+
+.rack-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.rack-title strong {
+  font-size: 11px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.rack-title span {
+  color: #9a948c;
+  font-size: 11px;
+}
+
+.tile-rack {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  padding: 16px 12px;
+  border-radius: 17px;
+  background:
+    linear-gradient(145deg, #f1e8dc, #ded1c1);
+  box-shadow:
+    inset 0 2px 4px rgba(255,255,255,0.8),
+    inset 0 -3px 7px rgba(92, 61, 36, 0.12);
+  overflow-x: auto;
+}
+
+.rack-tile {
+  flex: 0 0 auto;
+  width: 45px;
+  height: 49px;
+  position: relative;
+  border-radius: 7px;
+  background: linear-gradient(145deg, #fffefb, #ded7cd);
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow:
+    0 6px 10px rgba(55, 38, 23, 0.13),
+    inset 0 1px 1px rgba(255,255,255,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 23px;
+  font-weight: 900;
+  color: #181818;
+  transition: transform 0.2s ease;
+}
+
+.rack-tile:hover {
+  transform: translateY(-7px) rotate(-3deg);
+}
+
+.rack-tile small {
+  position: absolute;
+  bottom: 3px;
+  right: 5px;
+  font-size: 8px;
+  font-weight: 800;
+}
+
+/* -------------------------------------------------------
+   FORM
+------------------------------------------------------- */
+
+.form {
+  margin-top: 25px;
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #55514c;
+}
+
+.input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 10px;
+}
+
+input {
+  width: 100%;
+  height: 53px;
+  border: 1px solid #dedad4;
+  border-radius: 14px;
+  background: #faf9f7;
+  padding: 0 16px;
+  font: inherit;
+  font-size: 15px;
+  color: #161616;
+  outline: none;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+input:focus {
+  border-color: rgba(255,106,0,0.6);
+  box-shadow: 0 0 0 4px rgba(255,106,0,0.1);
+  background: #ffffff;
+}
+
+input::placeholder {
+  color: #aaa49c;
+}
+
+.submit-button {
+  height: 53px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #ff7818, #ed5600);
+  color: white;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow:
+    0 9px 20px rgba(238, 91, 0, 0.25),
+    inset 0 1px 0 rgba(255,255,255,0.25);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 25px rgba(238, 91, 0, 0.3),
+    inset 0 1px 0 rgba(255,255,255,0.25);
+}
+
+.submit-button:active {
+  transform: translateY(1px);
+}
+
+.submit-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.message {
+  min-height: 25px;
+  margin-top: 13px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #77716a;
+}
+
+.message.error {
+  color: #d64a26;
+}
+
+.message.success {
+  color: var(--green);
+}
+
+/* -------------------------------------------------------
+   FOOTER
+------------------------------------------------------- */
+
+.footer {
+  text-align: center;
+  padding: 28px 0 0;
+  color: #aaa39a;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* -------------------------------------------------------
+   WINNER
+------------------------------------------------------- */
+
+.winner-screen {
+  animation: winnerIn 0.65s ease both;
+}
+
+@keyframes winnerIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.winner-icon {
+  width: 74px;
+  height: 74px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  background: linear-gradient(145deg, #fff0df, #ffe0c1);
+  box-shadow:
+    0 15px 35px rgba(255,106,0,0.15),
+    inset 0 1px 2px rgba(255,255,255,0.9);
+}
+
+.winner-kicker {
+  margin-bottom: 8px;
+  color: var(--orange);
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.winner-screen h2 {
+  margin: 0;
+  font-size: clamp(38px, 7vw, 64px);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+.winner-name {
+  margin: 15px 0 0;
+  color: #66615b;
+  font-size: 18px;
+}
+
+.winning-word {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin: 27px 0;
+  flex-wrap: wrap;
+}
+
+.winner-tile {
+  width: 52px;
+  height: 57px;
+  border-radius: 9px;
+  background: linear-gradient(145deg, #fffefa, #e1d9ce);
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow:
+    0 10px 18px rgba(45, 30, 17, 0.13),
+    inset 0 1px 2px rgba(255,255,255,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 27px;
+  font-weight: 900;
+  animation: winnerTile 0.55s ease both;
+}
+
+.winner-tile:nth-child(1) { animation-delay: 0.05s; }
+.winner-tile:nth-child(2) { animation-delay: 0.1s; }
+.winner-tile:nth-child(3) { animation-delay: 0.15s; }
+.winner-tile:nth-child(4) { animation-delay: 0.2s; }
+.winner-tile:nth-child(5) { animation-delay: 0.25s; }
+.winner-tile:nth-child(6) { animation-delay: 0.3s; }
+.winner-tile:nth-child(7) { animation-delay: 0.35s; }
+.winner-tile:nth-child(8) { animation-delay: 0.4s; }
+
+@keyframes winnerTile {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) rotate(-8deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.reveal {
+  margin-top: 35px;
+  padding-top: 27px;
+  border-top: 1px solid #ebe6df;
+}
+
+.reveal-title {
+  margin-bottom: 17px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  color: #99928a;
+  text-transform: uppercase;
+}
+
+.people {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.person {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 11px;
+  border-radius: 999px;
+  background: #f7f4ef;
+  border: 1px solid #eae4dc;
+  font-size: 12px;
+  font-weight: 700;
+  color: #59544e;
+}
+
+.person-letter {
+  width: 23px;
+  height: 23px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 1px solid #ded8d0;
+  font-size: 11px;
+  font-weight: 900;
+  color: var(--orange);
+}
+
+.extra-o {
+  margin-top: 18px;
+  color: #aaa39a;
+  font-size: 11px;
+  font-style: italic;
+}
+
+/* -------------------------------------------------------
+   CONFETTI
+------------------------------------------------------- */
+
+.confetti {
+  position: fixed;
+  width: 8px;
+  height: 13px;
+  top: -20px;
+  z-index: 999;
+  pointer-events: none;
+  animation: confettiFall 3.2s linear forwards;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* -------------------------------------------------------
+   MOBILE
+------------------------------------------------------- */
+
+@media (max-width: 720px) {
+  .page {
+    width: min(100% - 18px, 1180px);
+    padding-top: 14px;
+  }
+
+  .topbar {
+    margin-bottom: 14px;
+  }
+
+  .brand {
+    font-size: 9px;
+  }
+
+  .live-pill {
+    padding: 6px 9px;
+    font-size: 9px;
+  }
+
+  .hero {
+    min-height: 450px;
+    border-radius: 26px;
+  }
+
+  .hero-content {
+    padding: 55px 18px 30px;
+  }
+
+  .subtitle {
+    font-size: 14px;
+  }
+
+  .floating-tile {
+    width: 47px;
+    height: 47px;
+    font-size: 22px;
+  }
+
+  .floating-tile small {
+    font-size: 7px;
+    right: 5px;
+    bottom: 4px;
+  }
+
+  .tile-a {
+    left: 3%;
+    top: 18%;
+  }
+
+  .tile-b {
+    right: 3%;
+    top: 19%;
+  }
+
+  .tile-c {
+    left: 6%;
+    bottom: 10%;
+  }
+
+  .tile-d {
+    right: 6%;
+    bottom: 9%;
+  }
+
+  .game-wrap {
+    width: calc(100% - 4px);
+  }
+
+  .game-card {
+    padding: 18px;
+    border-radius: 23px;
+  }
+
+  .scrabble-board {
+    gap: 3px;
+    padding: 7px;
+  }
+
+  .board-cell {
+    min-height: 25px;
+  }
+
+  .tile-rack {
+    justify-content: flex-start;
+    padding: 12px 10px;
+  }
+
+  .rack-tile {
+    width: 39px;
+    height: 43px;
+    font-size: 20px;
+  }
+
+  .input-row {
+    grid-template-columns: 1fr;
+  }
+
+  .submit-button {
+    width: 100%;
+  }
+
+  .winner-tile {
+    width: 43px;
+    height: 48px;
+    font-size: 23px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
 </head>
-
 
 <body>
 
-<div class="container">
+<div class="background-glow"></div>
+<div class="moon"></div>
 
-  <div class="game-card" id="gameCard">
+<div class="bat one">🦇</div>
+<div class="bat two">🦇</div>
+<div class="bat three">🦇</div>
 
-    <div class="eyebrow">
+<main class="page">
+
+  <div class="topbar">
+    <div class="brand">
+      <span class="brand-dot"></span>
       DHL Cross Border × IT
     </div>
 
+    <div class="live-pill">
+      <span class="live-dot"></span>
+      Live Challenge
+    </div>
+  </div>
 
-    <h1>
-      Halloween<br>
-      Word Challenge
-    </h1>
+  <section class="hero">
 
-
-    <div class="subtitle">
-      One word. One winner.
+    <div class="floating-tile tile-a">
+      H
+      <small>4</small>
     </div>
 
+    <div class="floating-tile tile-b">
+      W
+      <small>4</small>
+    </div>
 
-    <!-- ==========================================
-         14 LETTER TILES
-    =========================================== -->
+    <div class="floating-tile tile-c">
+      O
+      <small>1</small>
+    </div>
 
-    <div class="tiles">
+    <div class="floating-tile tile-d">
+      K
+      <small>5</small>
+    </div>
 
-      <div class="tile">
-        H
-        <span class="tile-value">4</span>
+    <div class="hero-content">
+
+      <div class="eyebrow">
+        <span class="eyebrow-line"></span>
+        Halloween Game Day
+        <span class="eyebrow-line"></span>
       </div>
 
-      <div class="tile">
-        O
-        <span class="tile-value">1</span>
-      </div>
+      <h1>
+        <span class="halloween">Halloween</span>
+        <span class="word-challenge">Word Challenge</span>
+      </h1>
 
-      <div class="tile">
-        G
-        <span class="tile-value">2</span>
-      </div>
-
-      <div class="tile">
-        S
-        <span class="tile-value">1</span>
-      </div>
-
-      <div class="tile">
-        W
-        <span class="tile-value">4</span>
-      </div>
-
-      <div class="tile">
-        E
-        <span class="tile-value">1</span>
-      </div>
-
-      <div class="tile">
-        K
-        <span class="tile-value">5</span>
-      </div>
-
-      <div class="tile">
-        O
-        <span class="tile-value">1</span>
-      </div>
-
-      <div class="tile">
-        R
-        <span class="tile-value">1</span>
-      </div>
-
-      <div class="tile">
-        M
-        <span class="tile-value">3</span>
-      </div>
-
-      <div class="tile">
-        H
-        <span class="tile-value">4</span>
-      </div>
-
-      <div class="tile">
-        G
-        <span class="tile-value">2</span>
-      </div>
-
-      <div class="tile">
-        S
-        <span class="tile-value">1</span>
-      </div>
-
-      <div class="tile">
-        V
-        <span class="tile-value">4</span>
-      </div>
+      <p class="subtitle">
+        One puzzle. One answer. One winner.
+      </p>
 
     </div>
 
+  </section>
 
-    <div class="instruction">
+  <div class="game-wrap">
 
-      Enter the largest word you can create from these letters.
+    <section class="game-card" id="gameCard">
 
-      <br>
+      <div class="board-section">
 
-      <span class="only-one">
-        Only one word wins the game.
-      </span>
+        <div class="board-label">
+          <strong>The Game Board</strong>
+          <span>Build the biggest word</span>
+        </div>
 
-    </div>
+        <div class="scrabble-board">
 
+          <div class="board-cell"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell orange"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell orange"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell"></div>
 
-    <input
-      type="text"
-      id="name"
-      placeholder="Your name"
-      maxlength="60"
-      autocomplete="name"
-    >
+          <div class="board-cell"></div>
+          <div class="board-cell dark"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell orange"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell dark"></div>
+          <div class="board-cell"></div>
 
+          <div class="board-cell orange"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell dark"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell dark"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell orange"></div>
 
-    <input
-      type="text"
-      id="word"
-      placeholder="Enter your word"
-      maxlength="30"
-      autocomplete="off"
-      autocapitalize="characters"
-      spellcheck="false"
-    >
+          <div class="board-cell"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell dark"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell orange"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell dark"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell"></div>
 
+          <div class="board-cell"></div>
+          <div class="board-cell orange"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell dark"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell orange"></div>
+          <div class="board-cell"></div>
 
-    <button
-      id="submitButton"
-      onclick="submitWord()"
-    >
-      Submit Word
-    </button>
+          <div class="board-cell"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell dark"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell orange"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell dark"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell"></div>
 
+          <div class="board-cell orange"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell dark"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell dark"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell orange"></div>
 
-    <div
-      class="message"
-      id="message"
-    ></div>
+          <div class="board-cell"></div>
+          <div class="board-cell dark"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell orange"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell dark"></div>
+          <div class="board-cell"></div>
 
+          <div class="board-cell"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell orange"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell orange"></div>
+          <div class="board-cell"></div>
+          <div class="board-cell"></div>
 
-    <div
-      class="loading"
-      id="loading"
-    >
-      Checking game status...
+          <div class="board-center-word">
+            <div class="mini-tile" style="--r:-4deg">H</div>
+            <div class="mini-tile" style="--r:2deg">O</div>
+            <div class="mini-tile" style="--r:-2deg">M</div>
+            <div class="mini-tile" style="--r:3deg">E</div>
+            <div class="mini-tile" style="--r:-3deg">W</div>
+            <div class="mini-tile" style="--r:2deg">O</div>
+            <div class="mini-tile" style="--r:-2deg">R</div>
+            <div class="mini-tile" style="--r:4deg">K</div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="instructions">
+        <h2>Find the largest word.</h2>
+        <p>
+          Enter the largest word you can create from these letters.
+          Only one word wins the game.
+        </p>
+      </div>
+
+      <div class="rack-title">
+        <strong>Your Letters</strong>
+        <span>14 tiles</span>
+      </div>
+
+      <div class="tile-rack">
+
+        <div class="rack-tile">S<small>1</small></div>
+        <div class="rack-tile">S<small>1</small></div>
+        <div class="rack-tile">O<small>1</small></div>
+        <div class="rack-tile">O<small>1</small></div>
+        <div class="rack-tile">W<small>4</small></div>
+        <div class="rack-tile">H<small>4</small></div>
+        <div class="rack-tile">H<small>4</small></div>
+        <div class="rack-tile">E<small>1</small></div>
+        <div class="rack-tile">G<small>2</small></div>
+        <div class="rack-tile">G<small>2</small></div>
+        <div class="rack-tile">K<small>5</small></div>
+        <div class="rack-tile">R<small>1</small></div>
+        <div class="rack-tile">M<small>3</small></div>
+        <div class="rack-tile">V<small>4</small></div>
+
+      </div>
+
+      <form class="form" id="gameForm">
+
+        <label class="input-label" for="name">
+          Your name
+        </label>
+
+        <div class="input-row">
+
+          <input
+            id="name"
+            type="text"
+            maxlength="60"
+            autocomplete="name"
+            placeholder="Enter your name"
+            required
+          >
+
+          <input
+            id="word"
+            type="text"
+            maxlength="30"
+            autocapitalize="characters"
+            autocomplete="off"
+            placeholder="Enter your word"
+            required
+          >
+
+          <button
+            class="submit-button"
+            id="submitButton"
+            type="submit"
+          >
+            Submit Word
+          </button>
+
+        </div>
+
+        <div class="message" id="message"></div>
+
+      </form>
+
+    </section>
+
+    <div class="footer">
+      One puzzle · One answer · One winner
     </div>
 
   </div>
 
-</div>
-
+</main>
 
 <script>
-
-
-/* =========================================================
-   GOOGLE APPS SCRIPT API
-========================================================= */
+/* ======================================================
+   CONFIG
+====================================================== */
 
 const API_URL =
   "https://script.google.com/macros/s/AKfycbyi1UrD3g8dZERfifG1c7doFiqtidaPax-F4fsrhIR29tLkMppUtNYIFvwLk42hKA_X/exec";
 
+const WINNING_WORD = "HOMEWORK";
 
-/* =========================================================
+
+/* ======================================================
    PEOPLE REVEAL
-
-   Letter
-   First Name
-   Last Initial
-========================================================= */
+====================================================== */
 
 const people = [
-
   ["S", "Adam", "S"],
-
   ["S", "Andrea", "S"],
-
   ["O", "Andres", "O"],
-
   ["W", "Anna", "W"],
-
   ["H", "Ayube", "H"],
-
   ["E", "Chiric", "E"],
-
   ["G", "Daniel", "G"],
-
   ["K", "Daniel", "K"],
-
   ["H", "Fabiana", "H"],
-
   ["R", "Juan", "R"],
-
   ["M", "Marisa", "M"],
-
   ["G", "Monica", "G"],
-
   ["V", "Raul", "V"]
-
 ];
 
 
-let winnerShown = false;
+/* ======================================================
+   ELEMENTS
+====================================================== */
+
+const form = document.getElementById("gameForm");
+const nameInput = document.getElementById("name");
+const wordInput = document.getElementById("word");
+const submitButton = document.getElementById("submitButton");
+const message = document.getElementById("message");
+const gameCard = document.getElementById("gameCard");
 
 
-/* =========================================================
+/* ======================================================
+   MESSAGE
+====================================================== */
+
+function setMessage(text, type = "") {
+  message.textContent = text;
+  message.className = "message " + type;
+}
+
+
+/* ======================================================
    CHECK GAME STATUS
-
-   This checks Apps Script doGet()
-
-   It runs when the page loads and every 2 seconds.
-========================================================= */
+====================================================== */
 
 async function checkGameStatus() {
-
-  if (winnerShown) {
-    return true;
-  }
-
 
   try {
 
@@ -820,458 +1339,299 @@ async function checkGameStatus() {
       }
     );
 
-
     if (!response.ok) {
-
-      throw new Error(
-        "Server returned " + response.status
-      );
-
+      return;
     }
-
 
     const result = await response.json();
 
-
-    console.log(
-      "Game status:",
-      result
-    );
-
-
-    const loading =
-      document.getElementById("loading");
-
-
-    if (loading) {
-      loading.style.display = "none";
-    }
-
-
-    if (
-      result.ok === true &&
-      result.gameOver === true &&
-      result.winner
-    ) {
-
+    if (result.gameOver && result.winner) {
       showWinner(result.winner);
-
-      return true;
-
     }
-
-
-    return false;
-
 
   } catch (error) {
 
-    console.error(
-      "Status check failed:",
-      error
-    );
-
-
-    return false;
+    console.log("Status check unavailable:", error);
 
   }
 
 }
 
 
-/* =========================================================
+/* ======================================================
    SUBMIT WORD
-========================================================= */
+====================================================== */
 
-async function submitWord() {
+form.addEventListener("submit", async function(event) {
 
+  event.preventDefault();
 
-  const name =
-    document
-      .getElementById("name")
-      .value
-      .trim();
-
-
-  const word =
-    document
-      .getElementById("word")
-      .value
-      .trim()
-      .toUpperCase();
-
-
-  const button =
-    document.getElementById(
-      "submitButton"
-    );
-
-
-  const message =
-    document.getElementById(
-      "message"
-    );
-
+  const name = nameInput.value.trim();
+  const word = wordInput.value.trim().toUpperCase();
 
   if (!name) {
-
-    message.textContent =
-      "Please enter your name.";
-
+    setMessage("Please enter your name.", "error");
+    nameInput.focus();
     return;
-
   }
-
 
   if (!word) {
-
-    message.textContent =
-      "Please enter a word.";
-
+    setMessage("Enter a word to submit.", "error");
+    wordInput.focus();
     return;
-
   }
 
-
-  button.disabled = true;
-
-  button.textContent =
-    "Checking...";
-
-
-  message.textContent = "";
-
+  submitButton.disabled = true;
+  submitButton.textContent = "Checking...";
+  setMessage("");
 
   try {
 
-
-    const response =
-      await fetch(
-        API_URL,
-        {
-          method: "POST",
-
-          headers: {
-            "Content-Type":
-              "text/plain;charset=utf-8"
-          },
-
-          body: JSON.stringify({
-            name: name,
-            word: word
-          })
-        }
-      );
-
-
-    if (!response.ok) {
-
-      throw new Error(
-        "Server returned " +
-        response.status
-      );
-
-    }
-
-
-    const result =
-      await response.json();
-
-
-    console.log(
-      "Submission result:",
-      result
+    const response = await fetch(
+      API_URL,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
+        body: JSON.stringify({
+          name: name,
+          word: word
+        })
+      }
     );
 
+    const result = await response.json();
 
-    /* Someone already won */
+    if (result.gameOver) {
 
-    if (
-      result.gameOver === true &&
-      result.winner
-    ) {
-
-      showWinner(
-        result.winner
-      );
+      showWinner(result.winner);
 
       return;
-
     }
 
+    if (result.winner) {
 
-    /* Current player won */
-
-    if (
-      result.ok === true &&
-      result.winner === true
-    ) {
-
-      showWinner(
-        result.name
-      );
+      showWinner(result.name);
 
       return;
-
     }
 
+    if (!result.ok) {
 
-    /* Incorrect answer */
+      setMessage(
+        result.message || "That is not the winning word.",
+        "error"
+      );
 
-    message.textContent =
-      result.message ||
-      "Not the largest word. Try again!";
+      submitButton.disabled = false;
+      submitButton.textContent = "Submit Word";
 
+      wordInput.focus();
+      wordInput.select();
 
-    button.disabled = false;
-
-    button.textContent =
-      "Submit Word";
-
+      return;
+    }
 
   } catch (error) {
 
-    console.error(
-      "Submission error:",
-      error
+    console.error(error);
+
+    setMessage(
+      "Unable to submit right now. Please try again.",
+      "error"
     );
 
-
-    message.textContent =
-      "Something went wrong. Please try again.";
-
-
-    button.disabled = false;
-
-    button.textContent =
-      "Submit Word";
+    submitButton.disabled = false;
+    submitButton.textContent = "Submit Word";
 
   }
 
-}
+});
 
 
-/* =========================================================
+/* ======================================================
    WINNER SCREEN
-========================================================= */
+====================================================== */
 
-function showWinner(
-  winnerName
-) {
+function showWinner(winnerName) {
 
-
-  if (winnerShown) {
+  if (!winnerName) {
     return;
   }
 
-
-  winnerShown = true;
-
-
-  const card =
-    document.getElementById(
-      "gameCard"
-    );
-
-
-  const peopleHTML =
-    people
-      .map(function(person) {
-
-
-        const letter =
-          person[0];
-
-
-        const firstName =
-          person[1];
-
-
-        const lastInitial =
-          person[2];
-
-
-        return `
-
-          <div class="person">
-
-            <span>
-              ${escapeHTML(firstName)}
-              ${escapeHTML(lastInitial)}.
-            </span>
-
-            <span class="person-letter">
-              ${escapeHTML(letter)}
-            </span>
-
-          </div>
-
-        `;
-
-      })
-      .join("");
-
-
-  card.innerHTML = `
-
-
+  gameCard.innerHTML = `
     <div class="winner-screen">
-
-
-      <div class="eyebrow">
-        DHL Cross Border × IT
-      </div>
-
 
       <div class="winner-icon">
         🎃
       </div>
 
+      <div class="winner-kicker">
+        We have a winner
+      </div>
 
-      <h1 class="winner-title">
-        WE HAVE<br>
-        A WINNER
-      </h1>
-
+      <h2>
+        ${escapeHtml(winnerName)}
+      </h2>
 
       <div class="winner-name">
-        ${escapeHTML(winnerName)}
+        found the winning word
       </div>
-
 
       <div class="winning-word">
-        HOMEWORK
-      </div>
 
-
-      <div class="winner-message">
-
-        Congratulations!
-
-        <br>
-
-        You found the only word
-        that wins the game.
+        <div class="winner-tile">H</div>
+        <div class="winner-tile">O</div>
+        <div class="winner-tile">M</div>
+        <div class="winner-tile">E</div>
+        <div class="winner-tile">W</div>
+        <div class="winner-tile">O</div>
+        <div class="winner-tile">R</div>
+        <div class="winner-tile">K</div>
 
       </div>
-
 
       <div class="reveal">
 
-
         <div class="reveal-title">
-          Where did the letters come from?
+          The letters came from the XB-IT team
         </div>
-
 
         <div class="people">
 
-          ${peopleHTML}
+          ${people.map(function(person) {
+
+            return `
+              <div class="person">
+
+                <span class="person-letter">
+                  ${person[0]}
+                </span>
+
+                <span>
+                  ${person[1]} ${person[2]}.
+                </span>
+
+              </div>
+            `;
+
+          }).join("")}
 
         </div>
-
 
         <div class="extra-o">
-
           + One extra O for a little Halloween mystery.
-
         </div>
-
 
       </div>
 
-
     </div>
-
   `;
 
+  launchConfetti();
+
 }
 
 
-/* =========================================================
-   HTML ESCAPING
-========================================================= */
+/* ======================================================
+   ESCAPE HTML
+====================================================== */
 
-function escapeHTML(value) {
+function escapeHtml(value) {
 
   return String(value)
-
-    .replace(
-      /&/g,
-      "&amp;"
-    )
-
-    .replace(
-      /</g,
-      "&lt;"
-    )
-
-    .replace(
-      />/g,
-      "&gt;"
-    )
-
-    .replace(
-      /"/g,
-      "&quot;"
-    )
-
-    .replace(
-      /'/g,
-      "&#039;"
-    );
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 
 }
 
 
-/* =========================================================
-   ENTER KEY
-========================================================= */
+/* ======================================================
+   CONFETTI
+====================================================== */
 
-document
-  .getElementById("word")
-  .addEventListener(
-    "keydown",
-    function(event) {
+function launchConfetti() {
 
-      if (
-        event.key === "Enter"
-      ) {
+  const pieces = 75;
 
-        submitWord();
+  for (let i = 0; i < pieces; i++) {
 
-      }
+    const piece = document.createElement("div");
 
-    }
-  );
+    piece.className = "confetti";
+
+    piece.style.left =
+      Math.random() * 100 + "vw";
+
+    piece.style.animationDelay =
+      Math.random() * 1.2 + "s";
+
+    piece.style.animationDuration =
+      2.5 + Math.random() * 2 + "s";
+
+    piece.style.transform =
+      "rotate(" + Math.random() * 360 + "deg)";
+
+    const size =
+      5 + Math.random() * 7;
+
+    piece.style.width = size + "px";
+    piece.style.height = size * 1.6 + "px";
+
+    const colors = [
+      "#ff6a00",
+      "#f4a261",
+      "#222222",
+      "#d9c2a3",
+      "#ffffff"
+    ];
+
+    piece.style.background =
+      colors[Math.floor(Math.random() * colors.length)];
+
+    document.body.appendChild(piece);
+
+    setTimeout(function() {
+      piece.remove();
+    }, 5500);
+
+  }
+
+}
 
 
-/* =========================================================
-   INITIAL CHECK
-========================================================= */
+/* ======================================================
+   INITIAL STATUS CHECK
+====================================================== */
 
 checkGameStatus();
 
 
-/* =========================================================
-   AUTOMATIC WINNER DETECTION
+/* ======================================================
+   LIGHTWEIGHT STATUS POLLING
+   Every 15 seconds instead of every 2 seconds
+====================================================== */
 
-   Every 2 seconds.
+setInterval(function() {
 
-   This is what makes the game update
-   for people who already have the page open.
-========================================================= */
+  checkGameStatus();
 
-setInterval(
-  function() {
-
-    checkGameStatus();
-
-  },
-  2000
-);
+}, 15000);
 
 
+/* ======================================================
+   ENTER KEY
+====================================================== */
+
+wordInput.addEventListener("input", function() {
+
+  this.value = this.value.toUpperCase();
+
+});
 </script>
 
 </body>
