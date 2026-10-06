@@ -3,1654 +3,1762 @@
 
 <head>
 
-  <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, viewport-fit=cover"
-  >
-
-  <meta
-    name="apple-mobile-web-app-capable"
-    content="yes"
-  >
-
-  <meta
-    name="apple-mobile-web-app-status-bar-style"
-    content="default"
-  >
-
-  <meta
-    name="format-detection"
-    content="telephone=no"
-  >
-
-  <title>Halloween Word Challenge</title>
-
-  <style>
-
-    * {
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    html {
-      width: 100%;
-      min-height: 100%;
-      background: #f5f5f7;
-    }
-
-    body {
-      margin: 0;
-      width: 100%;
-      min-height: 100vh;
-      min-height: 100dvh;
-
-      font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "SF Pro Display",
-        "SF Pro Text",
-        "Helvetica Neue",
-        Arial,
-        sans-serif;
-
-      color: #1d1d1f;
-
-      background:
-        radial-gradient(
-          circle at 50% -10%,
-          #ffffff 0%,
-          #f5f5f7 48%,
-          #eeeeef 100%
-        );
-
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-
-    .page {
-      width: 100%;
-      min-height: 100vh;
-      min-height: 100dvh;
-
-      padding:
-        max(28px, env(safe-area-inset-top))
-        20px
-        max(32px, env(safe-area-inset-bottom));
-
-      display: flex;
-      justify-content: center;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
-    .header {
-      text-align: center;
-      padding: 16px 0 30px;
-    }
-
-    .eyebrow {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      color: #6e6e73;
-      margin-bottom: 18px;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      margin: 0;
-
-      font-size:
-        clamp(42px, 10vw, 72px);
-
-      line-height: 0.98;
-      letter-spacing: -0.055em;
-      font-weight: 700;
-    }
-
-    .subtitle {
-      margin-top: 20px;
-
-      font-size:
-        clamp(17px, 4.5vw, 21px);
+<meta charset="UTF-8">
 
-      line-height: 1.4;
-      color: #6e6e73;
-      letter-spacing: -0.015em;
-    }
-
-    .card {
-      background:
-        rgba(255, 255, 255, 0.88);
-
-      border:
-        1px solid rgba(0, 0, 0, 0.06);
-
-      border-radius: 28px;
-
-      padding:
-        clamp(22px, 5vw, 42px);
-
-      box-shadow:
-        0 18px 50px
-        rgba(0, 0, 0, 0.08);
-
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-    }
-
-    .instructions {
-      text-align: center;
-      margin-bottom: 28px;
-    }
-
-    .instructions-title {
-      font-size: 27px;
-      font-weight: 700;
-      letter-spacing: -0.035em;
-      margin-bottom: 9px;
-    }
-
-    .instructions-text {
-      font-size: 16px;
-      line-height: 1.5;
-      color: #6e6e73;
-      max-width: 500px;
-      margin: 0 auto;
-    }
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, viewport-fit=cover"
+>
 
-    .tiles {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 9px;
+<meta
+  name="apple-mobile-web-app-capable"
+  content="yes"
+>
 
-      margin:
-        30px auto 34px;
+<meta
+  name="apple-mobile-web-app-status-bar-style"
+  content="default"
+>
 
-      max-width: 600px;
-    }
+<meta
+  name="format-detection"
+  content="telephone=no"
+>
 
-    .tile {
-      width: 52px;
-      height: 62px;
+<title>Halloween Word Challenge</title>
 
-      background:
-        linear-gradient(
-          145deg,
-          #ffffff,
-          #e9e9eb
-        );
+<style>
 
-      border:
-        1px solid rgba(0, 0, 0, 0.08);
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
 
-      border-radius: 13px;
+html {
+  background: #f5f5f7;
+}
 
-      box-shadow:
-        0 4px 12px
-        rgba(0, 0, 0, 0.08);
+body {
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+  margin: 0;
 
-      position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
 
-      user-select: none;
-      -webkit-user-select: none;
-    }
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "SF Pro Display",
+    "SF Pro Text",
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
 
-    .tile-letter {
-      font-size: 27px;
-      font-weight: 700;
-      line-height: 1;
-    }
+  color: #1d1d1f;
 
-    .tile-value {
-      position: absolute;
+  background:
+    radial-gradient(
+      circle at 50% -10%,
+      #ffffff 0%,
+      #f5f5f7 48%,
+      #eeeeef 100%
+    );
 
-      right: 7px;
-      bottom: 5px;
+  -webkit-font-smoothing: antialiased;
 
-      font-size: 10px;
-      font-weight: 700;
-      color: #6e6e73;
-    }
+  overflow-x: hidden;
+}
 
-    .form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
+.page {
 
-    .field-label {
-      display: block;
+  width: 100%;
 
-      font-size: 13px;
-      font-weight: 600;
-      color: #6e6e73;
+  min-height: 100vh;
+  min-height: 100dvh;
 
-      margin:
-        0 0 7px 4px;
-    }
+  padding:
+    max(28px, env(safe-area-inset-top))
+    20px
+    max(32px, env(safe-area-inset-bottom));
 
-    input {
-      width: 100%;
-      height: 56px;
+  display: flex;
 
-      border-radius: 15px;
-      border: 1px solid #d2d2d7;
+  justify-content: center;
+}
 
-      background:
-        rgba(255, 255, 255, 0.95);
+.container {
 
-      padding: 0 17px;
+  width: 100%;
 
-      font-family: inherit;
-      font-size: 17px;
-      color: #1d1d1f;
+  max-width: 760px;
 
-      outline: none;
+  margin: 0 auto;
+}
 
-      -webkit-appearance: none;
-      appearance: none;
 
-      transition:
-        border-color 0.2s,
-        box-shadow 0.2s;
-    }
+/* ==========================================
+   HEADER
+   ========================================== */
 
-    input:focus {
-      border-color: #0071e3;
+.header {
 
-      box-shadow:
-        0 0 0 4px
-        rgba(0, 113, 227, 0.12);
-    }
+  text-align: center;
 
-    input::placeholder {
-      color: #a1a1a6;
-    }
+  padding:
+    16px 0 30px;
+}
 
-    button {
-      width: 100%;
-      height: 56px;
+.eyebrow {
 
-      margin-top: 5px;
+  font-size: 12px;
 
-      border: none;
-      border-radius: 15px;
+  font-weight: 700;
 
-      background: #1d1d1f;
-      color: white;
+  letter-spacing: .16em;
 
-      font-family: inherit;
-      font-size: 17px;
-      font-weight: 600;
+  color: #6e6e73;
 
-      cursor: pointer;
+  margin-bottom: 18px;
 
-      -webkit-appearance: none;
-      appearance: none;
+  text-transform: uppercase;
+}
 
-      transition:
-        transform 0.15s,
-        opacity 0.15s;
+h1 {
 
-      touch-action: manipulation;
-    }
+  margin: 0;
 
-    button:active {
-      transform: scale(0.985);
-      opacity: 0.85;
-    }
+  font-size:
+    clamp(42px, 10vw, 72px);
 
-    button:disabled {
-      opacity: 0.45;
-      cursor: default;
-      transform: none;
-    }
+  line-height: .98;
 
-    .message {
-      min-height: 24px;
+  letter-spacing: -.055em;
 
-      margin-top: 17px;
+  font-weight: 700;
+}
 
-      text-align: center;
+.subtitle {
 
-      font-size: 15px;
-      line-height: 1.4;
+  margin-top: 20px;
 
-      color: #6e6e73;
-    }
+  font-size:
+    clamp(17px, 4.5vw, 21px);
 
-    .message.error {
-      color: #d70015;
-      font-weight: 600;
-    }
+  line-height: 1.4;
 
-    /* WINNER */
+  color: #6e6e73;
+}
 
-    .winner-premium {
-      text-align: center;
-      padding: 8px 0 10px;
-    }
 
-    .winner-orb {
-      width: 78px;
-      height: 78px;
+/* ==========================================
+   MAIN CARD
+   ========================================== */
 
-      margin:
-        0 auto 18px;
+.card {
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+  background:
+    rgba(255,255,255,.88);
 
-      border-radius: 50%;
+  border:
+    1px solid rgba(0,0,0,.06);
 
-      font-size: 38px;
+  border-radius: 28px;
 
-      background:
-        radial-gradient(
-          circle at 35% 30%,
-          #fff7ed,
-          #ffedd5 48%,
-          #fed7aa 100%
-        );
+  padding:
+    clamp(22px,5vw,42px);
 
-      box-shadow:
-        0 12px 30px
-        rgba(245, 158, 11, 0.20);
+  box-shadow:
+    0 18px 50px
+    rgba(0,0,0,.08);
 
-      animation:
-        winnerFloat 3s ease-in-out infinite;
-    }
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
 
-    @keyframes winnerFloat {
 
-      0%,
-      100% {
-        transform: translateY(0);
-      }
+/* ==========================================
+   INSTRUCTIONS
+   ========================================== */
 
-      50% {
-        transform: translateY(-5px);
-      }
+.instructions {
 
-    }
+  text-align: center;
 
-    .winner-kicker {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      color: #86868b;
-      text-transform: uppercase;
-    }
+  margin-bottom: 28px;
+}
 
-    .winner-title {
-      margin-top: 8px;
+.instructions-title {
 
-      font-size:
-        clamp(38px, 9vw, 54px);
+  font-size: 27px;
 
-      font-weight: 700;
-      letter-spacing: -0.055em;
-      line-height: 1;
-    }
+  font-weight: 700;
 
-    .winner-congrats {
-      margin-top: 13px;
+  letter-spacing: -.035em;
 
-      font-size: 17px;
-      color: #6e6e73;
-    }
+  margin-bottom: 9px;
+}
 
-    .winner-word-premium {
-      display: inline-flex;
+.instructions-text {
 
-      align-items: center;
-      justify-content: center;
+  font-size: 16px;
 
-      margin-top: 25px;
+  line-height: 1.5;
 
-      padding:
-        17px 30px;
+  color: #6e6e73;
 
-      border-radius: 18px;
+  max-width: 500px;
 
-      background:
-        linear-gradient(
-          145deg,
-          #1d1d1f,
-          #3a3a3c
-        );
+  margin: 0 auto;
+}
 
-      color: white;
 
-      font-size:
-        clamp(28px, 7vw, 38px);
+/* ==========================================
+   TILES
+   ========================================== */
 
-      font-weight: 700;
-      letter-spacing: 0.08em;
+.tiles {
 
-      box-shadow:
-        0 12px 28px
-        rgba(0, 0, 0, 0.16);
-    }
+  display: flex;
 
-    .winner-caption {
-      margin-top: 14px;
+  flex-wrap: wrap;
 
-      font-size: 14px;
-      color: #86868b;
-    }
+  justify-content: center;
 
-    .reveal-divider {
-      height: 1px;
+  gap: 9px;
 
-      background:
-        linear-gradient(
-          90deg,
-          transparent,
-          #dedee2,
-          transparent
-        );
+  margin:
+    30px auto 34px;
 
-      margin:
-        40px 0 34px;
-    }
+  max-width: 600px;
+}
 
-    .team-reveal {
-      text-align: center;
-    }
+.tile {
 
-    .team-kicker {
-      font-size: 11px;
+  width: 52px;
+  height: 62px;
 
-      font-weight: 700;
+  position: relative;
 
-      letter-spacing: 0.18em;
+  display: flex;
 
-      color: #86868b;
+  align-items: center;
 
-      text-transform: uppercase;
-    }
+  justify-content: center;
 
-    .team-title {
-      margin-top: 9px;
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #e9e9eb
+    );
 
-      font-size:
-        clamp(27px, 6vw, 36px);
+  border:
+    1px solid rgba(0,0,0,.08);
 
-      line-height: 1.08;
+  border-radius: 13px;
 
-      font-weight: 700;
+  box-shadow:
+    0 4px 12px
+    rgba(0,0,0,.08);
 
-      letter-spacing: -0.045em;
-    }
+  user-select: none;
+}
 
-    .team-description {
-      max-width: 500px;
+.tile-letter {
 
-      margin:
-        16px auto 25px;
+  font-size: 27px;
 
-      font-size: 15px;
+  font-weight: 700;
+}
 
-      line-height: 1.55;
+.tile-value {
 
-      color: #6e6e73;
-    }
+  position: absolute;
 
-    .team-description strong {
-      color: #1d1d1f;
-    }
+  right: 7px;
 
-    .letter-strip {
-      display: flex;
+  bottom: 5px;
 
-      flex-wrap: wrap;
+  font-size: 10px;
 
-      justify-content: center;
+  font-weight: 700;
 
-      gap: 6px;
+  color: #6e6e73;
+}
 
-      margin:
-        0 auto 30px;
 
-      max-width: 560px;
-    }
+/* ==========================================
+   FORM
+   ========================================== */
 
-    .letter-strip span {
-      width: 34px;
-      height: 40px;
+.form {
 
-      display: flex;
+  display: flex;
 
-      align-items: center;
-      justify-content: center;
+  flex-direction: column;
 
-      border-radius: 9px;
+  gap: 15px;
+}
 
-      background:
-        linear-gradient(
-          145deg,
-          #ffffff,
-          #e9e9eb
-        );
+.field-label {
 
-      border:
-        1px solid rgba(0, 0, 0, 0.07);
+  display: block;
 
-      box-shadow:
-        0 3px 8px
-        rgba(0, 0, 0, 0.06);
+  font-size: 13px;
 
-      font-size: 16px;
-      font-weight: 700;
-    }
+  font-weight: 600;
 
-    .people-grid {
-      display: grid;
+  color: #6e6e73;
 
-      grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+  margin:
+    0 0 7px 4px;
+}
 
-      gap: 8px;
+input {
 
-      max-width: 540px;
+  width: 100%;
 
-      margin: 0 auto;
+  height: 56px;
 
-      text-align: left;
-    }
+  border-radius: 15px;
 
-    .reveal-person {
-      display: flex;
+  border:
+    1px solid #d2d2d7;
 
-      align-items: center;
+  background:
+    rgba(255,255,255,.95);
 
-      gap: 10px;
+  padding: 0 17px;
 
-      padding: 10px;
+  font-family: inherit;
 
-      border-radius: 13px;
+  font-size: 17px;
 
-      background:
-        rgba(245, 245, 247, 0.75);
+  color: #1d1d1f;
 
-      border:
-        1px solid rgba(0, 0, 0, 0.04);
-    }
+  outline: none;
 
-    .reveal-letter {
-      width: 34px;
-      height: 34px;
+  -webkit-appearance: none;
+  appearance: none;
+}
 
-      flex-shrink: 0;
+input:focus {
 
-      display: flex;
+  border-color: #0071e3;
 
-      align-items: center;
-      justify-content: center;
+  box-shadow:
+    0 0 0 4px
+    rgba(0,113,227,.12);
+}
 
-      border-radius: 9px;
+input::placeholder {
 
-      background: white;
+  color: #a1a1a6;
+}
 
-      box-shadow:
-        0 2px 6px
-        rgba(0, 0, 0, 0.06);
+button {
 
-      font-size: 14px;
-      font-weight: 700;
-    }
+  width: 100%;
 
-    .reveal-name {
-      font-size: 13px;
+  height: 56px;
 
-      color: #6e6e73;
+  margin-top: 5px;
 
-      line-height: 1.25;
-    }
+  border: none;
 
-    .reveal-name strong {
-      color: #1d1d1f;
-    }
+  border-radius: 15px;
 
-    .bonus-letter {
-      max-width: 540px;
+  background: #1d1d1f;
 
-      margin:
-        12px auto 0;
+  color: white;
 
-      display: flex;
+  font-family: inherit;
 
-      align-items: center;
+  font-size: 17px;
 
-      justify-content: center;
+  font-weight: 600;
 
-      gap: 12px;
+  cursor: pointer;
 
-      padding: 13px;
+  -webkit-appearance: none;
 
-      border-radius: 14px;
+  touch-action: manipulation;
+}
 
-      background:
-        linear-gradient(
-          135deg,
-          #fff7ed,
-          #ffffff
-        );
+button:active {
 
-      border:
-        1px solid #fed7aa;
+  transform: scale(.985);
 
-      text-align: left;
-    }
+  opacity: .85;
+}
 
-    .bonus-icon {
-      width: 36px;
-      height: 36px;
+button:disabled {
 
-      display: flex;
+  opacity: .45;
 
-      align-items: center;
-      justify-content: center;
+  cursor: default;
+}
 
-      border-radius: 9px;
+.message {
 
-      background: #ffedd5;
+  min-height: 24px;
 
-      color: #ea580c;
+  margin-top: 17px;
 
-      font-weight: 800;
-    }
+  text-align: center;
 
-    .bonus-title {
-      font-size: 13px;
+  font-size: 15px;
 
-      font-weight: 700;
+  line-height: 1.4;
 
-      color: #1d1d1f;
-    }
+  color: #6e6e73;
+}
 
-    .bonus-text {
-      margin-top: 2px;
+.message.error {
 
-      font-size: 12px;
+  color: #d70015;
 
-      color: #86868b;
-    }
+  font-weight: 600;
+}
 
-    .team-footer {
-      margin-top: 28px;
 
-      font-size: 10px;
+/* ==========================================
+   WINNER SCREEN
+   ========================================== */
 
-      font-weight: 700;
+.winner-premium {
 
-      letter-spacing: 0.13em;
+  text-align: center;
 
-      color: #a1a1a6;
-    }
+  padding:
+    8px 0 10px;
+}
 
-    .game-over {
-      text-align: center;
+.winner-orb {
 
-      padding:
-        12px 0;
-    }
+  width: 78px;
 
-    .game-over-title {
-      font-size:
-        clamp(30px, 8vw, 44px);
+  height: 78px;
 
-      font-weight: 700;
+  margin:
+    0 auto 18px;
 
-      letter-spacing: -0.045em;
+  display: flex;
 
-      margin-bottom: 12px;
-    }
+  align-items: center;
 
-    .game-over-text {
-      font-size: 17px;
+  justify-content: center;
 
-      line-height: 1.5;
+  border-radius: 50%;
 
-      color: #6e6e73;
-    }
+  font-size: 38px;
 
-    .game-over-name {
-      margin-top: 20px;
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      #fff7ed,
+      #ffedd5 48%,
+      #fed7aa 100%
+    );
 
-      font-size: 24px;
+  box-shadow:
+    0 12px 30px
+    rgba(245,158,11,.20);
+}
 
-      font-weight: 700;
-    }
+.winner-kicker {
 
-    .footer {
-      text-align: center;
+  font-size: 11px;
 
-      padding:
-        24px 0 0;
+  font-weight: 700;
 
-      font-size: 12px;
+  letter-spacing: .18em;
 
-      color: #86868b;
+  color: #86868b;
 
-      letter-spacing: 0.04em;
-    }
+  text-transform: uppercase;
+}
 
-    @media (max-width: 520px) {
+.winner-title {
 
-      .people-grid {
-        grid-template-columns: 1fr;
-      }
+  margin-top: 8px;
 
-      .winner-word-premium {
-        padding:
-          15px 24px;
-      }
+  font-size:
+    clamp(38px,9vw,54px);
 
-    }
+  font-weight: 700;
 
-    @media (max-width: 480px) {
+  letter-spacing: -.055em;
 
-      .page {
-        padding-left: 14px;
-        padding-right: 14px;
-      }
+  line-height: 1;
+}
 
-      .header {
-        padding-top: 8px;
-        padding-bottom: 24px;
-      }
+.winner-congrats {
 
-      .card {
-        border-radius: 23px;
+  margin-top: 13px;
 
-        padding:
-          20px 16px 22px;
-      }
+  font-size: 17px;
 
-      .tiles {
-        gap: 7px;
+  color: #6e6e73;
+}
 
-        margin-top: 25px;
+.winner-word-premium {
 
-        margin-bottom: 28px;
-      }
+  display: inline-flex;
 
-      .tile {
-        width: 43px;
-        height: 53px;
+  align-items: center;
 
-        border-radius: 11px;
-      }
+  justify-content: center;
 
-      .tile-letter {
-        font-size: 23px;
-      }
+  margin-top: 25px;
 
-      .tile-value {
-        right: 5px;
-        bottom: 4px;
+  padding:
+    17px 30px;
 
-        font-size: 9px;
-      }
+  border-radius: 18px;
 
-      input,
-      button {
-        height: 54px;
-      }
+  background:
+    linear-gradient(
+      145deg,
+      #1d1d1f,
+      #3a3a3c
+    );
 
-      .letter-strip span {
-        width: 32px;
-        height: 38px;
+  color: white;
 
-        font-size: 15px;
-      }
+  font-size:
+    clamp(28px,7vw,38px);
 
-    }
+  font-weight: 700;
 
-    @media (max-width: 360px) {
+  letter-spacing: .08em;
 
-      .tile {
-        width: 40px;
-        height: 50px;
-      }
+  box-shadow:
+    0 12px 28px
+    rgba(0,0,0,.16);
+}
 
-      .tiles {
-        gap: 6px;
-      }
+.winner-caption {
 
-      .letter-strip span {
-        width: 30px;
-        height: 36px;
-      }
+  margin-top: 14px;
 
-    }
+  font-size: 14px;
 
-  </style>
+  color: #86868b;
+}
+
+.reveal-divider {
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #dedee2,
+      transparent
+    );
+
+  margin:
+    40px 0 34px;
+}
+
+
+/* ==========================================
+   TEAM REVEAL
+   ========================================== */
+
+.team-reveal {
+
+  text-align: center;
+}
+
+.team-kicker {
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: .18em;
+
+  color: #86868b;
+
+  text-transform: uppercase;
+}
+
+.team-title {
+
+  margin-top: 9px;
+
+  font-size:
+    clamp(27px,6vw,36px);
+
+  line-height: 1.08;
+
+  font-weight: 700;
+
+  letter-spacing: -.045em;
+}
+
+.team-description {
+
+  max-width: 500px;
+
+  margin:
+    16px auto 25px;
+
+  font-size: 15px;
+
+  line-height: 1.55;
+
+  color: #6e6e73;
+}
+
+.team-description strong {
+
+  color: #1d1d1f;
+}
+
+
+/* ==========================================
+   LETTER STRIP
+   ========================================== */
+
+.letter-strip {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  justify-content: center;
+
+  gap: 6px;
+
+  margin:
+    0 auto 30px;
+
+  max-width: 560px;
+}
+
+.letter-strip span {
+
+  width: 34px;
+
+  height: 40px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #e9e9eb
+    );
+
+  border:
+    1px solid rgba(0,0,0,.07);
+
+  box-shadow:
+    0 3px 8px
+    rgba(0,0,0,.06);
+
+  font-size: 16px;
+
+  font-weight: 700;
+}
+
+
+/* ==========================================
+   PEOPLE
+   ========================================== */
+
+.people-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+
+  gap: 8px;
+
+  max-width: 540px;
+
+  margin: 0 auto;
+
+  text-align: left;
+}
+
+.reveal-person {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 10px;
+
+  border-radius: 13px;
+
+  background:
+    rgba(245,245,247,.75);
+
+  border:
+    1px solid rgba(0,0,0,.04);
+}
+
+.reveal-letter {
+
+  width: 34px;
+
+  height: 34px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background: white;
+
+  box-shadow:
+    0 2px 6px
+    rgba(0,0,0,.06);
+
+  font-size: 14px;
+
+  font-weight: 700;
+}
+
+.reveal-name {
+
+  font-size: 13px;
+
+  color: #1d1d1f;
+
+  line-height: 1.25;
+}
+
+.reveal-name strong {
+
+  font-weight: 700;
+}
+
+
+/* ==========================================
+   BONUS O
+   ========================================== */
+
+.bonus-letter {
+
+  max-width: 540px;
+
+  margin:
+    12px auto 0;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+
+  padding: 13px;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff7ed,
+      #ffffff
+    );
+
+  border:
+    1px solid #fed7aa;
+
+  text-align: left;
+}
+
+.bonus-icon {
+
+  width: 36px;
+
+  height: 36px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 9px;
+
+  background: #ffedd5;
+
+  color: #ea580c;
+
+  font-weight: 800;
+}
+
+.bonus-title {
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  color: #1d1d1f;
+}
+
+.bonus-text {
+
+  margin-top: 2px;
+
+  font-size: 12px;
+
+  color: #86868b;
+}
+
+.team-footer {
+
+  margin-top: 28px;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: .13em;
+
+  color: #a1a1a6;
+}
+
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+
+.footer {
+
+  text-align: center;
+
+  padding:
+    24px 0 0;
+
+  font-size: 12px;
+
+  color: #86868b;
+
+  letter-spacing: .04em;
+}
+
+
+/* ==========================================
+   MOBILE
+   ========================================== */
+
+@media(max-width:520px) {
+
+  .people-grid {
+
+    grid-template-columns: 1fr;
+
+  }
+
+}
+
+@media(max-width:480px) {
+
+  .page {
+
+    padding-left: 14px;
+
+    padding-right: 14px;
+
+  }
+
+  .header {
+
+    padding-top: 8px;
+
+    padding-bottom: 24px;
+
+  }
+
+  .card {
+
+    border-radius: 23px;
+
+    padding:
+      20px 16px 22px;
+
+  }
+
+  .tiles {
+
+    gap: 7px;
+
+    margin-top: 25px;
+
+    margin-bottom: 28px;
+
+  }
+
+  .tile {
+
+    width: 43px;
+
+    height: 53px;
+
+    border-radius: 11px;
+
+  }
+
+  .tile-letter {
+
+    font-size: 23px;
+
+  }
+
+  .tile-value {
+
+    right: 5px;
+
+    bottom: 4px;
+
+    font-size: 9px;
+
+  }
+
+  input,
+  button {
+
+    height: 54px;
+
+  }
+
+  .letter-strip span {
+
+    width: 32px;
+
+    height: 38px;
+
+    font-size: 15px;
+
+  }
+
+}
+
+</style>
 
 </head>
 
 
 <body>
 
-  <div class="page">
 
-    <main class="container">
+<div class="page">
 
-      <header class="header">
+<main class="container">
 
-        <div class="eyebrow">
-          DHL CROSS BORDER × IT
-        </div>
 
-        <h1>
-          Halloween<br>
-          Word Challenge
-        </h1>
+<header class="header">
 
-        <div class="subtitle">
-          One puzzle. One answer. One winner.
-        </div>
+<div class="eyebrow">
+DHL CROSS BORDER × IT
+</div>
 
-      </header>
+<h1>
+Halloween<br>
+Word Challenge
+</h1>
 
+<div class="subtitle">
+One puzzle. One answer. One winner.
+</div>
 
-      <section
-        class="card"
-        id="gameCard"
-      >
+</header>
 
-        <div class="instructions">
 
-          <div class="instructions-title">
-            Find the largest word.
-          </div>
+<section
+  class="card"
+  id="gameCard"
+>
 
-          <div class="instructions-text">
-            Enter the largest word you can create
-            from these letters.<br>
-            Only one word wins the game.
-          </div>
-
-        </div>
-
-
-        <div class="tiles">
 
-          <div class="tile">
-            <span class="tile-letter">G</span>
-            <span class="tile-value">2</span>
-          </div>
+<!-- ========================================
+     GAME
+     ======================================== -->
 
-          <div class="tile">
-            <span class="tile-letter">H</span>
-            <span class="tile-value">4</span>
-          </div>
+<div id="gameContent">
 
-          <div class="tile">
-            <span class="tile-letter">S</span>
-            <span class="tile-value">1</span>
-          </div>
-
-          <div class="tile">
-            <span class="tile-letter">O</span>
-            <span class="tile-value">1</span>
-          </div>
-
-          <div class="tile">
-            <span class="tile-letter">K</span>
-            <span class="tile-value">5</span>
-          </div>
 
-          <div class="tile">
-            <span class="tile-letter">W</span>
-            <span class="tile-value">4</span>
-          </div>
-
-          <div class="tile">
-            <span class="tile-letter">M</span>
-            <span class="tile-value">3</span>
-          </div>
+<div class="instructions">
 
-          <div class="tile">
-            <span class="tile-letter">R</span>
-            <span class="tile-value">1</span>
-          </div>
-
-          <div class="tile">
-            <span class="tile-letter">H</span>
-            <span class="tile-value">4</span>
-          </div>
+<div class="instructions-title">
+Find the largest word.
+</div>
 
-          <div class="tile">
-            <span class="tile-letter">V</span>
-            <span class="tile-value">4</span>
-          </div>
+<div class="instructions-text">
+Enter the largest word you can create
+from these letters.<br>
+Only one word wins the game.
+</div>
 
-          <div class="tile">
-            <span class="tile-letter">O</span>
-            <span class="tile-value">1</span>
-          </div>
+</div>
 
-          <div class="tile">
-            <span class="tile-letter">E</span>
-            <span class="tile-value">1</span>
-          </div>
 
-          <div class="tile">
-            <span class="tile-letter">S</span>
-            <span class="tile-value">1</span>
-          </div>
+<div class="tiles">
 
-          <div class="tile">
-            <span class="tile-letter">G</span>
-            <span class="tile-value">2</span>
-          </div>
 
-        </div>
+<div class="tile">
+<span class="tile-letter">G</span>
+<span class="tile-value">2</span>
+</div>
 
+<div class="tile">
+<span class="tile-letter">H</span>
+<span class="tile-value">4</span>
+</div>
 
-        <form
-          class="form"
-          id="gameForm"
-        >
+<div class="tile">
+<span class="tile-letter">S</span>
+<span class="tile-value">1</span>
+</div>
 
-          <div>
+<div class="tile">
+<span class="tile-letter">O</span>
+<span class="tile-value">1</span>
+</div>
 
-            <label
-              class="field-label"
-              for="name"
-            >
-              Your name
-            </label>
+<div class="tile">
+<span class="tile-letter">K</span>
+<span class="tile-value">5</span>
+</div>
 
-            <input
-              id="name"
-              type="text"
-              autocomplete="name"
-              autocapitalize="words"
-              placeholder="Enter your name"
-              maxlength="60"
-              required
-            >
+<div class="tile">
+<span class="tile-letter">W</span>
+<span class="tile-value">4</span>
+</div>
 
-          </div>
+<div class="tile">
+<span class="tile-letter">M</span>
+<span class="tile-value">3</span>
+</div>
 
+<div class="tile">
+<span class="tile-letter">R</span>
+<span class="tile-value">1</span>
+</div>
 
-          <div>
+<div class="tile">
+<span class="tile-letter">H</span>
+<span class="tile-value">4</span>
+</div>
 
-            <label
-              class="field-label"
-              for="answer"
-            >
-              Your answer
-            </label>
+<div class="tile">
+<span class="tile-letter">V</span>
+<span class="tile-value">4</span>
+</div>
 
-            <input
-              id="answer"
-              type="text"
-              autocomplete="off"
-              autocapitalize="characters"
-              autocorrect="off"
-              spellcheck="false"
-              placeholder="Enter the largest word"
-              maxlength="30"
-              required
-            >
+<div class="tile">
+<span class="tile-letter">O</span>
+<span class="tile-value">1</span>
+</div>
 
-          </div>
+<div class="tile">
+<span class="tile-letter">E</span>
+<span class="tile-value">1</span>
+</div>
 
+<div class="tile">
+<span class="tile-letter">S</span>
+<span class="tile-value">1</span>
+</div>
 
-          <button
-            id="submitButton"
-            type="submit"
-          >
-            Submit Answer
-          </button>
+<div class="tile">
+<span class="tile-letter">G</span>
+<span class="tile-value">2</span>
+</div>
 
-        </form>
 
+</div>
 
-        <div
-          class="message"
-          id="message"
-          aria-live="polite"
-        ></div>
 
-      </section>
+<form
+  class="form"
+  id="gameForm"
+>
 
 
-      <div class="footer">
-        DHL Cross Border × IT
-      </div>
+<div>
 
-    </main>
+<label
+  class="field-label"
+  for="name"
+>
+Your name
+</label>
 
-  </div>
+<input
+  id="name"
+  type="text"
+  autocomplete="name"
+  autocapitalize="words"
+  placeholder="Enter your name"
+  maxlength="60"
+  required
+>
 
+</div>
 
-  <script>
 
-    const API_URL =
-      "https://script.google.com/macros/s/AKfycbyi1UrD3g8dZERfifG1c7doFiqtidaPax-F4fsrhIR29tLkMppUtNYIFvwLk42hKA_X/exec";
+<div>
 
+<label
+  class="field-label"
+  for="answer"
+>
+Your answer
+</label>
 
-    const form =
-      document.getElementById("gameForm");
+<input
+  id="answer"
+  type="text"
+  autocomplete="off"
+  autocapitalize="characters"
+  autocorrect="off"
+  spellcheck="false"
+  placeholder="Enter the largest word"
+  maxlength="30"
+  required
+>
 
-    const nameInput =
-      document.getElementById("name");
+</div>
 
-    const answerInput =
-      document.getElementById("answer");
 
-    const button =
-      document.getElementById("submitButton");
+<button
+  id="submitButton"
+  type="submit"
+>
+Submit Answer
+</button>
 
-    const message =
-      document.getElementById("message");
 
+</form>
 
-    /* ==========================================
-       SUBMIT
-       ========================================== */
 
-    form.addEventListener(
-      "submit",
-      async function(event) {
+<div
+  class="message"
+  id="message"
+  aria-live="polite"
+></div>
 
-        event.preventDefault();
 
+</div>
 
-        const name =
-          nameInput.value.trim();
 
-        const answer =
-          answerInput.value
-            .trim()
-            .toUpperCase();
+</section>
 
 
-        if (!name) {
+<div class="footer">
+DHL Cross Border × IT
+</div>
 
-          showError(
-            "Please enter your name."
-          );
 
-          nameInput.focus();
+</main>
 
-          return;
-        }
+</div>
 
 
-        if (!answer) {
+<script>
 
-          showError(
-            "Please enter your answer."
-          );
 
-          answerInput.focus();
+/* ==========================================
+   APPS SCRIPT API
+   ========================================== */
 
-          return;
-        }
+const API_URL =
+"https://script.google.com/macros/s/AKfycbyi1UrD3g8dZERfifG1c7doFiqtidaPax-F4fsrhIR29tLkMppUtNYIFvwLk42hKA_X/exec";
 
 
-        button.disabled = true;
+const form =
+document.getElementById("gameForm");
 
-        button.textContent =
-          "Checking…";
+const nameInput =
+document.getElementById("name");
 
+const answerInput =
+document.getElementById("answer");
 
-        try {
+const button =
+document.getElementById("submitButton");
 
-          const response =
-            await fetch(
-              API_URL,
-              {
-                method: "POST",
+const message =
+document.getElementById("message");
 
-                headers: {
-                  "Content-Type":
-                    "text/plain;charset=utf-8"
-                },
 
-                body:
-                  JSON.stringify({
-                    name: name,
-                    word: answer
-                  })
-              }
-            );
+/* ==========================================
+   SUBMIT ANSWER
+   ========================================== */
 
+form.addEventListener(
+"submit",
+async function(event) {
 
-          const result =
-            await response.json();
+event.preventDefault();
 
 
-          /*
-           * SOMEONE ELSE ALREADY WON
-           */
+const name =
+nameInput.value.trim();
 
-          if (
-            result.gameOver === true
-          ) {
 
-            showGameOver(
-              result.winner
-            );
+const answer =
+answerInput.value
+.trim()
+.toUpperCase();
 
-            return;
-          }
 
+if (!name) {
 
-          /*
-           * THIS USER WON
-           */
+showError(
+"Please enter your name."
+);
 
-          if (
-            result.ok === true &&
-            result.winner === true
-          ) {
+nameInput.focus();
 
-            showWinner(
-              result.name
-            );
+return;
 
-            return;
-          }
+}
 
 
-          /*
-           * WRONG ANSWER
-           */
+if (!answer) {
 
-          showError(
-            result.message ||
-            "❌ Not the largest word. Try again!"
-          );
+showError(
+"Please enter your answer."
+);
 
+answerInput.focus();
 
-          answerInput.value = "";
+return;
 
-          answerInput.focus();
+}
 
-          button.disabled = false;
 
-          button.textContent =
-            "Submit Answer";
+button.disabled = true;
 
+button.textContent =
+"Checking…";
 
-        } catch (error) {
 
-          console.error(error);
+try {
 
-          showError(
-            "Unable to connect to the game server. Please try again."
-          );
 
-          button.disabled = false;
+const response =
+await fetch(
+API_URL,
+{
+method: "POST",
 
-          button.textContent =
-            "Submit Answer";
+headers: {
+"Content-Type":
+"text/plain;charset=utf-8"
+},
 
-        }
+body:
+JSON.stringify({
 
-      }
-    );
+name: name,
 
+word: answer
 
-    /* ==========================================
-       CHECK GAME STATUS
-       This runs before the player can play.
-       ========================================== */
+})
 
-    async function checkGameStatus() {
+}
+);
 
-      try {
 
-        const response =
-          await fetch(
-            API_URL,
-            {
-              method: "GET",
-              cache: "no-store"
-            }
-          );
+const result =
+await response.json();
 
 
-        const result =
-          await response.json();
+/*
+ * SOMEONE ELSE WON
+ */
 
+if (
+result.gameOver === true &&
+result.winner
+) {
 
-        /*
-         * IF THERE IS ALREADY A WINNER,
-         * REPLACE THE GAME IMMEDIATELY.
-         */
+showWinner(
+result.winner
+);
 
-        if (
-          result.gameOver === true &&
-          result.winner
-        ) {
+return;
 
-          showGameOver(
-            result.winner
-          );
+}
 
-          return;
 
-        }
+/*
+ * THIS PERSON WON
+ */
 
+if (
+result.ok === true &&
+result.winner === true
+) {
 
-        /*
-         * GAME IS STILL OPEN.
-         * Enable the form.
-         */
+showWinner(
+result.name
+);
 
-        button.disabled = false;
+return;
 
-      } catch (error) {
+}
 
-        console.log(
-          "Status check failed:",
-          error
-        );
 
-        /*
-         * Leave the game visible if the
-         * status check cannot connect.
-         */
+/*
+ * WRONG ANSWER
+ */
 
-      }
+showError(
+result.message ||
+"❌ Not the largest word. Try again!"
+);
 
-    }
 
+answerInput.value = "";
 
-    /* ==========================================
-       ERROR
-       ========================================== */
+answerInput.focus();
 
-    function showError(text) {
+button.disabled = false;
 
-      message.textContent =
-        text;
+button.textContent =
+"Submit Answer";
 
-      message.className =
-        "message error";
 
-    }
+}
+catch(error) {
 
+console.error(error);
 
-    /* ==========================================
-       WINNER
-       ========================================== */
+showError(
+"Unable to connect to the game server. Please try again."
+);
 
-    function showWinner(name) {
+button.disabled = false;
 
-      const card =
-        document.getElementById(
-          "gameCard"
-        );
+button.textContent =
+"Submit Answer";
 
+}
 
-      const people = [
+}
+);
 
-        ["S", "Adam", "S"],
 
-        ["S", "Andrea", "S"],
+/* ==========================================
+   CHECK GAME STATUS
+   ========================================== */
 
-        ["O", "Andres", "O"],
+async function checkGameStatus() {
 
-        ["W", "Anna", "W"],
+try {
 
-        ["H", "Ayube", "H"],
 
-        ["E", "Chiric", "E"],
+const response =
+await fetch(
+API_URL +
+"?t=" +
+Date.now(),
+{
+method: "GET",
 
-        ["G", "Daniel", "G"],
+cache: "no-store"
+}
+);
 
-        ["K", "Daniel", "K"],
 
-        ["H", "Fabiana", "H"],
+const result =
+await response.json();
 
-        ["R", "Juan", "R"],
 
-        ["M", "Marisa", "M"],
+/*
+ * WINNER EXISTS
+ */
 
-        ["G", "Monica", "G"],
+if (
+result.gameOver === true &&
+result.winner
+) {
 
-        ["V", "Raul", "V"]
+showWinner(
+result.winner
+);
 
-      ];
+return;
 
+}
 
-      const letters = [
 
-        "S",
-        "S",
-        "O",
-        "O",
-        "W",
-        "H",
-        "H",
-        "E",
-        "G",
-        "G",
-        "K",
-        "R",
-        "M",
-        "V"
+/*
+ * GAME IS STILL OPEN
+ */
 
-      ];
+button.disabled = false;
 
 
-      const letterTiles =
-        letters
-          .map(function(letter) {
+}
+catch(error) {
 
-            return `
-              <span>${letter}</span>
-            `;
+console.log(
+"Status check failed:",
+error
+);
 
-          })
-          .join("");
+}
 
+}
 
-      const colleagueRows =
-        people
-          .map(function(person) {
 
-            return `
+/* ==========================================
+   ERROR
+   ========================================== */
 
-              <div class="reveal-person">
+function showError(text) {
 
-                <div class="reveal-letter">
-                  ${person[0]}
-                </div>
+message.textContent =
+text;
 
-                <div class="reveal-name">
-                  ${escapeHtml(person[1])}
-                  <strong>
-                    ${escapeHtml(person[2])}.
-                  </strong>
-                </div>
+message.className =
+"message error";
 
-              </div>
+}
 
-            `;
 
-          })
-          .join("");
+/* ==========================================
+   WINNER SCREEN
+   ========================================== */
 
+function showWinner(winnerName) {
 
-      card.innerHTML = `
 
-        <div class="winner-premium">
+const card =
+document.getElementById(
+"gameCard"
+);
 
-          <div class="winner-orb">
-            🎃
-          </div>
 
-          <div class="winner-kicker">
-            CHALLENGE COMPLETE
-          </div>
+/*
+ * IMPORTANT:
+ *
+ * There are NO full last names here.
+ *
+ * Only:
+ *
+ * Letter
+ * First name
+ * Last initial
+ */
 
-          <div class="winner-title">
-            You found it.
-          </div>
+const people = [
 
-          <div class="winner-congrats">
-            Congratulations,
-            ${escapeHtml(name)}.
-          </div>
+["S","Adam","S"],
 
-          <div class="winner-word-premium">
-            HOMEWORK
-          </div>
+["S","Andrea","S"],
 
-          <div class="winner-caption">
-            You were the first to find
-            the winning word.
-          </div>
+["O","Andres","O"],
 
-          <div class="reveal-divider"></div>
+["W","Anna","W"],
 
-          <div class="team-reveal">
+["H","Ayube","H"],
 
-            <div class="team-kicker">
-              THE SECRET BEHIND THE LETTERS
-            </div>
+["E","Chiric","E"],
 
-            <div class="team-title">
-              This challenge was built
-              from our team.
-            </div>
+["G","Daniel","G"],
 
-            <div class="team-description">
+["K","Daniel","K"],
 
-              Each letter was selected from
-              the <strong>first initial of the
-              last name</strong> of an
-              XB-IT colleague.
+["H","Fabiana","H"],
 
-            </div>
+["R","Juan","R"],
 
-            <div class="letter-strip">
-              ${letterTiles}
-            </div>
+["M","Marisa","M"],
 
-            <div class="people-grid">
-              ${colleagueRows}
-            </div>
+["G","Monica","G"],
 
-            <div class="bonus-letter">
+["V","Raul","V"]
 
-              <div class="bonus-icon">
-                O
-              </div>
+];
 
-              <div>
 
-                <div class="bonus-title">
-                  One extra O
-                </div>
+const letters = [
 
-                <div class="bonus-text">
-                  A little extra mystery
-                  for the challenge.
-                </div>
+"S",
+"S",
+"O",
+"O",
+"W",
+"H",
+"H",
+"E",
+"G",
+"G",
+"K",
+"R",
+"M",
+"V"
 
-              </div>
+];
 
-            </div>
 
-            <div class="team-footer">
+const letterTiles =
+letters
+.map(function(letter) {
 
-              ONE TEAM
-              &nbsp;•&nbsp;
-              ONE PUZZLE
-              &nbsp;•&nbsp;
-              ONE WINNER
+return `
+<span>${letter}</span>
+`;
 
-            </div>
+})
+.join("");
 
-          </div>
 
-        </div>
+const colleagueRows =
+people
+.map(function(person) {
 
-      `;
+return `
 
+<div class="reveal-person">
 
-      /*
-       * IMPORTANT:
-       * Remove the form behavior completely.
-       */
+<div class="reveal-letter">
+${person[0]}
+</div>
 
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
+<div class="reveal-name">
+${escapeHtml(person[1])}
+<strong>
+${escapeHtml(person[2])}.
+</strong>
+</div>
 
-    }
+</div>
 
+`;
 
-    /* ==========================================
-       GAME OVER
-       ========================================== */
+})
+.join("");
 
-    function showGameOver(name) {
 
-      const card =
-        document.getElementById(
-          "gameCard"
-        );
+/*
+ * REPLACE THE ENTIRE GAME
+ *
+ * This removes:
+ *
+ * - Name input
+ * - Answer input
+ * - Submit button
+ *
+ * The page is now locked.
+ */
 
+card.innerHTML = `
 
-      /*
-       * Completely replace the game.
-       *
-       * There are NO inputs.
-       * There is NO submit button.
-       * The user cannot continue playing.
-       */
+<div class="winner-premium">
 
-      card.innerHTML = `
 
-        <div class="winner-premium">
+<div class="winner-orb">
+🎃
+</div>
 
-          <div class="winner-orb">
-            🎃
-          </div>
 
-          <div class="winner-kicker">
-            CHALLENGE COMPLETE
-          </div>
+<div class="winner-kicker">
+CHALLENGE COMPLETE
+</div>
 
-          <div class="winner-title">
-            Game over.
-          </div>
 
-          <div class="winner-congrats">
-            Congratulations,
-            ${escapeHtml(name)}.
-          </div>
+<div class="winner-title">
+You found it.
+</div>
 
-          <div class="winner-word-premium">
-            HOMEWORK
-          </div>
 
-          <div class="winner-caption">
-            ${escapeHtml(name)}
-            was the first to find
-            the winning word.
-          </div>
+<div class="winner-congrats">
 
-          <div class="reveal-divider"></div>
+Congratulations,
+${escapeHtml(winnerName)}.
 
-          <div class="team-reveal">
+</div>
 
-            <div class="team-kicker">
-              THANK YOU FOR PLAYING
-            </div>
 
-            <div class="team-title">
-              The challenge is now closed.
-            </div>
+<div class="winner-word-premium">
+HOMEWORK
+</div>
 
-            <div class="team-description">
-              Only one person could win.
-              The winning word has already
-              been submitted.
-            </div>
 
-            <div class="team-footer">
+<div class="winner-caption">
 
-              ONE TEAM
-              &nbsp;•&nbsp;
-              ONE PUZZLE
-              &nbsp;•&nbsp;
-              ONE WINNER
+${escapeHtml(winnerName)}
+was the first to find
+the winning word.
 
-            </div>
+</div>
 
-          </div>
 
-        </div>
+<div class="reveal-divider"></div>
 
-      `;
 
+<div class="team-reveal">
 
-      /*
-       * Prevent browser back/forward style
-       * interactions from restoring the form.
-       */
 
-      form.remove();
+<div class="team-kicker">
+THE SECRET BEHIND THE LETTERS
+</div>
 
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
 
-    }
+<div class="team-title">
 
+This challenge was built
+from our team.
 
-    /* ==========================================
-       ESCAPE HTML
-       ========================================== */
+</div>
 
-    function escapeHtml(value) {
 
-      return String(value)
+<div class="team-description">
 
-        .replace(
-          /&/g,
-          "&amp;"
-        )
+Each letter was selected from
+the <strong>first initial of the
+last name</strong> of an
+XB-IT colleague.
 
-        .replace(
-          /</g,
-          "&lt;"
-        )
+</div>
 
-        .replace(
-          />/g,
-          "&gt;"
-        )
 
-        .replace(
-          /"/g,
-          "&quot;"
-        )
+<div class="letter-strip">
 
-        .replace(
-          /'/g,
-          "&#039;"
-        );
+${letterTiles}
 
-    }
+</div>
 
 
-    /* ==========================================
-       CHECK THE GAME IMMEDIATELY
-       ========================================== */
+<div class="people-grid">
 
-    checkGameStatus();
+${colleagueRows}
 
-  </script>
+</div>
+
+
+<div class="bonus-letter">
+
+<div class="bonus-icon">
+O
+</div>
+
+<div>
+
+<div class="bonus-title">
+One extra O
+</div>
+
+<div class="bonus-text">
+A little extra mystery
+for the challenge.
+</div>
+
+</div>
+
+</div>
+
+
+<div class="team-footer">
+
+ONE TEAM
+&nbsp;•&nbsp;
+ONE PUZZLE
+&nbsp;•&nbsp;
+ONE WINNER
+
+</div>
+
+
+</div>
+
+
+</div>
+
+`;
+
+
+/*
+ * Make sure the page goes back
+ * to the top of the winner screen.
+ */
+
+window.scrollTo({
+top: 0,
+behavior: "smooth"
+});
+
+}
+
+
+/* ==========================================
+   ESCAPE HTML
+   ========================================== */
+
+function escapeHtml(value) {
+
+return String(value)
+
+.replace(
+/&/g,
+"&amp;"
+)
+
+.replace(
+/</g,
+"&lt;"
+)
+
+.replace(
+/>/g,
+"&gt;"
+)
+
+.replace(
+/"/g,
+"&quot;"
+)
+
+.replace(
+/'/g,
+"&#039;"
+);
+
+}
+
+
+/* ==========================================
+   INITIAL GAME CHECK
+   ========================================== */
+
+checkGameStatus();
+
+
+</script>
+
 
 </body>
 
