@@ -1152,6 +1152,44 @@ input:focus {
 }
 
 
+
+/* =========================================================
+   FEATURED CHALLENGE BUTTON
+========================================================= */
+
+.featured-button-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 28px;
+}
+
+.featured-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 20px;
+  border-radius: 999px;
+  background: rgba(255,157,0,.12);
+  border: 1px solid rgba(255,157,0,.35);
+  color: #f5f5f7;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 650;
+  box-shadow: 0 10px 30px rgba(0,0,0,.2);
+  transition: all .2s ease;
+}
+
+.featured-button strong {
+  color: #ff9d00;
+}
+
+.featured-button:hover {
+  transform: translateY(-2px);
+  background: rgba(255,157,0,.18);
+  border-color: rgba(255,157,0,.6);
+  box-shadow: 0 14px 35px rgba(0,0,0,.3);
+}
+
 /* =========================================================
    MOBILE
 ========================================================= */
@@ -1283,6 +1321,18 @@ input:focus {
 
 
 <!-- =======================================================
+     FEATURED CHALLENGE BUTTON
+======================================================== -->
+
+<div class="featured-button-wrap">
+  <a href="#scrabble-challenge" class="featured-button">
+    <span>🎃 Featured Challenge</span>
+    <strong>Click Here →</strong>
+  </a>
+</div>
+
+
+<!-- =======================================================
      EVENT INTRO
 ======================================================== -->
 
@@ -1317,7 +1367,7 @@ input:focus {
     </div>
 
     <div class="event-pill">
-      🧩 Online Challenges
+      🧩 Online Scrabble
     </div>
 
     <div class="event-pill">
@@ -1347,7 +1397,7 @@ input:focus {
 
     <div class="info-text">
       Join your colleagues for a variety of
-      board games and team challenges
+      board games and activities
       throughout the event.
     </div>
 
@@ -1802,7 +1852,7 @@ input:focus {
 
     The Halloween event is about getting
     everyone together. Keep an eye out for
-    additional games and challenges happening
+    additional games and activities happening
     throughout the event.
 
   </p>
@@ -1826,27 +1876,7 @@ input:focus {
       </p>
 
     </div>
-
-
-    <div class="game-card">
-
-      <div class="game-card-icon">
-        🏆
-      </div>
-
-      <h3>
-        Team Challenges
-      </h3>
-
-      <p>
-        Compete with your teammates and see
-        who can come out on top.
-      </p>
-
-    </div>
-
-
-    <div class="game-card">
+<div class="game-card">
 
       <div class="game-card-icon">
         🍿
