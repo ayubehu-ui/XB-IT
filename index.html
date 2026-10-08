@@ -21,6 +21,7 @@
 html {
   scroll-behavior: smooth;
 }
+  scroll-margin-top: 30px;
 
 body {
   margin: 0;
@@ -1187,6 +1188,7 @@ input:focus {
   display: inline-flex;
   align-items: center;
   gap: 14px;
+  cursor: pointer;
   padding: 13px 20px;
   border-radius: 999px;
   background: rgba(255,157,0,.12);
@@ -1328,10 +1330,10 @@ input:focus {
 ======================================================== -->
 
 <div class="featured-button-wrap">
-  <a href="#scrabble-challenge" class="featured-button">
+  <button type="button" class="featured-button" onclick="document.getElementById('scrabble-challenge').scrollIntoView({behavior:'smooth', block:'start'});">
     <span>🎃 Featured Challenge</span>
     <strong>Click Here →</strong>
-  </a>
+  </button>
 </div>
 
 
@@ -1451,7 +1453,7 @@ input:focus {
      SCRABBLE SECTION
 ======================================================== -->
 
-<section class="section">
+<section id="scrabble-challenge" class="section">
 
   <div class="section-eyebrow">
     Featured Challenge
