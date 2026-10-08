@@ -2915,6 +2915,186 @@ body{
 @media(max-width:700px){.event-hero::after{right:2%;top:8%;width:60px;height:60px}.challenge::after{right:16px;top:16px;font-size:8px}.board-wrap::after{inset:-8px;border-radius:22px}}
 @media(prefers-reduced-motion:reduce){.event-hero::after{display:none}}
 </style>
+
+<style id="black-glass-theme">
+html,body{
+  background:#030303 !important;
+  color:#f5f5f2 !important;
+}
+body{
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255,106,0,.10), transparent 28rem),
+    radial-gradient(circle at 15% 35%, rgba(255,255,255,.035), transparent 30rem),
+    #030303 !important;
+}
+.nav,
+.info-card,
+.made-panel,
+.event-hero,
+.challenge,
+.winner-screen,
+.reveal-panel,
+.activity-panel,
+.games-box,
+.featured-card{
+  background:linear-gradient(145deg,rgba(255,255,255,.075),rgba(255,255,255,.028)) !important;
+  border-color:rgba(255,255,255,.13) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.08),
+    0 22px 70px rgba(0,0,0,.42) !important;
+  backdrop-filter:blur(24px) saturate(125%) !important;
+  -webkit-backdrop-filter:blur(24px) saturate(125%) !important;
+}
+.nav{
+  background:rgba(5,5,5,.72) !important;
+}
+.info-card:hover,
+.made-panel:hover{
+  border-color:rgba(255,106,0,.28) !important;
+  background:linear-gradient(145deg,rgba(255,255,255,.095),rgba(255,255,255,.035)) !important;
+}
+.event-hero:before,
+.challenge:before{
+  opacity:.55 !important;
+}
+.board{
+  background:rgba(0,0,0,.38) !important;
+  border-color:rgba(255,255,255,.12) !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 30px 80px rgba(0,0,0,.55) !important;
+}
+.tile{
+  background:linear-gradient(145deg,#242424,#111111) !important;
+  border-color:rgba(255,255,255,.16) !important;
+  color:#fff !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 10px 24px rgba(0,0,0,.45) !important;
+}
+.tile:hover{
+  border-color:rgba(255,106,0,.55) !important;
+  box-shadow:0 0 24px rgba(255,106,0,.16),inset 0 1px 0 rgba(255,255,255,.12) !important;
+}
+input,
+.answer-display{
+  background:rgba(0,0,0,.42) !important;
+  border-color:rgba(255,255,255,.14) !important;
+  color:#fff !important;
+}
+.section-eyebrow,
+.hero-eyebrow{
+  color:#ff8a3d !important;
+}
+h1,h2,h3,.hero-title{
+  color:#fff !important;
+}
+p,.muted{
+  color:#b0b0ab !important;
+}
+.games-box{
+  border-color:rgba(255,106,0,.20) !important;
+}
+</style>
+
+
+<style id="scroll-cinematic-system">
+/* Cinematic scroll reveal system */
+html{scroll-behavior:smooth}
+body{overflow-x:hidden}
+.scroll-reveal{
+  opacity:0;
+  transform:translate3d(0,90px,0) scale(.965);
+  filter:blur(10px);
+  transition:
+    opacity .9s cubic-bezier(.16,1,.3,1),
+    transform 1.05s cubic-bezier(.16,1,.3,1),
+    filter 1.05s cubic-bezier(.16,1,.3,1);
+  will-change:opacity,transform,filter;
+}
+.scroll-reveal.is-visible{
+  opacity:1;
+  transform:translate3d(0,0,0) scale(1);
+  filter:blur(0);
+}
+.scroll-reveal[data-reveal="left"]{transform:translate3d(-80px,35px,0) scale(.97);filter:blur(9px)}
+.scroll-reveal[data-reveal="right"]{transform:translate3d(80px,35px,0) scale(.97);filter:blur(9px)}
+.scroll-reveal[data-reveal="scale"]{transform:translate3d(0,45px,0) scale(.88);filter:blur(12px)}
+.scroll-reveal.is-visible[data-reveal="left"],
+.scroll-reveal.is-visible[data-reveal="right"],
+.scroll-reveal.is-visible[data-reveal="scale"]{transform:translate3d(0,0,0) scale(1);filter:blur(0)}
+
+.reveal-stagger > *{
+  opacity:0;
+  transform:translateY(32px);
+  filter:blur(6px);
+  transition:
+    opacity .75s cubic-bezier(.16,1,.3,1),
+    transform .85s cubic-bezier(.16,1,.3,1),
+    filter .85s cubic-bezier(.16,1,.3,1);
+}
+.reveal-stagger.is-visible > *{opacity:1;transform:translateY(0);filter:blur(0)}
+.reveal-stagger.is-visible > *:nth-child(1){transition-delay:.04s}
+.reveal-stagger.is-visible > *:nth-child(2){transition-delay:.10s}
+.reveal-stagger.is-visible > *:nth-child(3){transition-delay:.16s}
+.reveal-stagger.is-visible > *:nth-child(4){transition-delay:.22s}
+.reveal-stagger.is-visible > *:nth-child(5){transition-delay:.28s}
+.reveal-stagger.is-visible > *:nth-child(6){transition-delay:.34s}
+.reveal-stagger.is-visible > *:nth-child(7){transition-delay:.40s}
+
+.cinematic-section{
+  position:relative;
+  isolation:isolate;
+}
+.cinematic-section::before{
+  content:"";
+  position:absolute;
+  inset:10% -12%;
+  z-index:-1;
+  pointer-events:none;
+  background:radial-gradient(circle at 50% 50%,rgba(255,106,0,.075),transparent 48%);
+  opacity:0;
+  transform:scale(.8);
+  transition:opacity 1.2s ease,transform 1.4s cubic-bezier(.16,1,.3,1);
+}
+.cinematic-section.is-visible::before{opacity:1;transform:scale(1)}
+
+.scroll-progress{
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:2px;
+  z-index:9999;
+  pointer-events:none;
+  background:rgba(255,255,255,.04);
+}
+.scroll-progress i{
+  display:block;
+  width:100%;height:100%;
+  transform-origin:left center;
+  transform:scaleX(0);
+  background:linear-gradient(90deg,#ff6a00,#ffd166,#ff6a00);
+  box-shadow:0 0 14px rgba(255,106,0,.65);
+}
+
+.scroll-orb{
+  position:fixed;
+  width:420px;height:420px;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:-1;
+  background:radial-gradient(circle,rgba(255,106,0,.065),transparent 67%);
+  transform:translate(-50%,-50%);
+  opacity:.55;
+  mix-blend-mode:screen;
+  transition:opacity .4s ease;
+}
+
+@media (prefers-reduced-motion:reduce){
+  .scroll-reveal,.reveal-stagger > *{
+    opacity:1!important;transform:none!important;filter:none!important;
+    transition:none!important;
+  }
+  .cinematic-section::before{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
+</style>
+
 </head>
 
 
@@ -4671,6 +4851,97 @@ setInterval(
 @media(max-width:600px){.music-toggle{right:14px;bottom:14px;padding:9px 12px}}
 </style>
 
+
+
+<script id="cinematic-scroll-system">
+(function(){
+  const root=document.documentElement;
+  const progress=document.createElement('div');
+  progress.className='scroll-progress';
+  progress.innerHTML='<i></i>';
+  document.body.prepend(progress);
+  const progressBar=progress.querySelector('i');
+
+  const orb=document.createElement('div');
+  orb.className='scroll-orb';
+  document.body.appendChild(orb);
+
+  const candidates=[
+    '.event-hero',
+    '.event-info',
+    '.featured-card',
+    '.challenge',
+    '.activity-panel',
+    '.winner-screen',
+    '.reveal-panel',
+    '.made-panel',
+    '.games-box',
+    'footer'
+  ];
+
+  candidates.forEach((selector)=>{
+    document.querySelectorAll(selector).forEach((el)=>{
+      el.classList.add('scroll-reveal','cinematic-section');
+    });
+  });
+
+  document.querySelectorAll('.info-grid,.made-grid,.participant-grid,.activity-list').forEach(el=>{
+    el.classList.add('reveal-stagger');
+  });
+
+  document.querySelectorAll('.event-hero').forEach(el=>el.classList.add('is-visible'));
+
+  const observer=new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+      }
+    });
+  },{
+    threshold:.14,
+    rootMargin:'0px 0px -8% 0px'
+  });
+
+  document.querySelectorAll('.scroll-reveal,.reveal-stagger').forEach(el=>{
+    if(!el.classList.contains('event-hero')) observer.observe(el);
+  });
+
+  let raf=null;
+  function updateScroll(){
+    raf=null;
+    const max=Math.max(1,document.documentElement.scrollHeight-window.innerHeight);
+    const pct=Math.max(0,Math.min(1,window.scrollY/max));
+    progressBar.style.transform='scaleX('+pct+')';
+
+    document.querySelectorAll('.cinematic-section.is-visible').forEach(el=>{
+      const r=el.getBoundingClientRect();
+      const center=r.top+r.height/2;
+      const distance=(center-window.innerHeight/2)/window.innerHeight;
+      el.style.setProperty('--scroll-depth',distance.toFixed(3));
+    });
+  }
+
+  window.addEventListener('scroll',()=>{
+    if(!raf) raf=requestAnimationFrame(updateScroll);
+  },{passive:true});
+  updateScroll();
+
+  window.addEventListener('pointermove',(e)=>{
+    orb.style.left=e.clientX+'px';
+    orb.style.top=e.clientY+'px';
+  },{passive:true});
+
+  /* Give the hero a subtle cinematic scale/parallax as it leaves the viewport. */
+  const hero=document.querySelector('.event-hero');
+  if(hero){
+    window.addEventListener('scroll',()=>{
+      const y=Math.min(window.scrollY,700);
+      hero.style.setProperty('--hero-scroll-y',y+'px');
+      hero.style.setProperty('--hero-scale',(1-Math.min(y/900,.055)).toFixed(3));
+    },{passive:true});
+  }
+})();
+</script>
 
 </body>
 
