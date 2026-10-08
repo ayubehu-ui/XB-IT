@@ -1,45 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#050505">
 
-<title>XB × IT · Halloween 2026</title>
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
+
+<title>XB × IT Halloween Team Event</title>
 
 <style>
 
-:root{
-  --bg:#050505;
-  --panel:rgba(255,255,255,.055);
-  --line:rgba(255,255,255,.09);
-  --text:#f5f5f7;
-  --muted:#98989f;
-  --orange:#ff9f0a;
-  --green:#30d158;
-  --red:#ff453a;
-  --gold:#d9b477;
-  --ease:cubic-bezier(.22,1,.36,1);
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+  box-sizing: border-box;
 }
 
-*{
-  box-sizing:border-box;
+html {
+  scroll-behavior: smooth;
 }
 
-html{
-  scroll-behavior:smooth;
-}
+body {
+  margin: 0;
 
-body{
-  margin:0;
-  background:
-    radial-gradient(
-      900px 500px at 50% -10%,
-      #29200e 0%,
-      #0c0c0c 38%,
-      #050505 75%
-    );
-  color:var(--text);
   font-family:
     -apple-system,
     BlinkMacSystemFont,
@@ -48,59 +37,30 @@ body{
     "Helvetica Neue",
     Arial,
     sans-serif;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
+
+  color: #f5f5f7;
+
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      #282828 0%,
+      #101010 42%,
+      #050505 100%
+    );
+
+  min-height: 100vh;
+
+  -webkit-font-smoothing: antialiased;
 }
 
-/* =========================================================
-   CINEMATIC GRAIN
-========================================================= */
+.page {
+  width: 100%;
+  max-width: 1180px;
 
-body:before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  opacity:.035;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
-  z-index:50;
-}
+  margin: auto;
 
-.orb{
-  position:fixed;
-  width:420px;
-  height:420px;
-  border-radius:50%;
-  background:rgba(255,159,10,.055);
-  filter:blur(80px);
-  pointer-events:none;
-  z-index:-1;
-  animation:float 12s ease-in-out infinite;
-}
-
-.orb.a{
-  top:8%;
-  left:-180px;
-}
-
-.orb.b{
-  right:-180px;
-  top:48%;
-  animation-delay:-5s;
-}
-
-@keyframes float{
-  50%{
-    transform:
-      translate(35px,50px)
-      scale(1.08);
-  }
-}
-
-.page{
-  width:min(1180px,calc(100% - 36px));
-  margin:auto;
-  padding:20px 0 90px;
+  padding:
+    24px 22px 80px;
 }
 
 
@@ -108,27 +68,31 @@ body:before{
    NAVIGATION
 ========================================================= */
 
-.nav{
-  height:44px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  color:#a1a1a6;
-  font-size:13px;
+.nav {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding:
+    5px 0 25px;
+
+  color: #a1a1a6;
+
+  font-size: 13px;
 }
 
-.brand{
-  font-weight:700;
-  color:#f5f5f7;
-  letter-spacing:-.02em;
+.logo {
+  color: #f5f5f7;
+
+  font-weight: 700;
+
+  letter-spacing: -.02em;
 }
 
-.nav-pill{
-  padding:7px 11px;
-  border:1px solid var(--line);
-  border-radius:999px;
-  background:rgba(255,255,255,.035);
-  backdrop-filter:blur(20px);
+.nav-right {
+  opacity: .65;
 }
 
 
@@ -136,402 +100,506 @@ body:before{
    HERO
 ========================================================= */
 
-.hero{
-  position:relative;
-  min-height:650px;
-  margin-top:10px;
+.event-hero {
+  position: relative;
 
-  border:1px solid var(--line);
-  border-radius:36px;
+  overflow: hidden;
 
-  overflow:hidden;
+  text-align: center;
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  padding:
+    72px 30px 68px;
 
-  text-align:center;
+  border-radius: 34px;
 
   background:
     radial-gradient(
-      circle at 50% 32%,
-      rgba(255,159,10,.13),
-      transparent 33%
+      circle at 50% 18%,
+      rgba(255,157,0,.15),
+      transparent 42%
     ),
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.065),
-      rgba(255,255,255,.018)
-    );
+    radial-gradient(
+      circle at 15% 80%,
+      rgba(255,100,0,.06),
+      transparent 35%
+    ),
+    rgba(255,255,255,.035);
+
+  border:
+    1px solid rgba(255,255,255,.08);
 
   box-shadow:
-    0 45px 130px rgba(0,0,0,.45);
+    0 35px 100px rgba(0,0,0,.35);
 }
 
-.moon{
-  position:absolute;
+.event-hero::before {
+  content: "";
 
-  width:260px;
-  height:260px;
+  position: absolute;
 
-  border-radius:50%;
+  width: 360px;
+  height: 360px;
 
-  top:72px;
-  left:50%;
-
-  transform:translateX(-50%);
+  border-radius: 50%;
 
   background:
-    radial-gradient(
-      circle at 35% 30%,
-      #fff8e9,
-      #e5d2ae 48%,
-      #9e855f
-    );
+    rgba(255,157,0,.06);
 
-  box-shadow:
-    0 0 90px rgba(255,204,120,.12);
+  filter: blur(50px);
 
-  opacity:.12;
+  top: -190px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  pointer-events: none;
 }
 
-.moon:after{
-  content:"";
-  position:absolute;
-  inset:20px;
+.event-eyebrow {
+  position: relative;
 
-  border-radius:50%;
+  color: #ff9d00;
 
-  background:
-    radial-gradient(
-      circle at 25% 30%,
-      transparent 0 8%,
-      rgba(90,65,35,.13) 9% 12%,
-      transparent 13% 100%
-    );
+  font-size: 13px;
 
-  filter:blur(3px);
+  font-weight: 700;
+
+  letter-spacing: .13em;
+
+  text-transform: uppercase;
+
+  margin-bottom: 20px;
 }
 
-.hero-content{
-  position:relative;
-  z-index:2;
-  padding:100px 24px 75px;
-}
+.event-title {
+  position: relative;
 
-.eyebrow{
-  display:inline-flex;
-  gap:8px;
-  align-items:center;
-
-  color:var(--orange);
-
-  font-size:12px;
-  font-weight:800;
-
-  letter-spacing:.15em;
-  text-transform:uppercase;
-}
-
-.dot{
-  width:6px;
-  height:6px;
-  border-radius:50%;
-  background:var(--orange);
-  box-shadow:0 0 16px var(--orange);
-}
-
-h1{
-  font-size:
-    clamp(58px,10vw,112px);
-
-  line-height:.86;
-
-  letter-spacing:-.075em;
-
-  margin:24px 0 0;
-
-  font-weight:750;
-}
-
-h1 span{
-  display:block;
-  color:#a1a1a6;
-}
-
-.hero-copy{
-  max-width:720px;
-
-  margin:30px auto 0;
-
-  color:#a1a1a6;
+  margin: 0;
 
   font-size:
-    clamp(17px,2vw,21px);
+    clamp(46px, 8vw, 88px);
 
-  line-height:1.5;
+  line-height: .94;
+
+  letter-spacing: -.065em;
+
+  font-weight: 750;
 }
 
-.hero-meta{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
+.event-title span {
+  display: block;
 
-  gap:9px;
-
-  margin-top:28px;
+  color: #a1a1a6;
 }
 
-.chip{
-  border:1px solid var(--line);
+.event-description {
+  position: relative;
 
-  background:
-    rgba(255,255,255,.05);
+  max-width: 760px;
 
-  padding:9px 13px;
+  margin:
+    28px auto 0;
 
-  border-radius:999px;
+  color: #a1a1a6;
 
-  color:#d1d1d6;
+  font-size:
+    clamp(17px, 2vw, 21px);
 
-  font-size:13px;
+  line-height: 1.5;
 }
 
-.hero-actions{
-  display:flex;
-  justify-content:center;
+.event-meta {
+  position: relative;
 
-  gap:10px;
+  display: flex;
 
-  margin-top:34px;
+  justify-content: center;
 
-  flex-wrap:wrap;
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-top: 30px;
 }
 
-.primary,
-.secondary{
-  appearance:none;
-  border:0;
+.event-pill {
+  padding:
+    9px 14px;
 
-  text-decoration:none;
-  cursor:pointer;
-
-  border-radius:999px;
-
-  padding:14px 20px;
-
-  font-size:15px;
-  font-weight:700;
-
-  transition:.25s var(--ease);
-}
-
-.primary{
-  background:#f5f5f7;
-  color:#111;
-}
-
-.primary:hover{
-  transform:translateY(-2px);
-
-  box-shadow:
-    0 12px 30px rgba(255,255,255,.12);
-}
-
-.secondary{
-  color:#f5f5f7;
+  border-radius: 100px;
 
   background:
     rgba(255,255,255,.07);
 
-  border:1px solid var(--line);
-}
+  border:
+    1px solid rgba(255,255,255,.08);
 
-.secondary:hover{
-  background:
-    rgba(255,255,255,.11);
-}
+  color: #d1d1d6;
 
-
-/* =========================================================
-   SECTIONS
-========================================================= */
-
-.section{
-  margin-top:105px;
-  scroll-margin-top:30px;
-}
-
-.kicker{
-  font-size:12px;
-
-  letter-spacing:.14em;
-
-  text-transform:uppercase;
-
-  color:var(--orange);
-
-  font-weight:800;
-}
-
-.section h2{
-  font-size:
-    clamp(38px,6vw,68px);
-
-  line-height:.96;
-
-  letter-spacing:-.06em;
-
-  margin:12px 0 0;
-}
-
-.lead{
-  max-width:720px;
-
-  color:var(--muted);
-
-  font-size:17px;
-
-  line-height:1.55;
-
-  margin-top:18px;
+  font-size: 13px;
 }
 
 
 /* =========================================================
-   SCRABBLE FEATURE
+   FEATURED CHALLENGE BUTTON
 ========================================================= */
 
-.feature{
-  margin-top:32px;
+.featured-button-wrap {
+  position: relative;
 
-  border-radius:30px;
+  display: flex;
 
-  padding:1px;
+  justify-content: center;
+
+  margin:
+    32px auto 0;
+}
+
+.featured-button {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  min-height: 54px;
+
+  padding:
+    14px 20px;
+
+  border-radius: 100px;
+
+  color: #111;
 
   background:
     linear-gradient(
       135deg,
-      rgba(255,159,10,.45),
-      rgba(255,255,255,.08),
-      rgba(255,159,10,.08)
+      #ffb52e,
+      #ff9d00
     );
-}
 
-.feature-inner{
-  border-radius:29px;
+  border:
+    1px solid rgba(255,255,255,.22);
 
-  background:#0b0b0b;
+  text-decoration: none;
 
-  padding:32px;
-}
+  font-size: 15px;
 
-.feature-top{
-  display:flex;
-
-  justify-content:space-between;
-
-  gap:20px;
-
-  align-items:flex-start;
-}
-
-.feature-tag{
-  display:inline-flex;
-
-  align-items:center;
-
-  gap:8px;
-
-  color:var(--orange);
-
-  font-size:12px;
-
-  font-weight:800;
-
-  text-transform:uppercase;
-
-  letter-spacing:.12em;
-}
-
-.live-dot{
-  width:7px;
-  height:7px;
-
-  background:var(--green);
-
-  border-radius:50%;
+  font-weight: 750;
 
   box-shadow:
-    0 0 12px var(--green);
+    0 12px 30px rgba(255,157,0,.18);
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    filter .2s ease;
 }
 
-.rule{
-  color:#a1a1a6;
+.featured-button:hover {
+  transform:
+    translateY(-2px);
 
-  font-size:15px;
+  box-shadow:
+    0 16px 38px rgba(255,157,0,.28);
 
-  margin-top:10px;
+  filter:
+    brightness(1.04);
+}
+
+.featured-button:active {
+  transform:
+    scale(.97);
+}
+
+.featured-button-icon {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 25px;
+  height: 25px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(0,0,0,.12);
+
+  font-size: 14px;
+}
+
+.featured-button strong {
+  font-weight: 800;
 }
 
 
 /* =========================================================
-   BOARD
+   EVENT INFO
 ========================================================= */
 
-.board-wrap{
-  overflow:auto;
-
-  padding:
-    38px 5px 25px;
-}
-
-.board{
-  display:grid;
+.info-grid {
+  display: grid;
 
   grid-template-columns:
-    repeat(7,64px);
+    repeat(3, 1fr);
 
-  grid-template-rows:
-    repeat(3,64px);
+  gap: 15px;
 
-  gap:8px;
+  margin:
+    20px 0 80px;
+}
 
-  width:max-content;
+.info-card {
+  padding: 25px;
 
-  margin:auto;
+  min-height: 180px;
 
-  padding:16px;
+  border-radius: 22px;
 
-  border-radius:23px;
+  background:
+    rgba(255,255,255,.035);
+
+  border:
+    1px solid rgba(255,255,255,.07);
+
+  transition:
+    transform .2s ease,
+    background .2s ease,
+    border-color .2s ease;
+}
+
+.info-card:hover {
+  transform:
+    translateY(-3px);
+
+  background:
+    rgba(255,255,255,.05);
+
+  border-color:
+    rgba(255,255,255,.11);
+}
+
+.info-icon {
+  font-size: 27px;
+
+  margin-bottom: 18px;
+}
+
+.info-title {
+  font-size: 18px;
+
+  font-weight: 650;
+
+  margin-bottom: 9px;
+}
+
+.info-text {
+  color: #8e8e93;
+
+  line-height: 1.5;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   SECTION HEADERS
+========================================================= */
+
+.section {
+  margin-top: 80px;
+
+  scroll-margin-top: 30px;
+}
+
+.section-eyebrow {
+  color: #ff9d00;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: .12em;
+
+  text-transform: uppercase;
+
+  margin-bottom: 12px;
+}
+
+.section-title {
+  margin: 0;
+
+  font-size:
+    clamp(34px, 5vw, 58px);
+
+  line-height: 1;
+
+  letter-spacing: -.05em;
+}
+
+.section-description {
+  max-width: 680px;
+
+  margin-top: 18px;
+
+  color: #8e8e93;
+
+  font-size: 17px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   SCRABBLE CHALLENGE
+========================================================= */
+
+.challenge {
+  margin-top: 35px;
+
+  padding: 35px;
+
+  border-radius: 30px;
 
   background:
     linear-gradient(
       145deg,
-      #1b1b1b,
-      #080808
+      rgba(255,255,255,.055),
+      rgba(255,255,255,.025)
     );
 
   border:
     1px solid rgba(255,255,255,.08);
 
   box-shadow:
-    0 35px 80px rgba(0,0,0,.55);
+    0 30px 80px rgba(0,0,0,.25);
 
-  transform:rotate(-1deg);
+  transition:
+    opacity .3s ease,
+    border-color .3s ease;
 }
 
-.slot{
-  width:64px;
-  height:64px;
+.challenge.challenge-ended {
+  border-color:
+    rgba(48,209,88,.24);
+}
 
-  border-radius:10px;
+.challenge-header {
+  text-align: center;
+
+  margin-bottom: 30px;
+}
+
+.challenge-title {
+  font-size: 27px;
+
+  font-weight: 700;
+}
+
+.challenge-subtitle {
+  color: #8e8e93;
+
+  margin-top: 8px;
+}
+
+
+/* =========================================================
+   CHALLENGE ENDED
+========================================================= */
+
+.challenge-ended-banner {
+  display: none;
+
+  max-width: 650px;
+
+  margin:
+    0 auto 25px;
+
+  padding:
+    15px 18px;
+
+  border-radius: 15px;
+
+  text-align: center;
+
+  background:
+    rgba(48,209,88,.09);
+
+  border:
+    1px solid rgba(48,209,88,.22);
+
+  color: #30d158;
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+.challenge.challenge-ended
+.challenge-ended-banner {
+  display: block;
+}
+
+
+/* =========================================================
+   INTERACTIVE BOARD
+========================================================= */
+
+.board-area {
+  display: flex;
+
+  justify-content: center;
+
+  padding:
+    20px 5px 35px;
+
+  overflow-x: auto;
+}
+
+.scrabble-board {
+  display: grid;
+
+  grid-template-columns:
+    repeat(7, 58px);
+
+  grid-template-rows:
+    repeat(3, 58px);
+
+  gap: 8px;
+
+  padding: 15px;
+
+  border-radius: 20px;
 
   background:
     linear-gradient(
       145deg,
-      #292929,
-      #111
+      #1d1d1d,
+      #0b0b0b
+    );
+
+  border:
+    1px solid rgba(255,255,255,.07);
+
+  box-shadow:
+    0 25px 60px rgba(0,0,0,.5);
+
+  transform:
+    rotate(-1deg);
+}
+
+.board-square {
+  width: 58px;
+  height: 58px;
+
+  border-radius: 8px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #282828,
+      #111111
     );
 
   border:
@@ -543,505 +611,435 @@ h1 span{
    LETTER TILES
 ========================================================= */
 
-.tile{
-  position:relative;
+.scrabble-tile {
+  position: relative;
 
-  width:64px;
-  height:64px;
+  width: 58px;
+  height: 58px;
 
-  border:0;
+  display: flex;
 
-  border-radius:10px;
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+
+  border-radius: 8px;
 
   background:
     linear-gradient(
       145deg,
-      #f3d7a3,
-      #bd9359
+      #f5d9a5,
+      #c69e65
     );
 
-  color:#151515;
+  color: #151515;
 
-  cursor:pointer;
+  font-size: 29px;
 
-  font-size:30px;
+  font-weight: 750;
 
-  font-weight:800;
+  cursor: pointer;
 
   box-shadow:
-    0 9px 17px rgba(0,0,0,.4),
+    0 8px 16px rgba(0,0,0,.35),
     inset 0 1px 2px rgba(255,255,255,.65);
 
-  transition:.18s var(--ease);
+  transition:
+    transform .16s ease,
+    box-shadow .16s ease,
+    filter .16s ease,
+    opacity .2s ease;
 }
 
-.tile:hover{
+.scrabble-tile:hover {
   transform:
-    translateY(-5px)
+    translateY(-4px)
     scale(1.04);
 
-  filter:brightness(1.05);
+  box-shadow:
+    0 13px 25px rgba(0,0,0,.45);
 }
 
-.tile.selected{
+.scrabble-tile:active {
   transform:
-    translateY(-8px)
+    scale(.94);
+}
+
+.scrabble-tile.selected {
+  transform:
+    translateY(-7px)
     scale(1.06);
 
+  filter:
+    brightness(1.2);
+
   box-shadow:
-    0 0 0 3px rgba(255,159,10,.8),
-    0 18px 30px rgba(0,0,0,.5);
+    0 0 0 3px rgba(255,157,0,.65),
+    0 15px 30px rgba(0,0,0,.5);
 }
 
-.val{
-  position:absolute;
+.challenge.challenge-ended
+.scrabble-tile {
+  cursor: default;
 
-  right:6px;
-  bottom:4px;
+  opacity: .55;
+}
 
-  font-size:10px;
+.challenge.challenge-ended
+.scrabble-tile:hover {
+  transform: none;
+
+  box-shadow:
+    0 8px 16px rgba(0,0,0,.35),
+    inset 0 1px 2px rgba(255,255,255,.65);
+}
+
+.tile-value {
+  position: absolute;
+
+  right: 6px;
+  bottom: 4px;
+
+  font-size: 10px;
+
+  font-weight: 800;
 }
 
 
 /* =========================================================
-   ANSWER
+   ANSWER BUILDER
 ========================================================= */
 
-.answer{
-  max-width:700px;
+.answer-builder {
+  max-width: 700px;
 
-  margin:0 auto;
+  margin:
+    0 auto 30px;
+
+  text-align: center;
 }
 
-.label{
-  color:#8e8e93;
+.answer-label {
+  color: #8e8e93;
 
-  text-transform:uppercase;
+  font-size: 12px;
 
-  letter-spacing:.1em;
+  font-weight: 700;
 
-  font-size:11px;
+  text-transform: uppercase;
 
-  font-weight:800;
+  letter-spacing: .1em;
 
-  text-align:center;
-
-  margin-bottom:8px;
+  margin-bottom: 10px;
 }
 
-.answer-box{
-  min-height:70px;
+.answer-display {
+  min-height: 67px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding:
+    12px 18px;
+
+  border-radius: 16px;
+
+  background:
+    rgba(0,0,0,.35);
 
   border:
-    1px solid var(--line);
+    1px solid rgba(255,255,255,.08);
+
+  font-size: 30px;
+
+  font-weight: 700;
+
+  letter-spacing: .08em;
+
+  color: #f5f5f7;
+
+  word-break: break-all;
+}
+
+.answer-placeholder {
+  color: #48484a;
+
+  font-size: 15px;
+
+  letter-spacing: 0;
+}
+
+
+/* =========================================================
+   BUILDER BUTTONS
+========================================================= */
+
+.builder-controls {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  margin-top: 12px;
+}
+
+.small-button {
+  width: auto;
+
+  margin: 0;
+
+  padding:
+    9px 15px;
+
+  border-radius: 10px;
+
+  background:
+    rgba(255,255,255,.07);
+
+  color: #d1d1d6;
+
+  border:
+    1px solid rgba(255,255,255,.08);
+
+  box-shadow: none;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.small-button:hover {
+  background:
+    rgba(255,255,255,.11);
+
+  transform: none;
+}
+
+.challenge.challenge-ended
+.small-button {
+  cursor: default;
+
+  opacity: .45;
+}
+
+
+/* =========================================================
+   GAME FORM
+========================================================= */
+
+.form-container {
+  max-width: 620px;
+
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+
+  margin:
+    17px 0 8px;
+
+  color: #a1a1a6;
+
+  font-size: 13px;
+}
+
+input {
+  width: 100%;
+
+  padding:
+    16px 17px;
+
+  border-radius: 14px;
+
+  border:
+    1px solid rgba(255,255,255,.08);
+
+  outline: none;
+
+  background:
+    rgba(255,255,255,.07);
+
+  color: white;
+
+  font-size: 17px;
+}
+
+input:focus {
+  border-color:
+    rgba(255,157,0,.7);
+
+  box-shadow:
+    0 0 0 4px rgba(255,157,0,.08);
+}
+
+.challenge.challenge-ended input {
+  opacity: .55;
+
+  cursor: default;
+}
+
+.submit-button {
+  width: 100%;
+
+  margin-top: 20px;
+
+  padding:
+    16px;
+
+  border: 0;
+
+  border-radius: 14px;
+
+  background:
+    #ff9d00;
+
+  color: #111;
+
+  font-size: 17px;
+
+  font-weight: 750;
+
+  cursor: pointer;
+
+  transition:
+    transform .15s ease,
+    opacity .15s ease,
+    background .15s ease;
+}
+
+.submit-button:hover {
+  transform:
+    translateY(-1px);
+}
+
+.submit-button:disabled {
+  opacity: .5;
+
+  cursor: default;
+
+  transform: none;
+}
+
+.challenge.challenge-ended
+.submit-button {
+  background:
+    rgba(48,209,88,.16);
+
+  color: #30d158;
+
+  cursor: default;
+}
+
+.status {
+  min-height: 24px;
+
+  margin-top: 16px;
+
+  text-align: center;
+
+  font-size: 14px;
+
+  color: #8e8e93;
+}
+
+.status.error {
+  color: #ff6961;
+}
+
+.status.success {
+  color: #30d158;
+}
+
+
+/* =========================================================
+   LIVE ACTIVITY
+========================================================= */
+
+.live {
+  max-width: 620px;
+
+  margin:
+    25px auto 0;
+
+  padding:
+    18px 20px;
+
+  border-radius: 18px;
 
   background:
     rgba(255,255,255,.035);
-
-  border-radius:16px;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  font-size:30px;
-
-  font-weight:750;
-
-  letter-spacing:.1em;
-
-  padding:12px 18px;
-
-  word-break:break-all;
-}
-
-.placeholder{
-  color:#454548;
-
-  font-size:14px;
-
-  letter-spacing:0;
-}
-
-.controls{
-  display:flex;
-
-  justify-content:center;
-
-  gap:8px;
-
-  margin-top:10px;
-}
-
-.mini{
-  border:
-    1px solid var(--line);
-
-  background:
-    rgba(255,255,255,.06);
-
-  color:#d1d1d6;
-
-  border-radius:10px;
-
-  padding:9px 13px;
-
-  cursor:pointer;
-}
-
-
-/* =========================================================
-   FORM
-========================================================= */
-
-.form{
-  max-width:620px;
-
-  margin:28px auto 0;
-}
-
-.field{
-  margin-top:15px;
-}
-
-.field label{
-  display:block;
-
-  color:#a1a1a6;
-
-  font-size:13px;
-
-  margin:0 0 7px;
-}
-
-.field input{
-  width:100%;
-
-  border:
-    1px solid var(--line);
-
-  background:
-    rgba(255,255,255,.06);
-
-  color:#fff;
-
-  border-radius:14px;
-
-  padding:15px 16px;
-
-  font:inherit;
-
-  outline:0;
-}
-
-.field input:focus{
-  border-color:
-    rgba(255,159,10,.7);
-
-  box-shadow:
-    0 0 0 4px rgba(255,159,10,.08);
-}
-
-.submit{
-  width:100%;
-
-  margin-top:17px;
-
-  padding:15px;
-
-  border:0;
-
-  border-radius:14px;
-
-  background:var(--orange);
-
-  color:#111;
-
-  font-size:16px;
-
-  font-weight:800;
-
-  cursor:pointer;
-}
-
-.submit:disabled{
-  opacity:.45;
-
-  cursor:default;
-}
-
-.status{
-  min-height:23px;
-
-  text-align:center;
-
-  margin-top:13px;
-
-  color:#8e8e93;
-
-  font-size:13px;
-}
-
-.status.bad{
-  color:var(--red);
-}
-
-.status.good{
-  color:var(--green);
-}
-
-
-/* =========================================================
-   ACTIVITY
-========================================================= */
-
-.activity{
-  max-width:620px;
-
-  margin:22px auto 0;
-
-  padding:17px;
-
-  border-radius:17px;
 
   border:
     1px solid rgba(255,255,255,.06);
-
-  background:
-    rgba(255,255,255,.025);
 }
 
-.activity-head{
-  display:flex;
+.live-header {
+  display: flex;
 
-  justify-content:space-between;
+  justify-content: space-between;
 
-  color:#8e8e93;
+  align-items: center;
 
-  text-transform:uppercase;
-
-  letter-spacing:.08em;
-
-  font-size:11px;
-
-  font-weight:800;
-
-  margin-bottom:10px;
+  margin-bottom: 13px;
 }
 
-.activity-row{
-  display:flex;
+.live-title {
+  font-size: 12px;
 
-  justify-content:space-between;
+  font-weight: 700;
 
-  gap:15px;
+  color: #8e8e93;
 
-  padding:7px 0;
+  letter-spacing: .08em;
 
-  font-size:13px;
-
-  color:#d1d1d6;
+  text-transform: uppercase;
 }
 
-.activity-word{
-  color:#555;
+.live-count {
+  color: #ff9d00;
 
-  filter:blur(4px);
-
-  user-select:none;
+  font-size: 13px;
 }
 
+.activity {
+  display: flex;
 
-/* =========================================================
-   CHALLENGE ENDED
-========================================================= */
+  flex-direction: column;
 
-.ended{
-  display:none;
-
-  margin:18px auto 0;
-
-  max-width:620px;
-
-  padding:14px 16px;
-
-  border:
-    1px solid rgba(48,209,88,.25);
-
-  border-radius:14px;
-
-  background:
-    rgba(48,209,88,.08);
-
-  color:#7cf09b;
-
-  text-align:center;
-
-  font-size:14px;
-
-  font-weight:700;
+  gap: 8px;
 }
 
-.feature.locked .ended{
-  display:block;
+.activity-row {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  color: #8e8e93;
+
+  font-size: 13px;
 }
 
-.feature.locked .feature-tag .live-dot{
-  background:#8e8e93;
-  box-shadow:none;
+.activity-name {
+  color: #d1d1d6;
 }
 
+.activity-word {
+  color: #636366;
 
-/* =========================================================
-   WINNER
-========================================================= */
+  filter:
+    blur(4px);
 
-.winner{
-  display:none;
-
-  margin-top:24px;
-
-  text-align:center;
-
-  padding:38px;
-
-  border-radius:24px;
-
-  border:
-    1px solid rgba(255,159,10,.18);
-
-  background:
-    radial-gradient(
-      circle at 50% 0,
-      rgba(255,159,10,.14),
-      transparent 50%
-    ),
-    rgba(255,255,255,.03);
-}
-
-.winner.show{
-  display:block;
-}
-
-.winner-word{
-  font-size:
-    clamp(44px,8vw,78px);
-
-  font-weight:800;
-
-  letter-spacing:-.06em;
-
-  color:#f5d9a5;
-
-  margin-top:5px;
-}
-
-.winner-name{
-  font-size:19px;
-
-  margin-top:8px;
-}
-
-.winner-time{
-  color:#8e8e93;
-
-  font-size:13px;
-
-  margin-top:8px;
-}
-
-
-/* =========================================================
-   LETTER STORY INSIDE WINNER
-========================================================= */
-
-.winner-story{
-  max-width:760px;
-
-  margin:42px auto 0;
-
-  padding-top:30px;
-
-  border-top:
-    1px solid rgba(255,255,255,.08);
-}
-
-.winner-story-kicker{
-  color:#8e8e93;
-
-  font-size:11px;
-
-  font-weight:800;
-
-  letter-spacing:.14em;
-
-  text-transform:uppercase;
-
-  margin-bottom:17px;
-}
-
-.winner-story-grid{
-  display:grid;
-
-  grid-template-columns:
-    repeat(2,1fr);
-
-  gap:8px;
-
-  text-align:left;
-}
-
-.winner-person{
-  display:flex;
-
-  align-items:center;
-
-  gap:10px;
-
-  padding:9px 11px;
-
-  border-radius:11px;
-
-  background:
-    rgba(255,255,255,.035);
-
-  color:#d1d1d6;
-
-  font-size:13px;
-}
-
-.winner-person b{
-  width:29px;
-  height:29px;
-
-  flex:0 0 29px;
-
-  display:grid;
-
-  place-items:center;
-
-  border-radius:7px;
-
-  background:#cba66d;
-
-  color:#111;
-
-  font-size:12px;
-
-  font-weight:900;
-}
-
-.winner-person.mystery{
-  color:#8e8e93;
-}
-
-.winner-person.mystery b{
-  background:
-    rgba(255,159,10,.2);
-
-  color:#ff9f0a;
+  user-select: none;
 }
 
 
@@ -1049,130 +1047,212 @@ h1 span{
    HOW IT WAS MADE
 ========================================================= */
 
-.made{
-  display:grid;
+.made-section {
+  margin-top: 85px;
+}
+
+.made-card {
+  margin-top: 30px;
+
+  display: grid;
 
   grid-template-columns:
     1fr 1fr;
 
-  gap:14px;
-
-  margin-top:30px;
+  gap: 20px;
 }
 
-.made .card{
-  min-height:210px;
-}
+.made-panel {
+  padding: 30px;
 
-.card{
-  padding:27px;
-
-  border:
-    1px solid var(--line);
+  border-radius: 25px;
 
   background:
-    var(--panel);
+    rgba(255,255,255,.035);
 
-  border-radius:24px;
+  border:
+    1px solid rgba(255,255,255,.07);
 
-  backdrop-filter:blur(24px);
+  transition:
+    transform .2s ease,
+    background .2s ease;
 }
 
-.steps{
-  counter-reset:s;
+.made-panel:hover {
+  transform:
+    translateY(-3px);
+
+  background:
+    rgba(255,255,255,.045);
 }
 
-.step{
-  display:flex;
+.made-number {
+  display: inline-flex;
 
-  gap:15px;
+  align-items: center;
+  justify-content: center;
+
+  width: 35px;
+  height: 35px;
+
+  border-radius: 50%;
+
+  background:
+    #ff9d00;
+
+  color: #111;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  margin-bottom: 18px;
 }
 
-.step+.step{
-  margin-top:20px;
-}
-
-.num{
-  flex:
-    0 0 35px;
-
-  height:35px;
-
-  border-radius:50%;
-
-  background:var(--orange);
-
-  color:#111;
-
-  display:grid;
-
-  place-items:center;
-
-  font-size:12px;
-
-  font-weight:900;
-}
-
-.step h3{
+.made-panel h3 {
   margin:
-    0 0 5px;
+    0 0 10px;
 
-  font-size:17px;
+  font-size: 21px;
 }
 
-.step p{
-  margin:0;
+.made-panel p {
+  margin: 0;
 
-  color:var(--muted);
+  color: #8e8e93;
 
-  font-size:14px;
+  line-height: 1.6;
 
-  line-height:1.5;
-}
-
-.icon{
-  font-size:28px;
-
-  margin-bottom:20px;
-}
-
-.card h3{
-  margin:
-    0 0 8px;
-
-  font-size:19px;
-}
-
-.card p{
-  margin:0;
-
-  color:var(--muted);
-
-  line-height:1.55;
-
-  font-size:14px;
+  font-size: 14px;
 }
 
 
 /* =========================================================
-   FOOTER
+   WINNER
 ========================================================= */
 
-.footer{
-  margin-top:110px;
+.winner-screen {
+  display: none;
 
-  padding-top:25px;
+  text-align: center;
 
-  border-top:
-    1px solid var(--line);
+  padding:
+    85px 0 45px;
 
-  display:flex;
+  scroll-margin-top: 30px;
+}
 
-  justify-content:space-between;
+.winner-screen.show {
+  display: block;
+}
 
-  color:#666;
+.winner-eyebrow {
+  color: #30d158;
 
-  font-size:12px;
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: .12em;
+
+  text-transform: uppercase;
+}
+
+.winner-word {
+  margin:
+    15px 0;
+
+  font-size:
+    clamp(58px, 12vw, 115px);
+
+  font-weight: 800;
+
+  letter-spacing:
+    -.065em;
+}
+
+.winner-name {
+  color: #a1a1a6;
+
+  font-size: 20px;
+}
+
+.winner-message {
+  max-width: 650px;
+
+  margin:
+    18px auto 0;
+
+  color: #8e8e93;
+
+  font-size: 16px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   WINNER LETTER REVEAL
+========================================================= */
+
+.reveal {
+  max-width: 650px;
+
+  margin:
+    40px auto 0;
+
+  padding: 25px;
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,157,0,.09),
+      rgba(255,255,255,.025)
+    );
+
+  border:
+    1px solid rgba(255,255,255,.07);
+
+  text-align: left;
+}
+
+.reveal-title {
+  color: #8e8e93;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing: .1em;
+
+  text-transform: uppercase;
+
+  margin-bottom: 18px;
+}
+
+.reveal-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 9px;
+}
+
+.reveal-item {
+  padding:
+    10px 12px;
+
+  border-radius: 10px;
+
+  background:
+    rgba(255,255,255,.04);
+
+  font-size: 14px;
+
+  color: #d1d1d6;
 }
 
 
@@ -1180,34 +1260,48 @@ h1 span{
    CONFETTI
 ========================================================= */
 
-.confetti{
-  position:fixed;
+.confetti {
+  position: fixed;
 
-  top:-12px;
+  top: -20px;
 
-  width:8px;
-  height:14px;
+  width: 8px;
+  height: 12px;
 
-  z-index:100;
+  pointer-events: none;
 
-  pointer-events:none;
+  z-index: 999;
 
   animation:
-    fall linear forwards;
+    confettiFall 2.8s linear forwards;
 }
 
-@keyframes fall{
+@keyframes confettiFall {
 
-  to{
+  to {
 
     transform:
-      translate3d(var(--x),110vh,0)
+      translateY(110vh)
       rotate(720deg);
 
-    opacity:0;
-
+    opacity: 0;
   }
 
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+  text-align: center;
+
+  margin-top: 80px;
+
+  color: #636366;
+
+  font-size: 12px;
 }
 
 
@@ -1215,84 +1309,94 @@ h1 span{
    MOBILE
 ========================================================= */
 
-@media(max-width:760px){
+@media(max-width: 700px) {
 
-  .page{
-    width:
-      min(
-        100% - 22px,
-        1180px
-      );
-  }
-
-  .hero{
-    min-height:610px;
-
-    border-radius:28px;
-  }
-
-  .hero-content{
+  .page {
     padding:
-      90px 18px 65px;
+      15px 15px 60px;
   }
 
-  .moon{
-    width:210px;
-    height:210px;
-
-    top:70px;
+  .nav {
+    padding-bottom: 18px;
   }
 
-  .feature-inner{
-    padding:22px;
+  .nav-right {
+    font-size: 11px;
   }
 
-  .feature-top{
-    display:block;
+  .event-hero {
+    padding:
+      55px 20px;
   }
 
-  .board{
+  .event-title {
+    font-size:
+      clamp(46px, 14vw, 72px);
+  }
+
+  .info-grid {
     grid-template-columns:
-      repeat(7,51px);
+      1fr;
+
+    margin-bottom: 55px;
+  }
+
+  .challenge {
+    padding:
+      22px 16px;
+  }
+
+  .scrabble-board {
+
+    grid-template-columns:
+      repeat(7, 43px);
 
     grid-template-rows:
-      repeat(3,51px);
+      repeat(3, 43px);
 
-    gap:6px;
+    gap: 5px;
 
-    padding:12px;
+    padding: 10px;
   }
 
-  .slot,
-  .tile{
-    width:51px;
-    height:51px;
+  .board-square,
+  .scrabble-tile {
+
+    width: 43px;
+    height: 43px;
   }
 
-  .tile{
-    font-size:25px;
+  .scrabble-tile {
+    font-size: 21px;
   }
 
-  .made{
-    grid-template-columns:1fr;
+  .tile-value {
+    right: 4px;
+
+    bottom: 2px;
+
+    font-size: 7px;
   }
 
-  .winner-story-grid{
-    grid-template-columns:1fr;
+  .made-card {
+    grid-template-columns:
+      1fr;
   }
 
-  .footer{
-    display:block;
-
-    line-height:1.7;
+  .letter-list {
+    grid-template-columns:
+      1fr;
   }
 
-  .hero-actions{
-    margin-top:28px;
+  .reveal-grid {
+    grid-template-columns:
+      1fr;
   }
 
-  .section{
-    margin-top:78px;
+  .featured-button {
+    width: 100%;
+
+    justify-content: center;
   }
 
 }
@@ -1302,553 +1406,188 @@ h1 span{
    REDUCED MOTION
 ========================================================= */
 
-@media(prefers-reduced-motion:reduce){
+@media(prefers-reduced-motion: reduce) {
 
   *,
-  *:before,
-  *:after{
+  *::before,
+  *::after {
 
-    scroll-behavior:auto!important;
+    animation-duration:
+      .01ms !important;
 
-    animation:none!important;
+    animation-iteration-count:
+      1 !important;
 
-    transition:none!important;
-
+    scroll-behavior:
+      auto !important;
   }
 
 }
 
 </style>
+
 </head>
 
 
 <body>
 
-<div class="orb a"></div>
-<div class="orb b"></div>
-
-
 <div class="page">
 
 
 <!-- =======================================================
-     NAVIGATION
-======================================================= -->
+     NAV
+======================================================== -->
 
-<nav class="nav">
+<div class="nav">
 
-  <div class="brand">
+  <div class="logo">
     XB × IT
   </div>
 
-  <div class="nav-pill">
-    HALLOWEEN 2026 · WESTON
+  <div class="nav-right">
+    Halloween Team Event · 2026
   </div>
 
-</nav>
+</div>
 
 
 <!-- =======================================================
-     HERO
-======================================================= -->
+     EVENT INTRO
+======================================================== -->
 
-<header class="hero">
+<section class="event-hero">
 
-  <div class="moon"></div>
-
-  <div class="hero-content">
-
-    <div class="eyebrow">
-
-      <i class="dot"></i>
-
-      XB × IT Team Event
-
-    </div>
-
-
-    <h1>
-
-      Halloween
-
-      <span>
-        starts here.
-      </span>
-
-    </h1>
-
-
-    <p class="hero-copy">
-
-      A night of games, good food, friendly competition,
-      and one very serious question: can you solve the
-      word nobody else can?
-
-    </p>
-
-
-    <div class="hero-meta">
-
-      <span class="chip">
-        🎃 Halloween
-      </span>
-
-      <span class="chip">
-        🎲 Board Games
-      </span>
-
-      <span class="chip">
-        ☕ Snacks & Drinks
-      </span>
-
-      <span class="chip">
-        🧩 Scrabble Challenge
-      </span>
-
-    </div>
-
-
-    <div class="hero-actions">
-
-      <a
-        class="primary"
-        href="#scrabble-challenge"
-      >
-        ✦ Enter the challenge
-      </a>
-
-      <a
-        class="secondary"
-        href="#how-made"
-      >
-        How it was made ↓
-      </a>
-
-    </div>
-
+  <div class="event-eyebrow">
+    Welcome to the XB × IT Team Event
   </div>
 
-</header>
+  <h1 class="event-title">
+    Halloween
+    <span>starts here.</span>
+  </h1>
 
+  <p class="event-description">
 
-<!-- =======================================================
-     SCRABBLE CHALLENGE
-======================================================= -->
-
-<section
-  class="section"
-  id="scrabble-challenge"
->
-
-  <div class="kicker">
-    Featured challenge
-  </div>
-
-
-  <h2>
-
-    One word.<br>
-
-    One winner.
-
-  </h2>
-
-
-  <p class="lead">
-
-    Build the largest word you can from the tiles below.
-    There is only one accepted answer.
-    The first person to submit it wins.
+    This is our team space for the Halloween event.
+    Come together with colleagues, play games,
+    take on challenges, and enjoy the day with the
+    XB-IT teams.
 
   </p>
 
+  <div class="event-meta">
 
-  <div class="feature">
+    <div class="event-pill">
+      🎃 Halloween Event
+    </div>
 
-    <div class="feature-inner">
+    <div class="event-pill">
+      🎲 Board Games
+    </div>
 
+    <div class="event-pill">
+      🧩 Online Challenges
+    </div>
 
-      <!-- FEATURE HEADER -->
+    <div class="event-pill">
+      🍿 Snacks & Drinks
+    </div>
 
-      <div class="feature-top">
+  </div>
 
-        <div>
 
-          <div class="feature-tag">
+  <!-- FEATURED CHALLENGE BUTTON -->
 
-            <span class="live-dot"></span>
+  <div class="featured-button-wrap">
 
-            <span>
-              Live challenge
-            </span>
+    <a
+      href="#scrabble-challenge"
+      class="featured-button"
+      aria-label="Go to Featured Challenge"
+    >
 
-          </div>
+      <span class="featured-button-icon">
+        ✦
+      </span>
 
-          <div class="rule">
+      <span>
+        🎃 Featured Challenge
+      </span>
 
-            Select the tiles in order,
-            then submit your answer.
+      <strong>
+        Click Here →
+      </strong>
 
-          </div>
+    </a>
 
-        </div>
+  </div>
 
+</section>
 
-        <div class="chip">
 
-          14 tiles · 1 answer
+<!-- =======================================================
+     EVENT INFO
+======================================================== -->
 
-        </div>
+<section class="info-grid">
 
-      </div>
+  <div class="info-card">
 
+    <div class="info-icon">
+      🎲
+    </div>
 
-      <!-- BOARD -->
+    <div class="info-title">
+      Play
+    </div>
 
-      <div class="board-wrap">
+    <div class="info-text">
 
-        <div
-          class="board"
-          id="board"
-        ></div>
+      Join your colleagues for a variety of
+      board games and team challenges
+      throughout the event.
 
-      </div>
+    </div>
 
+  </div>
 
-      <!-- ANSWER -->
 
-      <div class="answer">
+  <div class="info-card">
 
-        <div class="label">
-          Your word
-        </div>
+    <div class="info-icon">
+      🧠
+    </div>
 
+    <div class="info-title">
+      Challenge
+    </div>
 
-        <div
-          class="answer-box"
-          id="answer"
-        >
+    <div class="info-text">
 
-          <span class="placeholder">
-            Tap the letters above
-          </span>
+      Take on our online Scrabble challenge
+      and see if you can be the first person
+      to solve it.
 
-        </div>
+    </div>
 
+  </div>
 
-        <div class="controls">
 
-          <button
-            class="mini"
-            id="backspace"
-            type="button"
-          >
-            ⌫ Delete
-          </button>
+  <div class="info-card">
 
-
-          <button
-            class="mini"
-            id="clear"
-            type="button"
-          >
-            Clear
-          </button>
-
-        </div>
-
-      </div>
-
-
-      <!-- FORM -->
-
-      <div class="form">
-
-        <div class="field">
-
-          <label for="name">
-            Your name
-          </label>
-
-          <input
-            id="name"
-            maxlength="60"
-            autocomplete="name"
-            placeholder="Enter your name"
-          >
-
-        </div>
-
-
-        <button
-          class="submit"
-          id="submit"
-          type="button"
-        >
-          Submit answer
-        </button>
-
-
-        <div
-          class="status"
-          id="status"
-        ></div>
-
-      </div>
-
-
-      <!-- CHALLENGE ENDED -->
-
-      <div
-        class="ended"
-        id="ended"
-      ></div>
-
-
-      <!-- LIVE ACTIVITY -->
-
-      <div class="activity">
-
-        <div class="activity-head">
-
-          <span>
-            Live activity
-          </span>
-
-          <span id="attempts">
-            0 attempts
-          </span>
-
-        </div>
-
-
-        <div id="activity-list">
-
-          <div class="activity-row">
-
-            <span>
-              Waiting for the first attempt…
-            </span>
-
-            <span>
-              —
-            </span>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- =================================================
-           WINNER
-           THIS IS THE ONLY PLACE WHERE THE REVEAL EXISTS
-      ================================================= -->
-
-      <div
-        class="winner"
-        id="winner"
-      >
-
-        <div class="kicker">
-          Challenge Complete
-        </div>
-
-
-        <div
-          class="winner-word"
-          id="winner-word"
-        >
-          HOMEWORK
-        </div>
-
-
-        <div
-          class="winner-name"
-          id="winner-name"
-        ></div>
-
-
-        <div
-          class="winner-time"
-          id="winner-time"
-        ></div>
-
-
-        <!-- LETTER STORY -->
-
-        <div class="winner-story">
-
-          <div class="winner-story-kicker">
-
-            The letters behind the challenge
-
-          </div>
-
-
-          <div class="winner-story-grid">
-
-
-            <div class="winner-person">
-
-              <b>S</b>
-
-              <span>
-                Adam S.
-              </span>
-
-            </div>
-
-
-            <div class="winner-person">
-
-              <b>S</b>
-
-              <span>
-                Andrea S.
-              </span>
-
-            </div>
-
-
-            <div class="winner-person">
-
-              <b>O</b>
-
-              <span>
-                Andres O.
-              </span>
-
-            </div>
-
-
-            <div class="winner-person">
-
-              <b>W</b>
-
-              <span>
-                Anna W.
-              </span>
-
-            </div>
-
-
-            <div class="winner-person">
-
-              <b>H</b>
-
-              <span>
-                Ayube H.
-              </span>
-
-            </div>
-
-
-            <div class="winner-person">
-
-              <b>E</b>
-
-              <span>
-                Chiric E.
-              </span>
-
-            </div>
-
-
-            <div class="winner-person">
-
-              <b>G</b>
-
-              <span>
-                Daniel G.
-              </span>
-
-            </div>
-
-
-            <div class="winner-person">
-
-              <b>K</b>
-
-              <span>
-                Daniel K.
-              </span>
-
-            </div>
-
-
-            <div class="winner-person">
-
-              <b>H</b>
-
-              <span>
-                Fabiana H.
-              </span>
-
-            </div>
-
-
-            <div class="winner-person">
-
-              <b>R</b>
-
-              <span>
-                Juan R.
-              </span>
-
-            </div>
-
-
-            <div class="winner-person">
-
-              <b>M</b>
-
-              <span>
-                Marisa M.
-              </span>
-
-            </div>
-
-
-            <div class="winner-person">
-
-              <b>G</b>
-
-              <span>
-                Monica G.
-              </span>
-
-            </div>
-
-
-            <div class="winner-person">
-
-              <b>V</b>
-
-              <span>
-                Raul V.
-              </span>
-
-            </div>
-
-
-            <div class="winner-person mystery">
-
-              <b>O</b>
-
-              <span>
-                One extra O
-              </span>
-
-            </div>
-
-
-          </div>
-
-        </div>
-
-      </div>
+    <div class="info-icon">
+      🍿
+    </div>
+
+    <div class="info-title">
+      Enjoy
+    </div>
+
+    <div class="info-text">
+
+      Colleagues who participate in the
+      games and challenges can enjoy snacks
+      and drinks provided by the XB-IT teams.
 
     </div>
 
@@ -1858,152 +1597,437 @@ h1 span{
 
 
 <!-- =======================================================
-     HOW IT WAS MADE
-======================================================= -->
+     SCRABBLE SECTION
+======================================================== -->
 
 <section
+  id="scrabble-challenge"
   class="section"
-  id="how-made"
 >
 
-  <div class="kicker">
-    Behind the challenge
+  <div class="section-eyebrow">
+    Featured Challenge
   </div>
 
+  <h2 class="section-title">
 
-  <h2>
-
-    Designed like a product.<br>
-
-    Built like a game.
+    The Halloween<br>
+    Word Challenge.
 
   </h2>
 
+  <p class="section-description">
 
-  <p class="lead">
-
-    The experience is intentionally simple on the surface.
-    Underneath, it combines an interactive board, live
-    submissions, a protected first-winner check,
-    and a Google Sheet backend.
+    Select letters from the board below to build
+    your answer. There is only one winning word.
+    The first person to find it wins.
 
   </p>
 
 
-  <div class="made">
+  <div
+    id="challenge"
+    class="challenge"
+  >
 
 
-    <!-- STEP CARD -->
+    <!-- CHALLENGE ENDED -->
 
-    <div class="card">
-
-      <div class="steps">
-
-
-        <div class="step">
-
-          <div class="num">
-            01
-          </div>
-
-          <div>
-
-            <h3>
-              Choose
-            </h3>
-
-            <p>
-
-              Every tile is interactive.
-              Selected letters move into the answer
-              builder in the exact order you choose.
-
-            </p>
-
-          </div>
-
-        </div>
+    <div
+      id="challengeEndedBanner"
+      class="challenge-ended-banner"
+    ></div>
 
 
-        <div class="step">
+    <div class="challenge-header">
 
-          <div class="num">
-            02
-          </div>
+      <div class="challenge-title">
+        Build your word
+      </div>
 
-          <div>
+      <div class="challenge-subtitle">
+        Tap the tiles to add letters to your answer.
+      </div>
 
-            <h3>
-              Submit
-            </h3>
-
-            <p>
-
-              Your name and answer are sent to the
-              challenge backend and recorded for
-              the live activity feed.
-
-            </p>
-
-          </div>
-
-        </div>
+    </div>
 
 
-        <div class="step">
+    <!-- ANSWER -->
 
-          <div class="num">
-            03
-          </div>
+    <div class="answer-builder">
 
-          <div>
+      <div class="answer-label">
+        Your word
+      </div>
 
-            <h3>
-              Win
-            </h3>
+      <div
+        id="answerDisplay"
+        class="answer-display"
+      >
 
-            <p>
+        <span class="answer-placeholder">
+          Select letters from the board
+        </span>
 
-              The first correct submission locks only
-              the challenge and reveals the winner
-              without taking down the event page.
+      </div>
 
-            </p>
 
-          </div>
+      <div class="builder-controls">
 
-        </div>
+        <button
+          type="button"
+          class="small-button"
+          id="backspaceButton"
+        >
+          ← Delete
+        </button>
 
+        <button
+          type="button"
+          class="small-button"
+          id="clearButton"
+        >
+          Clear
+        </button>
 
       </div>
 
     </div>
 
 
-    <!-- DESIGN CARD -->
+    <!-- INTERACTIVE BOARD -->
 
-    <div class="card">
+    <div class="board-area">
 
-      <div class="icon">
-        ⌁
+      <div
+        id="scrabbleBoard"
+        class="scrabble-board"
+      ></div>
+
+    </div>
+
+
+    <!-- FORM -->
+
+    <div class="form-container">
+
+      <form id="gameForm">
+
+        <label for="name">
+          Your name
+        </label>
+
+        <input
+          id="name"
+          name="name"
+          type="text"
+          maxlength="60"
+          autocomplete="name"
+          placeholder="Enter your name"
+          required
+        >
+
+
+        <label for="word">
+          Your answer
+        </label>
+
+        <input
+          id="word"
+          name="word"
+          type="text"
+          maxlength="30"
+          autocomplete="off"
+          autocapitalize="characters"
+          placeholder="Build it above or type it here"
+          required
+        >
+
+
+        <button
+          id="submitButton"
+          class="submit-button"
+          type="submit"
+        >
+          Submit Answer
+        </button>
+
+      </form>
+
+
+      <div
+        id="status"
+        class="status"
+      ></div>
+
+    </div>
+
+
+    <!-- LIVE -->
+
+    <div class="live">
+
+      <div class="live-header">
+
+        <div class="live-title">
+          Live Activity
+        </div>
+
+        <div
+          id="liveCount"
+          class="live-count"
+        >
+          0 attempts
+        </div>
+
+      </div>
+
+      <div
+        id="activity"
+        class="activity"
+      >
+
+        <div class="activity-row">
+
+          <span class="activity-name">
+            Waiting for players...
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     HOW THE CHALLENGE WAS MADE
+======================================================== -->
+
+<section class="made-section">
+
+  <div class="section-eyebrow">
+    Behind the Challenge
+  </div>
+
+  <h2 class="section-title">
+
+    How the Scrabble<br>
+    challenge was made.
+
+  </h2>
+
+  <p class="section-description">
+
+    This challenge was designed specifically for
+    the XB-IT Halloween event. The board is more
+    than a collection of random letters.
+
+  </p>
+
+
+  <div class="made-card">
+
+
+    <div class="made-panel">
+
+      <div class="made-number">
+        01
       </div>
 
       <h3>
-        Apple-inspired interaction
+        The letters have a story.
       </h3>
 
       <p>
 
-        Large typography, restrained glass surfaces,
-        soft depth, subtle motion, high-contrast
-        controls, and a mobile-first layout keep the
-        experience feeling premium instead of like
-        a generic event form.
+        Each letter was created from the first
+        initial of the last name of members of
+        our XB-IT team. The result is a custom
+        letter rack created specifically for
+        our event.
 
       </p>
 
     </div>
 
+
+    <div class="made-panel">
+
+      <div class="made-number">
+        02
+      </div>
+
+      <h3>
+        One word wins.
+      </h3>
+
+      <p>
+
+        The challenge is intentionally designed
+        so that finding a valid smaller word is
+        not enough. Participants need to figure
+        out the one word that uses the available
+        letters to solve the challenge.
+
+      </p>
+
+    </div>
+
+
+    <div class="made-panel">
+
+      <div class="made-number">
+        03
+      </div>
+
+      <h3>
+        The board is interactive.
+      </h3>
+
+      <p>
+
+        Tap the physical-looking Scrabble tiles
+        on the screen to build your answer.
+        Selected tiles lift from the board,
+        making the challenge feel like a real
+        tabletop game.
+
+      </p>
+
+    </div>
+
+
+    <div class="made-panel">
+
+      <div class="made-number">
+        04
+      </div>
+
+      <h3>
+        The first player wins.
+      </h3>
+
+      <p>
+
+        Every submission is recorded. The first
+        participant to submit the winning answer
+        locks the challenge and becomes the
+        Halloween Word Challenge winner.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     WINNER
+     Hidden until HOMEWORK is successfully submitted.
+======================================================== -->
+
+<section
+  id="winnerScreen"
+  class="winner-screen"
+>
+
+  <div class="winner-eyebrow">
+    Challenge Complete
+  </div>
+
+  <div
+    id="winnerWord"
+    class="winner-word"
+  ></div>
+
+  <div
+    id="winnerName"
+    class="winner-name"
+  ></div>
+
+  <div class="winner-message">
+
+    The Halloween Word Challenge has ended.
+    The winning word has been found.
+
+  </div>
+
+
+  <!-- LETTER REVEAL ONLY AFTER WINNER -->
+
+  <div class="reveal">
+
+    <div class="reveal-title">
+      The letters behind the challenge
+    </div>
+
+    <div class="reveal-grid">
+
+      <div class="reveal-item">
+        S · Adam S.
+      </div>
+
+      <div class="reveal-item">
+        S · Andrea S.
+      </div>
+
+      <div class="reveal-item">
+        O · Andres O.
+      </div>
+
+      <div class="reveal-item">
+        W · Anna W.
+      </div>
+
+      <div class="reveal-item">
+        H · Ayube H.
+      </div>
+
+      <div class="reveal-item">
+        E · Chiric E.
+      </div>
+
+      <div class="reveal-item">
+        G · Daniel G.
+      </div>
+
+      <div class="reveal-item">
+        K · Daniel K.
+      </div>
+
+      <div class="reveal-item">
+        H · Fabiana H.
+      </div>
+
+      <div class="reveal-item">
+        R · Juan R.
+      </div>
+
+      <div class="reveal-item">
+        M · Marisa M.
+      </div>
+
+      <div class="reveal-item">
+        G · Monica G.
+      </div>
+
+      <div class="reveal-item">
+        V · Raul V.
+      </div>
+
+      <div class="reveal-item">
+        O · One extra O
+      </div>
+
+    </div>
 
   </div>
 
@@ -2012,19 +2036,13 @@ h1 span{
 
 <!-- =======================================================
      FOOTER
-======================================================= -->
+======================================================== -->
 
-<footer class="footer">
+<div class="footer">
 
-  <span>
-    XB × IT Halloween Team Event
-  </span>
+  XB × IT Halloween Team Event · 2026
 
-  <span>
-    Made for the Weston office · 2026
-  </span>
-
-</footer>
+</div>
 
 
 </div>
@@ -2033,140 +2051,241 @@ h1 span{
 <script>
 
 /* =========================================================
-   CONFIGURATION
+   APPS SCRIPT URL
 ========================================================= */
 
 const API_URL =
-  'https://script.google.com/macros/s/AKfycbzZqOZWVfd__I3IQ-7jTcSudmCF__ge5vrC7mv3jjeFwvwFtbumNtZFIfDZB-_tDfj0/exec';
+  "https://script.google.com/macros/s/AKfycbzZqOZWVfd__I3IQ-7jTcSudmCF__ge5vrC7mv3jjeFwvwFtbumNtZFIfDZB-_tDfj0/exec";
 
 
 /* =========================================================
-   TILES
+   WINNING WORD
 ========================================================= */
 
-const TILES = [
+const WINNING_WORD =
+  "HOMEWORK";
 
-  ['S',1],
-  ['S',1],
 
-  ['O',1],
-  ['O',1],
+/* =========================================================
+   TILE DATA
+========================================================= */
 
-  ['W',4],
+const tiles = [
 
-  ['H',4],
-  ['H',4],
+  { letter: "S", value: 1 },
+  { letter: "S", value: 1 },
 
-  ['E',1],
+  { letter: "O", value: 1 },
+  { letter: "O", value: 1 },
 
-  ['G',2],
-  ['G',2],
+  { letter: "W", value: 4 },
 
-  ['K',5],
+  { letter: "H", value: 4 },
+  { letter: "H", value: 4 },
 
-  ['R',1],
+  { letter: "E", value: 1 },
 
-  ['M',3],
+  { letter: "G", value: 2 },
+  { letter: "G", value: 2 },
 
-  ['V',4]
+  { letter: "K", value: 5 },
+
+  { letter: "R", value: 1 },
+
+  { letter: "M", value: 3 },
+
+  { letter: "V", value: 4 }
 
 ];
 
 
 /* =========================================================
-   SCRAMBLED BOARD
+   ELEMENTS
 ========================================================= */
 
-const LAYOUT = [
+const board =
+  document.getElementById(
+    "scrabbleBoard"
+  );
 
-  null, 0, null, 2, null, 4, 5,
+const answerDisplay =
+  document.getElementById(
+    "answerDisplay"
+  );
 
-  7, null, 8, null, 6, 9, 3,
+const wordInput =
+  document.getElementById(
+    "word"
+  );
 
-  10, null, 12, 11, null, 13, 1
+const nameInput =
+  document.getElementById(
+    "name"
+  );
 
-];
+const form =
+  document.getElementById(
+    "gameForm"
+  );
+
+const submitButton =
+  document.getElementById(
+    "submitButton"
+  );
+
+const status =
+  document.getElementById(
+    "status"
+  );
+
+const liveCount =
+  document.getElementById(
+    "liveCount"
+  );
+
+const activity =
+  document.getElementById(
+    "activity"
+  );
+
+const winnerScreen =
+  document.getElementById(
+    "winnerScreen"
+  );
+
+const winnerWord =
+  document.getElementById(
+    "winnerWord"
+  );
+
+const winnerName =
+  document.getElementById(
+    "winnerName"
+  );
+
+const challenge =
+  document.getElementById(
+    "challenge"
+  );
+
+const challengeEndedBanner =
+  document.getElementById(
+    "challengeEndedBanner"
+  );
+
+const clearButton =
+  document.getElementById(
+    "clearButton"
+  );
+
+const backspaceButton =
+  document.getElementById(
+    "backspaceButton"
+  );
 
 
-/* =========================================================
-   STATE
-========================================================= */
-
-let selected = [];
+let selectedTiles = [];
 
 let gameOver = false;
-
-
-/* =========================================================
-   HELPER
-========================================================= */
-
-const $ = id =>
-  document.getElementById(id);
 
 
 /* =========================================================
    CREATE BOARD
 ========================================================= */
 
-function createBoard(){
+function createBoard() {
 
-  const board =
-    $('board');
+  board.innerHTML = "";
 
-  board.innerHTML = '';
+  /*
+    21 total board positions.
+
+    14 positions contain tiles.
+    7 positions are empty squares.
+
+    The tiles are deliberately scrambled.
+  */
+
+  const boardLayout = [
+
+    null, 0, null, 2, null, 4, 5,
+
+    7, null, 8, null, 6, 9, 3,
+
+    10, null, 12, 11, null, 13, 1
+
+  ];
 
 
-  LAYOUT.forEach(index => {
+  boardLayout.forEach(
+    function(tileIndex) {
 
-    if(index === null){
+      if (tileIndex === null) {
 
-      const slot =
-        document.createElement('div');
+        const square =
+          document.createElement(
+            "div"
+          );
 
-      slot.className =
-        'slot';
+        square.className =
+          "board-square";
 
-      board.appendChild(slot);
+        board.appendChild(
+          square
+        );
 
-      return;
+        return;
+      }
+
+
+      const tile =
+        tiles[tileIndex];
+
+
+      const button =
+        document.createElement(
+          "button"
+        );
+
+
+      button.type =
+        "button";
+
+      button.className =
+        "scrabble-tile";
+
+      button.dataset.index =
+        tileIndex;
+
+
+      button.innerHTML = `
+        ${tile.letter}
+
+        <span class="tile-value">
+          ${tile.value}
+        </span>
+      `;
+
+
+      button.addEventListener(
+        "click",
+        function() {
+
+          selectTile(
+            tileIndex,
+            button
+          );
+
+        }
+      );
+
+
+      board.appendChild(
+        button
+      );
 
     }
-
-
-    const [
-      letter,
-      value
-    ] = TILES[index];
-
-
-    const button =
-      document.createElement('button');
-
-    button.type =
-      'button';
-
-    button.className =
-      'tile';
-
-    button.dataset.i =
-      index;
-
-
-    button.innerHTML =
-      letter +
-      '<span class="val">' +
-      value +
-      '</span>';
-
-
-    button.onclick =
-      () => selectTile(index);
-
-
-    board.appendChild(button);
-
-  });
+  );
 
 }
 
@@ -2175,31 +2294,41 @@ function createBoard(){
    SELECT TILE
 ========================================================= */
 
-function selectTile(index){
+function selectTile(
+  tileIndex,
+  button
+) {
 
-  if(gameOver)
+  if (gameOver) {
     return;
+  }
 
 
-  if(selected.includes(index))
-    return;
-
-
-  selected.push(index);
-
-
-  const tile =
-    document.querySelector(
-      '.tile[data-i="' +
-      index +
-      '"]'
+  const existing =
+    selectedTiles.indexOf(
+      tileIndex
     );
 
 
-  if(tile){
+  if (existing !== -1) {
 
-    tile.classList.add(
-      'selected'
+    selectedTiles.splice(
+      existing,
+      1
+    );
+
+    button.classList.remove(
+      "selected"
+    );
+
+  } else {
+
+    selectedTiles.push(
+      tileIndex
+    );
+
+    button.classList.add(
+      "selected"
     );
 
   }
@@ -2214,112 +2343,201 @@ function selectTile(index){
    UPDATE ANSWER
 ========================================================= */
 
-function updateAnswer(){
+function updateAnswer() {
 
-  const box =
-    $('answer');
+  const word =
+    selectedTiles
+      .map(
+        function(index) {
+
+          return tiles[index].letter;
+
+        }
+      )
+      .join("");
 
 
-  if(!selected.length){
+  if (!word) {
 
-    box.innerHTML =
-      '<span class="placeholder">' +
-      'Tap the letters above' +
-      '</span>';
+    answerDisplay.innerHTML = `
+      <span class="answer-placeholder">
+        Select letters from the board
+      </span>
+    `;
 
-    return;
+  } else {
+
+    answerDisplay.textContent =
+      word;
 
   }
 
 
-  box.textContent =
-    selected
-      .map(index =>
-        TILES[index][0]
-      )
-      .join('');
+  wordInput.value =
+    word;
 
 }
 
 
 /* =========================================================
-   CLEAR ANSWER
+   CLEAR
 ========================================================= */
 
-function clearAnswer(){
+clearButton.addEventListener(
+  "click",
+  function() {
 
-  if(gameOver)
-    return;
+    if (gameOver) {
+      return;
+    }
 
 
-  selected = [];
+    selectedTiles = [];
 
 
-  document
-    .querySelectorAll(
-      '.tile.selected'
-    )
-    .forEach(tile =>
-      tile.classList.remove(
-        'selected'
+    document
+      .querySelectorAll(
+        ".scrabble-tile.selected"
       )
-    );
+      .forEach(
+        function(tile) {
+
+          tile.classList.remove(
+            "selected"
+          );
+
+        }
+      );
 
 
-  updateAnswer();
+    wordInput.value = "";
 
-}
+    updateAnswer();
+
+  }
+);
 
 
 /* =========================================================
    BACKSPACE
 ========================================================= */
 
-function backspace(){
+backspaceButton.addEventListener(
+  "click",
+  function() {
 
-  if(gameOver)
-    return;
-
-
-  if(!selected.length)
-    return;
-
-
-  const index =
-    selected.pop();
+    if (gameOver) {
+      return;
+    }
 
 
-  const tile =
-    document.querySelector(
-      '.tile[data-i="' +
-      index +
-      '"]'
-    );
+    if (!selectedTiles.length) {
+      return;
+    }
 
 
-  if(tile){
+    selectedTiles.pop();
 
-    tile.classList.remove(
-      'selected'
-    );
+
+    document
+      .querySelectorAll(
+        ".scrabble-tile"
+      )
+      .forEach(
+        function(tile) {
+
+          const index =
+            Number(
+              tile.dataset.index
+            );
+
+
+          if (
+            selectedTiles.indexOf(
+              index
+            ) === -1
+          ) {
+
+            tile.classList.remove(
+              "selected"
+            );
+
+          }
+
+        }
+      );
+
+
+    updateAnswer();
 
   }
-
-
-  updateAnswer();
-
-}
+);
 
 
 /* =========================================================
-   BUTTONS
+   MANUAL INPUT
 ========================================================= */
 
-$('clear').onclick =
-  clearAnswer;
+wordInput.addEventListener(
+  "input",
+  function() {
 
-$('backspace').onclick =
-  backspace;
+    if (gameOver) {
+      return;
+    }
+
+
+    const typed =
+      wordInput.value
+        .replace(
+          /[^a-zA-Z]/g,
+          ""
+        )
+        .toUpperCase();
+
+
+    wordInput.value =
+      typed;
+
+
+    const selectedWord =
+      selectedTiles
+        .map(
+          function(index) {
+
+            return tiles[index].letter;
+
+          }
+        )
+        .join("");
+
+
+    if (
+      typed !==
+      selectedWord
+    ) {
+
+      selectedTiles = [];
+
+
+      document
+        .querySelectorAll(
+          ".scrabble-tile.selected"
+        )
+        .forEach(
+          function(tile) {
+
+            tile.classList.remove(
+              "selected"
+            );
+
+          }
+        );
+
+    }
+
+  }
+);
 
 
 /* =========================================================
@@ -2328,49 +2546,14 @@ $('backspace').onclick =
 
 function setStatus(
   message,
-  type = ''
-){
-
-  const status =
-    $('status');
-
+  type = ""
+) {
 
   status.textContent =
     message;
 
-
   status.className =
-    'status ' +
-    type;
-
-}
-
-
-/* =========================================================
-   ESCAPE HTML
-========================================================= */
-
-function escapeHtml(value){
-
-  return String(value).replace(
-    /[&<>'"]/g,
-    character => {
-
-      const map = {
-
-        '&':'&amp;',
-        '<':'&lt;',
-        '>':'&gt;',
-        "'":'&#39;',
-        '"':'&quot;'
-
-      };
-
-
-      return map[character];
-
-    }
-  );
+    "status " + type;
 
 }
 
@@ -2379,234 +2562,168 @@ function escapeHtml(value){
    LIVE ACTIVITY
 ========================================================= */
 
-function renderActivity(
-  recent = [],
-  attempts = 0
-){
+function updateLiveActivity(
+  data
+) {
 
-  $('attempts').textContent =
+  if (!data) {
+    return;
+  }
+
+
+  const attempts =
+    Number(
+      data.attempts || 0
+    );
+
+
+  liveCount.textContent =
     attempts +
-    ' attempt' +
-    (attempts === 1
-      ? ''
-      : 's');
+    (
+      attempts === 1
+        ? " attempt"
+        : " attempts"
+    );
 
 
-  const activity =
-    $('activity-list');
-
-
-  if(!recent.length){
+  if (
+    !data.recent ||
+    !data.recent.length
+  ) {
 
     activity.innerHTML = `
-
       <div class="activity-row">
 
-        <span>
-          Waiting for the first attempt…
-        </span>
-
-        <span>
-          —
+        <span class="activity-name">
+          Waiting for players...
         </span>
 
       </div>
-
     `;
 
     return;
-
   }
 
 
   activity.innerHTML =
-    recent
-      .map(row => `
+    data.recent
+      .map(
+        function(item) {
 
-        <div class="activity-row">
+          return `
+            <div class="activity-row">
 
-          <span>
-            ${escapeHtml(
-              row.name ||
-              'Player'
-            )}
-          </span>
+              <span class="activity-name">
+                ${escapeHtml(item.name)}
+              </span>
 
-          <span class="activity-word">
+              <span class="activity-word">
+                ${escapeHtml(item.word)}
+              </span>
 
-            ${escapeHtml(
-              row.word ||
-              '—'
-            )}
+            </div>
+          `;
 
-          </span>
-
-        </div>
-
-      `)
-      .join('');
+        }
+      )
+      .join("");
 
 }
 
 
 /* =========================================================
-   LOCK CHALLENGE
+   ESCAPE HTML
 ========================================================= */
 
-function lockChallenge(
-  winner,
-  word,
-  timestamp
-){
+function escapeHtml(
+  value
+) {
 
-  if(gameOver)
-    return;
+  return String(
+    value || ""
+  )
 
+    .replace(
+      /&/g,
+      "&amp;"
+    )
 
-  gameOver =
-    true;
+    .replace(
+      /</g,
+      "&lt;"
+    )
 
+    .replace(
+      />/g,
+      "&gt;"
+    )
 
-  /*
-    Only the challenge locks.
-    The rest of the event page remains accessible.
-  */
+    .replace(
+      /"/g,
+      "&quot;"
+    )
 
-  const feature =
-    document.querySelector(
-      '.feature'
+    .replace(
+      /'/g,
+      "&#039;"
     );
 
-
-  feature.classList.add(
-    'locked'
-  );
-
-
-  $('ended').textContent =
-    winner +
-    ' won the Halloween Word Challenge with ' +
-    word +
-    '.';
-
-
-  $('winner-name').textContent =
-    winner +
-    ' is the winner.';
-
-
-  $('winner-word').textContent =
-    word;
-
-
-  $('winner-time').textContent =
-    timestamp
-      ? 'Winning submission recorded live.'
-      : '';
-
-
-  /*
-    The entire winner card contains:
-    1. Challenge Complete
-    2. Winning word
-    3. Winner
-    4. Letters behind the challenge
-  */
-
-  $('winner')
-    .classList
-    .add('show');
-
-
-  /*
-    Disable only game controls.
-  */
-
-  document
-    .querySelectorAll(
-      '.tile,' +
-      '.mini,' +
-      '#submit,' +
-      '#name'
-    )
-    .forEach(element => {
-
-      element.disabled =
-        true;
-
-    });
-
-
-  $('submit').textContent =
-    'Challenge Ended';
-
-
-  setStatus(
-    'The challenge is complete.',
-    'good'
-  );
-
-
-  confetti();
-
 }
 
 
 /* =========================================================
-   CHECK GAME STATUS
+   GAME STATUS
 ========================================================= */
 
-async function checkStatus(){
+async function checkGameStatus() {
 
-  if(gameOver)
+  if (gameOver) {
     return;
+  }
 
 
-  try{
+  try {
 
     const response =
       await fetch(
-        API_URL +
-        '?t=' +
-        Date.now(),
+        API_URL,
         {
-          cache:'no-store'
+          method: "GET",
+          cache: "no-store"
         }
       );
+
+
+    if (!response.ok) {
+      return;
+    }
 
 
     const data =
       await response.json();
 
 
-    renderActivity(
-      data.recent ||
-      [],
-      data.attempts ||
-      0
+    updateLiveActivity(
+      data
     );
 
 
-    if(data.gameOver){
+    if (
+      data.gameOver
+    ) {
 
-      lockChallenge(
-        data.winner ||
-        'Someone',
-
-        data.word ||
-        'HOMEWORK',
-
-        data.timestamp
+      showWinner(
+        data.winner,
+        data.word
       );
 
     }
 
-  }catch(error){
+  } catch (error) {
 
-    /*
-      Keep the game usable if
-      a polling request temporarily fails.
-    */
+    console.log(
+      "Status check failed."
+    );
 
   }
 
@@ -2617,228 +2734,365 @@ async function checkStatus(){
    SUBMIT ANSWER
 ========================================================= */
 
-$('submit').onclick =
-  async function(){
+form.addEventListener(
+  "submit",
+  async function(event) {
 
-    if(gameOver)
+    event.preventDefault();
+
+
+    if (gameOver) {
       return;
+    }
 
 
     const name =
-      $('name')
-        .value
-        .trim();
+      nameInput.value.trim();
 
 
     const word =
-      selected
-        .map(index =>
-          TILES[index][0]
-        )
-        .join('');
+      wordInput.value
+        .trim()
+        .toUpperCase();
 
 
-    if(!name){
+    if (!name) {
 
       setStatus(
-        'Please enter your name.',
-        'bad'
+        "Please enter your name.",
+        "error"
       );
 
-      return;
+      nameInput.focus();
 
+      return;
     }
 
 
-    if(!word){
+    if (!word) {
 
       setStatus(
-        'Please build a word first.',
-        'bad'
+        "Please build a word first.",
+        "error"
       );
 
       return;
-
     }
 
 
-    $('submit').disabled =
+    submitButton.disabled =
       true;
+
+    submitButton.textContent =
+      "Checking...";
 
 
     setStatus(
-      'Checking your answer…'
+      "Checking your answer..."
     );
 
 
-    try{
+    try {
 
-      const url =
+      /*
+        GET is intentionally used here.
+
+        This avoids the cross-origin POST issue
+        between GitHub Pages and Google Apps Script.
+      */
+
+      const submissionUrl =
         API_URL +
-        '?action=submit' +
-        '&name=' +
-        encodeURIComponent(name) +
-        '&word=' +
-        encodeURIComponent(word);
+        "?action=submit" +
+        "&name=" +
+        encodeURIComponent(
+          name
+        ) +
+        "&word=" +
+        encodeURIComponent(
+          word
+        );
 
 
       const response =
         await fetch(
-          url,
+          submissionUrl,
           {
-            cache:'no-store'
+            method: "GET",
+            cache: "no-store"
           }
         );
+
+
+      if (!response.ok) {
+
+        throw new Error(
+          "Request failed"
+        );
+
+      }
 
 
       const data =
         await response.json();
 
 
-      /*
-        WINNER
-      */
+      /* -----------------------------------------
+         GAME ALREADY OVER
+      ----------------------------------------- */
 
-      if(data.winner){
+      if (
+        data.gameOver
+      ) {
 
-        lockChallenge(
-          data.name ||
-          name,
-
-          data.word ||
-          word,
-
-          data.timestamp
-        );
-
-
-        setStatus(
-          'You found the winning word!',
-          'good'
-        );
-
-
-        return;
-
-      }
-
-
-      /*
-        SOMEONE ELSE WON
-      */
-
-      if(data.gameOver){
-
-        lockChallenge(
+        showWinner(
           data.winner,
           data.word
         );
 
-
-        setStatus(
-          'The challenge has already ended.',
-          'bad'
-        );
-
-
         return;
-
       }
 
 
-      /*
-        WRONG ANSWER
-      */
+      /* -----------------------------------------
+         WINNER
+      ----------------------------------------- */
+
+      if (
+        data.winner
+      ) {
+
+        showWinner(
+          data.name,
+          data.word
+        );
+
+        return;
+      }
+
+
+      /* -----------------------------------------
+         WRONG ANSWER
+      ----------------------------------------- */
 
       setStatus(
         data.message ||
-        'Not the largest word. Try again.',
-        'bad'
+        "Not the largest word. Try again.",
+        "error"
       );
 
 
-      renderActivity(
-        data.recent ||
-        [],
+      wordInput.select();
 
-        data.attempts ||
-        0
+
+      checkGameStatus();
+
+
+    } catch (error) {
+
+      console.error(
+        error
       );
 
-
-      $('submit').disabled =
-        false;
-
-
-    }catch(error){
 
       setStatus(
-        'Unable to reach the challenge server. Please try again.',
-        'bad'
+        "Unable to connect. Please try again.",
+        "error"
       );
 
+    } finally {
 
-      $('submit').disabled =
-        false;
+      if (!gameOver) {
+
+        submitButton.disabled =
+          false;
+
+        submitButton.textContent =
+          "Submit Answer";
+
+      }
 
     }
 
-  };
+  }
+);
+
+
+/* =========================================================
+   LOCK ONLY THE SCRABBLE CHALLENGE
+========================================================= */
+
+function lockChallenge(
+  winner,
+  word
+) {
+
+  challenge.classList.add(
+    "challenge-ended"
+  );
+
+
+  challengeEndedBanner.innerHTML = `
+    <strong>Challenge Ended</strong><br>
+    ${escapeHtml(winner)}
+    won the Halloween Word Challenge
+    with ${escapeHtml(word || WINNING_WORD)}.
+  `;
+
+
+  document
+    .querySelectorAll(
+      "#challenge input"
+    )
+    .forEach(
+      function(input) {
+
+        input.disabled = true;
+
+      }
+    );
+
+
+  document
+    .querySelectorAll(
+      "#challenge button"
+    )
+    .forEach(
+      function(button) {
+
+        button.disabled = true;
+
+      }
+    );
+
+
+  submitButton.textContent =
+    "Challenge Ended";
+
+
+  setStatus(
+    "The challenge has ended.",
+    "success"
+  );
+
+}
+
+
+/* =========================================================
+   SHOW WINNER
+========================================================= */
+
+function showWinner(
+  name,
+  word
+) {
+
+  if (gameOver) {
+    return;
+  }
+
+
+  gameOver =
+    true;
+
+
+  const finalWord =
+    word ||
+    WINNING_WORD;
+
+
+  const finalName =
+    name ||
+    "The winner";
+
+
+  winnerWord.textContent =
+    finalWord;
+
+
+  winnerName.textContent =
+    finalName +
+    " found the winning word.";
+
+
+  /*
+    IMPORTANT:
+    Only the Scrabble challenge is locked.
+
+    The rest of the webpage remains visible
+    and accessible.
+  */
+
+  lockChallenge(
+    finalName,
+    finalWord
+  );
+
+
+  winnerScreen.classList.add(
+    "show"
+  );
+
+
+  createConfetti();
+
+
+  /*
+    Bring the winner announcement into view
+    without hiding the rest of the page.
+  */
+
+  setTimeout(
+    function() {
+
+      winnerScreen.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+    },
+    150
+  );
+
+}
 
 
 /* =========================================================
    CONFETTI
 ========================================================= */
 
-function confetti(){
+function createConfetti() {
 
-  for(
+  for (
     let i = 0;
-    i < 80;
+    i < 90;
     i++
-  ){
+  ) {
 
     const piece =
-      document.createElement('i');
+      document.createElement(
+        "div"
+      );
 
 
     piece.className =
-      'confetti';
+      "confetti";
 
 
     piece.style.left =
-      Math.random() *
-      100 +
-      'vw';
+      Math.random() * 100 +
+      "%";
 
 
-    piece.style.setProperty(
-      '--x',
-      (
-        Math.random() *
-        240 -
-        120
-      ) +
-      'px'
-    );
+    piece.style.animationDelay =
+      Math.random() * .8 +
+      "s";
 
 
-    piece.style.animationDuration =
-      (
-        2.4 +
-        Math.random() *
-        2.8
-      ) +
-      's';
-
-
-    piece.style.background =
-      [
-        '#ff9f0a',
-        '#f5d9a5',
-        '#ffffff',
-        '#30d158'
-      ][i % 4];
+    piece.style.transform =
+      "rotate(" +
+      Math.random() * 360 +
+      "deg)";
 
 
     document.body.appendChild(
@@ -2847,9 +3101,12 @@ function confetti(){
 
 
     setTimeout(
-      () =>
-        piece.remove(),
-      6000
+      function() {
+
+        piece.remove();
+
+      },
+      3500
     );
 
   }
@@ -2863,21 +3120,20 @@ function confetti(){
 
 createBoard();
 
-checkStatus();
+checkGameStatus();
 
 
-/*
-  Refresh live activity every 5 seconds.
-  Polling automatically stops when
-  the challenge is complete.
-*/
+/* =========================================================
+   LIVE POLLING
+========================================================= */
 
 setInterval(
-  checkStatus,
-  5000
+  checkGameStatus,
+  15000
 );
 
 </script>
 
 </body>
+
 </html>
