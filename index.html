@@ -52,7 +52,9 @@ body{
   overflow-x:hidden;
 }
 
-/* subtle cinematic grain */
+/* =========================================================
+   CINEMATIC GRAIN
+========================================================= */
 
 body:before{
   content:"";
@@ -101,8 +103,9 @@ body:before{
   padding:20px 0 90px;
 }
 
+
 /* =========================================================
-   NAV
+   NAVIGATION
 ========================================================= */
 
 .nav{
@@ -127,6 +130,7 @@ body:before{
   background:rgba(255,255,255,.035);
   backdrop-filter:blur(20px);
 }
+
 
 /* =========================================================
    HERO
@@ -348,6 +352,7 @@ h1 span{
     rgba(255,255,255,.11);
 }
 
+
 /* =========================================================
    SECTIONS
 ========================================================= */
@@ -392,54 +397,6 @@ h1 span{
   margin-top:18px;
 }
 
-/* =========================================================
-   INFO CARDS
-========================================================= */
-
-.cards{
-  display:grid;
-
-  grid-template-columns:
-    repeat(3,1fr);
-
-  gap:14px;
-
-  margin-top:30px;
-}
-
-.card{
-  padding:27px;
-
-  border:1px solid var(--line);
-
-  background:var(--panel);
-
-  border-radius:24px;
-
-  min-height:180px;
-
-  backdrop-filter:blur(24px);
-}
-
-.icon{
-  font-size:28px;
-  margin-bottom:20px;
-}
-
-.card h3{
-  margin:0 0 8px;
-  font-size:19px;
-}
-
-.card p{
-  margin:0;
-
-  color:var(--muted);
-
-  line-height:1.55;
-
-  font-size:14px;
-}
 
 /* =========================================================
    SCRABBLE FEATURE
@@ -517,6 +474,7 @@ h1 span{
   margin-top:10px;
 }
 
+
 /* =========================================================
    BOARD
 ========================================================= */
@@ -580,8 +538,9 @@ h1 span{
     1px solid #343434;
 }
 
+
 /* =========================================================
-   TILES
+   LETTER TILES
 ========================================================= */
 
 .tile{
@@ -643,12 +602,14 @@ h1 span{
   font-size:10px;
 }
 
+
 /* =========================================================
    ANSWER
 ========================================================= */
 
 .answer{
   max-width:700px;
+
   margin:0 auto;
 }
 
@@ -730,6 +691,7 @@ h1 span{
   cursor:pointer;
 }
 
+
 /* =========================================================
    FORM
 ========================================================= */
@@ -806,6 +768,7 @@ h1 span{
 
 .submit:disabled{
   opacity:.45;
+
   cursor:default;
 }
 
@@ -828,6 +791,7 @@ h1 span{
 .status.good{
   color:var(--green);
 }
+
 
 /* =========================================================
    ACTIVITY
@@ -889,8 +853,9 @@ h1 span{
   user-select:none;
 }
 
+
 /* =========================================================
-   WINNER
+   CHALLENGE ENDED
 ========================================================= */
 
 .ended{
@@ -919,16 +884,19 @@ h1 span{
   font-weight:700;
 }
 
-.challenge.locked .ended{
+.feature.locked .ended{
   display:block;
 }
 
-.challenge.locked
-.feature-tag
-.live-dot{
+.feature.locked .feature-tag .live-dot{
   background:#8e8e93;
   box-shadow:none;
 }
+
+
+/* =========================================================
+   WINNER
+========================================================= */
 
 .winner{
   display:none;
@@ -937,7 +905,7 @@ h1 span{
 
   text-align:center;
 
-  padding:34px;
+  padding:38px;
 
   border-radius:24px;
 
@@ -947,7 +915,7 @@ h1 span{
   background:
     radial-gradient(
       circle at 50% 0,
-      rgba(255,159,10,.12),
+      rgba(255,159,10,.14),
       transparent 50%
     ),
     rgba(255,255,255,.03);
@@ -966,6 +934,8 @@ h1 span{
   letter-spacing:-.06em;
 
   color:#f5d9a5;
+
+  margin-top:5px;
 }
 
 .winner-name{
@@ -981,6 +951,99 @@ h1 span{
 
   margin-top:8px;
 }
+
+
+/* =========================================================
+   LETTER STORY INSIDE WINNER
+========================================================= */
+
+.winner-story{
+  max-width:760px;
+
+  margin:42px auto 0;
+
+  padding-top:30px;
+
+  border-top:
+    1px solid rgba(255,255,255,.08);
+}
+
+.winner-story-kicker{
+  color:#8e8e93;
+
+  font-size:11px;
+
+  font-weight:800;
+
+  letter-spacing:.14em;
+
+  text-transform:uppercase;
+
+  margin-bottom:17px;
+}
+
+.winner-story-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:8px;
+
+  text-align:left;
+}
+
+.winner-person{
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+
+  padding:9px 11px;
+
+  border-radius:11px;
+
+  background:
+    rgba(255,255,255,.035);
+
+  color:#d1d1d6;
+
+  font-size:13px;
+}
+
+.winner-person b{
+  width:29px;
+  height:29px;
+
+  flex:0 0 29px;
+
+  display:grid;
+
+  place-items:center;
+
+  border-radius:7px;
+
+  background:#cba66d;
+
+  color:#111;
+
+  font-size:12px;
+
+  font-weight:900;
+}
+
+.winner-person.mystery{
+  color:#8e8e93;
+}
+
+.winner-person.mystery b{
+  background:
+    rgba(255,159,10,.2);
+
+  color:#ff9f0a;
+}
+
 
 /* =========================================================
    HOW IT WAS MADE
@@ -999,6 +1062,20 @@ h1 span{
 
 .made .card{
   min-height:210px;
+}
+
+.card{
+  padding:27px;
+
+  border:
+    1px solid var(--line);
+
+  background:
+    var(--panel);
+
+  border-radius:24px;
+
+  backdrop-filter:blur(24px);
 }
 
 .steps{
@@ -1037,7 +1114,8 @@ h1 span{
 }
 
 .step h3{
-  margin:0 0 5px;
+  margin:
+    0 0 5px;
 
   font-size:17px;
 }
@@ -1052,105 +1130,51 @@ h1 span{
   line-height:1.5;
 }
 
-/* =========================================================
-   TEAM STORY
-========================================================= */
+.icon{
+  font-size:28px;
 
-.story{
-  margin-top:14px;
-
-  padding:30px;
-
-  border-radius:25px;
-
-  border:
-    1px solid rgba(255,159,10,.14);
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,159,10,.09),
-      rgba(255,255,255,.025)
-    );
+  margin-bottom:20px;
 }
 
-.story h3{
-  font-size:24px;
-  margin:9px 0 0;
+.card h3{
+  margin:
+    0 0 8px;
+
+  font-size:19px;
 }
 
-.story .lead{
+.card p{
+  margin:0;
+
+  color:var(--muted);
+
+  line-height:1.55;
+
   font-size:14px;
-  margin-top:10px;
 }
 
-.letters{
-  display:grid;
-
-  grid-template-columns:
-    repeat(2,1fr);
-
-  gap:8px;
-
-  margin-top:18px;
-}
-
-.person{
-  display:flex;
-
-  align-items:center;
-
-  gap:9px;
-
-  padding:9px;
-
-  border-radius:10px;
-
-  background:
-    rgba(255,255,255,.04);
-
-  font-size:13px;
-}
-
-.person b{
-  display:grid;
-
-  place-items:center;
-
-  width:29px;
-  height:29px;
-
-  border-radius:7px;
-
-  background:#cba66d;
-
-  color:#111;
-
-  font-size:12px;
-}
 
 /* =========================================================
    FOOTER
 ========================================================= */
 
 .footer{
+  margin-top:110px;
+
+  padding-top:25px;
+
+  border-top:
+    1px solid var(--line);
+
   display:flex;
 
   justify-content:space-between;
 
-  gap:20px;
-
-  margin-top:100px;
-
-  padding-top:24px;
-
-  border-top:
-    1px solid rgba(255,255,255,.07);
-
-  color:#636366;
+  color:#666;
 
   font-size:12px;
 }
+
 
 /* =========================================================
    CONFETTI
@@ -1159,12 +1183,10 @@ h1 span{
 .confetti{
   position:fixed;
 
-  top:-20px;
+  top:-12px;
 
   width:8px;
-  height:13px;
-
-  border-radius:2px;
+  height:14px;
 
   z-index:100;
 
@@ -1175,53 +1197,50 @@ h1 span{
 }
 
 @keyframes fall{
-  0%{
-    transform:
-      translate3d(0,0,0)
-      rotate(0deg);
-    opacity:1;
-  }
 
-  100%{
+  to{
+
     transform:
       translate3d(var(--x),110vh,0)
       rotate(720deg);
+
     opacity:0;
+
   }
+
 }
+
 
 /* =========================================================
    MOBILE
 ========================================================= */
 
-@media(max-width:800px){
+@media(max-width:760px){
 
   .page{
-    width:min(100% - 24px,1180px);
-    padding-top:12px;
-  }
-
-  .nav-pill{
-    font-size:10px;
+    width:
+      min(
+        100% - 22px,
+        1180px
+      );
   }
 
   .hero{
     min-height:610px;
+
     border-radius:28px;
   }
 
   .hero-content{
-    padding:90px 18px 65px;
+    padding:
+      90px 18px 65px;
   }
 
   .moon{
     width:210px;
     height:210px;
-    top:70px;
-  }
 
-  .cards{
-    grid-template-columns:1fr;
+    top:70px;
   }
 
   .feature-inner{
@@ -1229,15 +1248,15 @@ h1 span{
   }
 
   .feature-top{
-    flex-direction:column;
+    display:block;
   }
 
   .board{
     grid-template-columns:
-      repeat(7,54px);
+      repeat(7,51px);
 
     grid-template-rows:
-      repeat(3,54px);
+      repeat(3,51px);
 
     gap:6px;
 
@@ -1246,8 +1265,8 @@ h1 span{
 
   .slot,
   .tile{
-    width:54px;
-    height:54px;
+    width:51px;
+    height:51px;
   }
 
   .tile{
@@ -1258,12 +1277,13 @@ h1 span{
     grid-template-columns:1fr;
   }
 
-  .letters{
+  .winner-story-grid{
     grid-template-columns:1fr;
   }
 
   .footer{
     display:block;
+
     line-height:1.7;
   }
 
@@ -1274,7 +1294,9 @@ h1 span{
   .section{
     margin-top:78px;
   }
+
 }
+
 
 /* =========================================================
    REDUCED MOTION
@@ -1285,9 +1307,13 @@ h1 span{
   *,
   *:before,
   *:after{
+
     scroll-behavior:auto!important;
+
     animation:none!important;
+
     transition:none!important;
+
   }
 
 }
@@ -1295,12 +1321,15 @@ h1 span{
 </style>
 </head>
 
+
 <body>
 
 <div class="orb a"></div>
 <div class="orb b"></div>
 
+
 <div class="page">
+
 
 <!-- =======================================================
      NAVIGATION
@@ -1330,20 +1359,33 @@ h1 span{
   <div class="hero-content">
 
     <div class="eyebrow">
+
       <i class="dot"></i>
+
       XB × IT Team Event
+
     </div>
 
+
     <h1>
+
       Halloween
-      <span>starts here.</span>
+
+      <span>
+        starts here.
+      </span>
+
     </h1>
 
+
     <p class="hero-copy">
+
       A night of games, good food, friendly competition,
       and one very serious question: can you solve the
       word nobody else can?
+
     </p>
+
 
     <div class="hero-meta">
 
@@ -1364,6 +1406,7 @@ h1 span{
       </span>
 
     </div>
+
 
     <div class="hero-actions">
 
@@ -1401,21 +1444,31 @@ h1 span{
     Featured challenge
   </div>
 
+
   <h2>
+
     One word.<br>
+
     One winner.
+
   </h2>
 
+
   <p class="lead">
+
     Build the largest word you can from the tiles below.
     There is only one accepted answer.
     The first person to submit it wins.
+
   </p>
 
 
   <div class="feature">
 
     <div class="feature-inner">
+
+
+      <!-- FEATURE HEADER -->
 
       <div class="feature-top">
 
@@ -1432,14 +1485,19 @@ h1 span{
           </div>
 
           <div class="rule">
+
             Select the tiles in order,
             then submit your answer.
+
           </div>
 
         </div>
 
+
         <div class="chip">
+
           14 tiles · 1 answer
+
         </div>
 
       </div>
@@ -1465,14 +1523,18 @@ h1 span{
           Your word
         </div>
 
+
         <div
           class="answer-box"
           id="answer"
         >
+
           <span class="placeholder">
             Tap the letters above
           </span>
+
         </div>
+
 
         <div class="controls">
 
@@ -1483,6 +1545,7 @@ h1 span{
           >
             ⌫ Delete
           </button>
+
 
           <button
             class="mini"
@@ -1516,6 +1579,7 @@ h1 span{
 
         </div>
 
+
         <button
           class="submit"
           id="submit"
@@ -1523,6 +1587,7 @@ h1 span{
         >
           Submit answer
         </button>
+
 
         <div
           class="status"
@@ -1532,7 +1597,7 @@ h1 span{
       </div>
 
 
-      <!-- ENDED -->
+      <!-- CHALLENGE ENDED -->
 
       <div
         class="ended"
@@ -1556,6 +1621,7 @@ h1 span{
 
         </div>
 
+
         <div id="activity-list">
 
           <div class="activity-row">
@@ -1575,7 +1641,10 @@ h1 span{
       </div>
 
 
-      <!-- WINNER -->
+      <!-- =================================================
+           WINNER
+           THIS IS THE ONLY PLACE WHERE THE REVEAL EXISTS
+      ================================================= -->
 
       <div
         class="winner"
@@ -1583,8 +1652,9 @@ h1 span{
       >
 
         <div class="kicker">
-          Challenge complete
+          Challenge Complete
         </div>
+
 
         <div
           class="winner-word"
@@ -1593,15 +1663,190 @@ h1 span{
           HOMEWORK
         </div>
 
+
         <div
           class="winner-name"
           id="winner-name"
         ></div>
 
+
         <div
           class="winner-time"
           id="winner-time"
         ></div>
+
+
+        <!-- LETTER STORY -->
+
+        <div class="winner-story">
+
+          <div class="winner-story-kicker">
+
+            The letters behind the challenge
+
+          </div>
+
+
+          <div class="winner-story-grid">
+
+
+            <div class="winner-person">
+
+              <b>S</b>
+
+              <span>
+                Adam S.
+              </span>
+
+            </div>
+
+
+            <div class="winner-person">
+
+              <b>S</b>
+
+              <span>
+                Andrea S.
+              </span>
+
+            </div>
+
+
+            <div class="winner-person">
+
+              <b>O</b>
+
+              <span>
+                Andres O.
+              </span>
+
+            </div>
+
+
+            <div class="winner-person">
+
+              <b>W</b>
+
+              <span>
+                Anna W.
+              </span>
+
+            </div>
+
+
+            <div class="winner-person">
+
+              <b>H</b>
+
+              <span>
+                Ayube H.
+              </span>
+
+            </div>
+
+
+            <div class="winner-person">
+
+              <b>E</b>
+
+              <span>
+                Chiric E.
+              </span>
+
+            </div>
+
+
+            <div class="winner-person">
+
+              <b>G</b>
+
+              <span>
+                Daniel G.
+              </span>
+
+            </div>
+
+
+            <div class="winner-person">
+
+              <b>K</b>
+
+              <span>
+                Daniel K.
+              </span>
+
+            </div>
+
+
+            <div class="winner-person">
+
+              <b>H</b>
+
+              <span>
+                Fabiana H.
+              </span>
+
+            </div>
+
+
+            <div class="winner-person">
+
+              <b>R</b>
+
+              <span>
+                Juan R.
+              </span>
+
+            </div>
+
+
+            <div class="winner-person">
+
+              <b>M</b>
+
+              <span>
+                Marisa M.
+              </span>
+
+            </div>
+
+
+            <div class="winner-person">
+
+              <b>G</b>
+
+              <span>
+                Monica G.
+              </span>
+
+            </div>
+
+
+            <div class="winner-person">
+
+              <b>V</b>
+
+              <span>
+                Raul V.
+              </span>
+
+            </div>
+
+
+            <div class="winner-person mystery">
+
+              <b>O</b>
+
+              <span>
+                One extra O
+              </span>
+
+            </div>
+
+
+          </div>
+
+        </div>
 
       </div>
 
@@ -1625,24 +1870,35 @@ h1 span{
     Behind the challenge
   </div>
 
+
   <h2>
+
     Designed like a product.<br>
+
     Built like a game.
+
   </h2>
 
+
   <p class="lead">
+
     The experience is intentionally simple on the surface.
     Underneath, it combines an interactive board, live
     submissions, a protected first-winner check,
     and a Google Sheet backend.
+
   </p>
 
 
   <div class="made">
 
+
+    <!-- STEP CARD -->
+
     <div class="card">
 
       <div class="steps">
+
 
         <div class="step">
 
@@ -1657,9 +1913,11 @@ h1 span{
             </h3>
 
             <p>
+
               Every tile is interactive.
               Selected letters move into the answer
               builder in the exact order you choose.
+
             </p>
 
           </div>
@@ -1680,9 +1938,11 @@ h1 span{
             </h3>
 
             <p>
+
               Your name and answer are sent to the
               challenge backend and recorded for
               the live activity feed.
+
             </p>
 
           </div>
@@ -1703,19 +1963,24 @@ h1 span{
             </h3>
 
             <p>
+
               The first correct submission locks only
               the challenge and reveals the winner
               without taking down the event page.
+
             </p>
 
           </div>
 
         </div>
 
+
       </div>
 
     </div>
 
+
+    <!-- DESIGN CARD -->
 
     <div class="card">
 
@@ -1728,111 +1993,17 @@ h1 span{
       </h3>
 
       <p>
+
         Large typography, restrained glass surfaces,
         soft depth, subtle motion, high-contrast
         controls, and a mobile-first layout keep the
         experience feeling premium instead of like
         a generic event form.
+
       </p>
 
     </div>
 
-  </div>
-
-
-  <!-- TEAM STORY -->
-
-  <div class="story">
-
-    <div class="kicker">
-      The hidden story
-    </div>
-
-    <h3>
-      The letters came from the team.
-    </h3>
-
-    <p class="lead">
-      The rack was created from the first initials
-      of XB-IT colleagues' last names. The final
-      reveal keeps last names private while making
-      the team connection part of the game.
-    </p>
-
-
-    <div class="letters">
-
-      <div class="person">
-        <b>S</b>
-        Adam S.
-      </div>
-
-      <div class="person">
-        <b>S</b>
-        Andrea S.
-      </div>
-
-      <div class="person">
-        <b>O</b>
-        Andres O.
-      </div>
-
-      <div class="person">
-        <b>W</b>
-        Anna W.
-      </div>
-
-      <div class="person">
-        <b>H</b>
-        Ayube H.
-      </div>
-
-      <div class="person">
-        <b>E</b>
-        Chiric E.
-      </div>
-
-      <div class="person">
-        <b>G</b>
-        Daniel G.
-      </div>
-
-      <div class="person">
-        <b>K</b>
-        Daniel K.
-      </div>
-
-      <div class="person">
-        <b>H</b>
-        Fabiana H.
-      </div>
-
-      <div class="person">
-        <b>R</b>
-        Juan R.
-      </div>
-
-      <div class="person">
-        <b>M</b>
-        Marisa M.
-      </div>
-
-      <div class="person">
-        <b>G</b>
-        Monica G.
-      </div>
-
-      <div class="person">
-        <b>V</b>
-        Raul V.
-      </div>
-
-      <div class="person">
-        <b>O</b>
-        One extra O · a little mystery
-      </div>
-
-    </div>
 
   </div>
 
@@ -1855,6 +2026,7 @@ h1 span{
 
 </footer>
 
+
 </div>
 
 
@@ -1869,7 +2041,7 @@ const API_URL =
 
 
 /* =========================================================
-   SCRABBLE TILES
+   TILES
 ========================================================= */
 
 const TILES = [
@@ -1902,7 +2074,7 @@ const TILES = [
 
 
 /* =========================================================
-   SCRAMBLED BOARD LAYOUT
+   SCRAMBLED BOARD
 ========================================================= */
 
 const LAYOUT = [
@@ -1939,20 +2111,21 @@ const $ = id =>
 
 function createBoard(){
 
-  const board = $('board');
+  const board =
+    $('board');
 
   board.innerHTML = '';
 
-  LAYOUT.forEach(index => {
 
-    /* empty board space */
+  LAYOUT.forEach(index => {
 
     if(index === null){
 
       const slot =
         document.createElement('div');
 
-      slot.className = 'slot';
+      slot.className =
+        'slot';
 
       board.appendChild(slot);
 
@@ -1970,11 +2143,15 @@ function createBoard(){
     const button =
       document.createElement('button');
 
-    button.type = 'button';
+    button.type =
+      'button';
 
-    button.className = 'tile';
+    button.className =
+      'tile';
 
-    button.dataset.i = index;
+    button.dataset.i =
+      index;
+
 
     button.innerHTML =
       letter +
@@ -1983,8 +2160,8 @@ function createBoard(){
       '</span>';
 
 
-    button.onclick = () =>
-      selectTile(index);
+    button.onclick =
+      () => selectTile(index);
 
 
     board.appendChild(button);
@@ -2013,12 +2190,19 @@ function selectTile(index){
 
   const tile =
     document.querySelector(
-      '.tile[data-i="' + index + '"]'
+      '.tile[data-i="' +
+      index +
+      '"]'
     );
 
 
-  if(tile)
-    tile.classList.add('selected');
+  if(tile){
+
+    tile.classList.add(
+      'selected'
+    );
+
+  }
 
 
   updateAnswer();
@@ -2050,14 +2234,16 @@ function updateAnswer(){
 
   box.textContent =
     selected
-      .map(index => TILES[index][0])
+      .map(index =>
+        TILES[index][0]
+      )
       .join('');
 
 }
 
 
 /* =========================================================
-   CLEAR
+   CLEAR ANSWER
 ========================================================= */
 
 function clearAnswer(){
@@ -2070,9 +2256,13 @@ function clearAnswer(){
 
 
   document
-    .querySelectorAll('.tile.selected')
+    .querySelectorAll(
+      '.tile.selected'
+    )
     .forEach(tile =>
-      tile.classList.remove('selected')
+      tile.classList.remove(
+        'selected'
+      )
     );
 
 
@@ -2101,12 +2291,19 @@ function backspace(){
 
   const tile =
     document.querySelector(
-      '.tile[data-i="' + index + '"]'
+      '.tile[data-i="' +
+      index +
+      '"]'
     );
 
 
-  if(tile)
-    tile.classList.remove('selected');
+  if(tile){
+
+    tile.classList.remove(
+      'selected'
+    );
+
+  }
 
 
   updateAnswer();
@@ -2115,7 +2312,7 @@ function backspace(){
 
 
 /* =========================================================
-   BUTTON EVENTS
+   BUTTONS
 ========================================================= */
 
 $('clear').onclick =
@@ -2137,17 +2334,20 @@ function setStatus(
   const status =
     $('status');
 
+
   status.textContent =
     message;
 
+
   status.className =
-    'status ' + type;
+    'status ' +
+    type;
 
 }
 
 
 /* =========================================================
-   HTML ESCAPE
+   ESCAPE HTML
 ========================================================= */
 
 function escapeHtml(value){
@@ -2165,6 +2365,7 @@ function escapeHtml(value){
         '"':'&quot;'
 
       };
+
 
       return map[character];
 
@@ -2186,7 +2387,9 @@ function renderActivity(
   $('attempts').textContent =
     attempts +
     ' attempt' +
-    (attempts === 1 ? '' : 's');
+    (attempts === 1
+      ? ''
+      : 's');
 
 
   const activity =
@@ -2196,13 +2399,19 @@ function renderActivity(
   if(!recent.length){
 
     activity.innerHTML = `
+
       <div class="activity-row">
+
         <span>
           Waiting for the first attempt…
         </span>
 
-        <span>—</span>
+        <span>
+          —
+        </span>
+
       </div>
+
     `;
 
     return;
@@ -2218,14 +2427,18 @@ function renderActivity(
 
           <span>
             ${escapeHtml(
-              row.name || 'Player'
+              row.name ||
+              'Player'
             )}
           </span>
 
           <span class="activity-word">
+
             ${escapeHtml(
-              row.word || '—'
+              row.word ||
+              '—'
             )}
+
           </span>
 
         </div>
@@ -2250,20 +2463,24 @@ function lockChallenge(
     return;
 
 
-  gameOver = true;
+  gameOver =
+    true;
 
 
   /*
-    IMPORTANT:
-    Only the Scrabble challenge is locked.
-    The rest of the website remains available.
+    Only the challenge locks.
+    The rest of the event page remains accessible.
   */
 
   const feature =
-    document.querySelector('.feature');
+    document.querySelector(
+      '.feature'
+    );
 
 
-  feature.classList.add('locked');
+  feature.classList.add(
+    'locked'
+  );
 
 
   $('ended').textContent =
@@ -2288,20 +2505,34 @@ function lockChallenge(
       : '';
 
 
-  $('winner').classList.add('show');
+  /*
+    The entire winner card contains:
+    1. Challenge Complete
+    2. Winning word
+    3. Winner
+    4. Letters behind the challenge
+  */
+
+  $('winner')
+    .classList
+    .add('show');
 
 
   /*
-    Disable only challenge controls.
+    Disable only game controls.
   */
 
   document
     .querySelectorAll(
-      '.tile,.mini,#submit,#name'
+      '.tile,' +
+      '.mini,' +
+      '#submit,' +
+      '#name'
     )
     .forEach(element => {
 
-      element.disabled = true;
+      element.disabled =
+        true;
 
     });
 
@@ -2349,16 +2580,22 @@ async function checkStatus(){
 
 
     renderActivity(
-      data.recent || [],
-      data.attempts || 0
+      data.recent ||
+      [],
+      data.attempts ||
+      0
     );
 
 
     if(data.gameOver){
 
       lockChallenge(
-        data.winner || 'Someone',
-        data.word || 'HOMEWORK',
+        data.winner ||
+        'Someone',
+
+        data.word ||
+        'HOMEWORK',
+
         data.timestamp
       );
 
@@ -2367,8 +2604,8 @@ async function checkStatus(){
   }catch(error){
 
     /*
-      Silent failure.
-      The game remains usable and can retry.
+      Keep the game usable if
+      a polling request temporarily fails.
     */
 
   }
@@ -2395,7 +2632,9 @@ $('submit').onclick =
 
     const word =
       selected
-        .map(index => TILES[index][0])
+        .map(index =>
+          TILES[index][0]
+        )
         .join('');
 
 
@@ -2411,10 +2650,7 @@ $('submit').onclick =
     }
 
 
-    if(
-      !word ||
-      word === 'Tap the letters above'
-    ){
+    if(!word){
 
       setStatus(
         'Please build a word first.',
@@ -2426,7 +2662,8 @@ $('submit').onclick =
     }
 
 
-    $('submit').disabled = true;
+    $('submit').disabled =
+      true;
 
 
     setStatus(
@@ -2465,8 +2702,12 @@ $('submit').onclick =
       if(data.winner){
 
         lockChallenge(
-          data.name || name,
-          data.word || word,
+          data.name ||
+          name,
+
+          data.word ||
+          word,
+
           data.timestamp
         );
 
@@ -2517,8 +2758,11 @@ $('submit').onclick =
 
 
       renderActivity(
-        data.recent || [],
-        data.attempts || 0
+        data.recent ||
+        [],
+
+        data.attempts ||
+        0
       );
 
 
@@ -2563,37 +2807,48 @@ function confetti(){
 
 
     piece.style.left =
-      Math.random() * 100 +
+      Math.random() *
+      100 +
       'vw';
 
 
     piece.style.setProperty(
       '--x',
-      (Math.random() * 240 - 120) +
+      (
+        Math.random() *
+        240 -
+        120
+      ) +
       'px'
     );
 
 
     piece.style.animationDuration =
-      (2.4 + Math.random() * 2.8) +
+      (
+        2.4 +
+        Math.random() *
+        2.8
+      ) +
       's';
 
 
-    piece.style.background = [
+    piece.style.background =
+      [
+        '#ff9f0a',
+        '#f5d9a5',
+        '#ffffff',
+        '#30d158'
+      ][i % 4];
 
-      '#ff9f0a',
-      '#f5d9a5',
-      '#ffffff',
-      '#30d158'
 
-    ][i % 4];
-
-
-    document.body.appendChild(piece);
+    document.body.appendChild(
+      piece
+    );
 
 
     setTimeout(
-      () => piece.remove(),
+      () =>
+        piece.remove(),
       6000
     );
 
@@ -2612,8 +2867,9 @@ checkStatus();
 
 
 /*
-  Keep the live activity updated
-  until someone wins.
+  Refresh live activity every 5 seconds.
+  Polling automatically stops when
+  the challenge is complete.
 */
 
 setInterval(
