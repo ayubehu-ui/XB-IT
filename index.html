@@ -947,57 +947,69 @@ input:focus {
    OTHER GAMES
 ========================================================= */
 
-.games-section {
-  margin-top: 85px;
+
+/* =========================================================
+   CHALLENGE ENDED
+========================================================= */
+
+.challenge-ended {
+  position: relative;
 }
 
-.games-card {
-  margin-top: 30px;
+.challenge-ended-banner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 26px;
+  padding: 15px 17px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(48,209,88,.12), rgba(255,255,255,.035));
+  border: 1px solid rgba(48,209,88,.24);
+}
 
+.challenge-ended-icon {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
   display: grid;
-
-  grid-template-columns:
-    repeat(3, 1fr);
-
-  gap: 15px;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(48,209,88,.16);
+  color: #30d158;
+  font-weight: 800;
 }
 
-.game-card {
-  padding: 25px;
-
-  min-height: 190px;
-
-  border-radius: 22px;
-
-  background:
-    rgba(255,255,255,.035);
-
-  border:
-    1px solid rgba(255,255,255,.07);
-}
-
-.game-card-icon {
-  font-size: 32px;
-  margin-bottom: 18px;
-}
-
-.game-card h3 {
-  margin:
-    0 0 8px;
-
-  font-size: 18px;
-}
-
-.game-card p {
-  margin: 0;
-
-  color: #8e8e93;
-
-  line-height: 1.5;
-
+.challenge-ended-title {
+  color: #f5f5f7;
   font-size: 14px;
+  font-weight: 750;
 }
 
+.challenge-ended-text {
+  margin-top: 3px;
+  color: #8e8e93;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.challenge-ended-text strong {
+  color: #d1d1d6;
+}
+
+.challenge-ended .scrabble-tile {
+  cursor: not-allowed;
+  opacity: .55;
+  filter: grayscale(.15);
+}
+
+.challenge-ended .scrabble-tile:hover {
+  transform: none;
+  box-shadow: 0 8px 16px rgba(0,0,0,.35);
+}
+
+.challenge-ended .submit-button {
+  opacity: .45;
+}
 
 /* =========================================================
    WINNER
@@ -1008,8 +1020,16 @@ input:focus {
 
   text-align: center;
 
+  margin-top: 85px;
+
   padding:
-    80px 0 40px;
+    55px 25px 50px;
+
+  border-radius: 30px;
+
+  background: rgba(255,255,255,.035);
+
+  border: 1px solid rgba(255,255,255,.07);
 }
 
 .winner-screen.show {
@@ -1252,23 +1272,6 @@ input:focus {
     grid-template-columns:
       1fr;
   }
-
-  .games-card {
-    grid-template-columns:
-      1fr;
-  }
-
-  .letter-list {
-    grid-template-columns:
-      1fr;
-  }
-
-  .reveal-grid {
-    grid-template-columns:
-      1fr;
-  }
-
-}
 
 
 /* =========================================================
@@ -1825,71 +1828,6 @@ input:focus {
         <span class="story-letter">O</span>
         One extra O
       </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =======================================================
-     OTHER GAMES
-======================================================== -->
-
-<section class="games-section">
-
-  <div class="section-eyebrow">
-    More to Come
-  </div>
-
-  <h2 class="section-title">
-    More than<br>
-    one game.
-  </h2>
-
-  <p class="section-description">
-
-    The Halloween event is about getting
-    everyone together. Keep an eye out for
-    additional games and activities happening
-    throughout the event.
-
-  </p>
-
-
-  <div class="games-card">
-
-    <div class="game-card">
-
-      <div class="game-card-icon">
-        🎲
-      </div>
-
-      <h3>
-        Board Games
-      </h3>
-
-      <p>
-        Grab some colleagues, choose a game,
-        and jump in.
-      </p>
-
-    </div>
-<div class="game-card">
-
-      <div class="game-card-icon">
-        🍿
-      </div>
-
-      <h3>
-        Snacks & Drinks
-      </h3>
-
-      <p>
-        Participate in the activities and enjoy
-        refreshments provided by the XB-IT teams.
-      </p>
 
     </div>
 
@@ -2829,67 +2767,97 @@ function showWinner(
   gameOver =
     true;
 
-
-  winnerWord.textContent =
+  const winningWord =
     word ||
     "HOMEWORK";
 
+  winnerWord.textContent =
+    winningWord;
 
   winnerName.textContent =
     name +
     " found the winning word.";
 
+  /* -----------------------------------------
+     KEEP THE WEBSITE OPEN
 
-  document
-    .querySelector(
-      ".event-hero"
-    )
-    .style.display =
-      "none";
+     Only the Scrabble challenge is locked.
+     The event page, information and
+     challenge story remain accessible.
+  ----------------------------------------- */
 
+  const challenge =
+    document.querySelector(".challenge");
 
-  document
-    .querySelector(
-      ".info-grid"
-    )
-    .style.display =
-      "none";
+  if (challenge) {
 
+    challenge.classList.add("challenge-ended");
 
-  document
-    .querySelector(
-      ".section"
-    )
-    .style.display =
-      "none";
+    const existingBanner =
+      document.getElementById("challengeEndedBanner");
 
+    if (!existingBanner) {
 
-  document
-    .querySelector(
-      ".made-section"
-    )
-    .style.display =
-      "none";
+      const banner =
+        document.createElement("div");
 
+      banner.id =
+        "challengeEndedBanner";
 
-  document
-    .querySelector(
-      ".games-section"
-    )
-    .style.display =
-      "none";
+      banner.className =
+        "challenge-ended-banner";
 
+      banner.innerHTML = `
+        <div class="challenge-ended-icon">✓</div>
+        <div>
+          <div class="challenge-ended-title">Challenge Ended</div>
+          <div class="challenge-ended-text">
+            <strong>${escapeHtml(name)}</strong> won the Halloween Word Challenge with <strong>${escapeHtml(winningWord)}</strong>.
+          </div>
+        </div>
+      `;
 
+      challenge.insertBefore(
+        banner,
+        challenge.firstElementChild
+      );
+    }
+
+    /* Lock only the Scrabble controls */
+    document
+      .querySelectorAll(".scrabble-tile")
+      .forEach(function(tile) {
+        tile.disabled = true;
+        tile.classList.remove("selected");
+      });
+
+    document
+      .querySelectorAll(
+        ".challenge input, .challenge button"
+      )
+      .forEach(function(control) {
+        control.disabled = true;
+      });
+
+    setStatus(
+      "Challenge ended. The winner has been announced.",
+      "success"
+    );
+
+    submitButton.textContent =
+      "Challenge Ended";
+  }
+
+  /* Show the winner announcement without
+     hiding the rest of the webpage. */
   winnerScreen.classList.add(
     "show"
   );
 
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
+  winnerScreen.scrollIntoView({
+    behavior: "smooth",
+    block: "start"
   });
-
 
   createConfetti();
 }
