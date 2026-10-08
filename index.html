@@ -14,6 +14,10 @@
 
 <style>
 
+/* =========================================================
+   GLOBAL
+========================================================= */
+
 * {
   box-sizing: border-box;
 }
@@ -21,10 +25,10 @@
 html {
   scroll-behavior: smooth;
 }
-  scroll-margin-top: 30px;
 
 body {
   margin: 0;
+
   font-family:
     -apple-system,
     BlinkMacSystemFont,
@@ -39,7 +43,7 @@ body {
   background:
     radial-gradient(
       circle at 50% 0%,
-      #262626 0%,
+      #292929 0%,
       #101010 42%,
       #050505 100%
     );
@@ -47,6 +51,17 @@ body {
   min-height: 100vh;
 
   -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: rgba(255,157,0,.25);
+  color: white;
 }
 
 .page {
@@ -65,7 +80,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   padding: 5px 0 25px;
+
   color: #a1a1a6;
   font-size: 13px;
 }
@@ -82,12 +99,114 @@ body {
 
 
 /* =========================================================
+   FEATURED BUTTON
+========================================================= */
+
+.featured-button-wrap {
+  display: flex;
+  justify-content: center;
+
+  margin: 5px 0 28px;
+
+  position: relative;
+  z-index: 10;
+}
+
+.featured-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  min-height: 52px;
+
+  padding: 0 21px;
+
+  border-radius: 999px;
+
+  text-decoration: none;
+
+  color: #f5f5f7;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,157,0,.17),
+      rgba(255,157,0,.07)
+    );
+
+  border:
+    1px solid rgba(255,157,0,.38);
+
+  box-shadow:
+    0 12px 35px rgba(0,0,0,.25),
+    inset 0 1px 0 rgba(255,255,255,.08);
+
+  font-size: 14px;
+  font-weight: 650;
+
+  transition:
+    transform .2s ease,
+    background .2s ease,
+    border-color .2s ease,
+    box-shadow .2s ease;
+
+  cursor: pointer;
+}
+
+.featured-button:hover {
+  transform: translateY(-2px);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,157,0,.24),
+      rgba(255,157,0,.10)
+    );
+
+  border-color:
+    rgba(255,157,0,.7);
+
+  box-shadow:
+    0 17px 42px rgba(0,0,0,.32),
+    0 0 35px rgba(255,157,0,.08);
+}
+
+.featured-button:active {
+  transform: scale(.98);
+}
+
+.featured-button-icon {
+  display: grid;
+  place-items: center;
+
+  width: 27px;
+  height: 27px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,157,0,.14);
+
+  color: #ffb13b;
+
+  font-size: 12px;
+}
+
+.featured-button strong {
+  color: #ff9d00;
+}
+
+
+/* =========================================================
    EVENT HERO
 ========================================================= */
 
 .event-hero {
   position: relative;
   overflow: hidden;
+
   text-align: center;
 
   padding: 70px 30px 65px;
@@ -128,6 +247,8 @@ body {
   left: 50%;
 
   transform: translateX(-50%);
+
+  pointer-events: none;
 }
 
 .event-eyebrow {
@@ -163,6 +284,7 @@ body {
 
 .event-title span {
   display: block;
+
   color: #a1a1a6;
 }
 
@@ -240,22 +362,42 @@ body {
 
   border:
     1px solid rgba(255,255,255,.07);
+
+  transition:
+    transform .2s ease,
+    border-color .2s ease,
+    background .2s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-3px);
+
+  background:
+    rgba(255,255,255,.05);
+
+  border-color:
+    rgba(255,255,255,.12);
 }
 
 .info-icon {
   font-size: 27px;
+
   margin-bottom: 18px;
 }
 
 .info-title {
   font-size: 18px;
+
   font-weight: 650;
+
   margin-bottom: 9px;
 }
 
 .info-text {
   color: #8e8e93;
+
   line-height: 1.5;
+
   font-size: 14px;
 }
 
@@ -266,6 +408,8 @@ body {
 
 .section {
   margin-top: 80px;
+
+  scroll-margin-top: 30px;
 }
 
 .section-eyebrow {
@@ -311,6 +455,8 @@ body {
 ========================================================= */
 
 .challenge {
+  position: relative;
+
   margin-top: 35px;
 
   padding: 35px;
@@ -325,21 +471,137 @@ body {
 
   box-shadow:
     0 30px 80px rgba(0,0,0,.25);
+
+  transition:
+    opacity .3s ease;
 }
 
 .challenge-header {
   text-align: center;
+
   margin-bottom: 30px;
 }
 
 .challenge-title {
   font-size: 27px;
+
   font-weight: 700;
 }
 
 .challenge-subtitle {
   color: #8e8e93;
+
   margin-top: 8px;
+}
+
+
+/* =========================================================
+   CHALLENGE ENDED
+========================================================= */
+
+.challenge-ended-banner {
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  margin-bottom: 28px;
+
+  padding: 16px 18px;
+
+  border-radius: 17px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(48,209,88,.13),
+      rgba(255,255,255,.035)
+    );
+
+  border:
+    1px solid rgba(48,209,88,.25);
+
+  animation:
+    endedAppear .45s ease both;
+}
+
+@keyframes endedAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.challenge-ended-icon {
+  width: 34px;
+  height: 34px;
+
+  display: grid;
+  place-items: center;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #30d158;
+
+  color: #07120a;
+
+  font-weight: 900;
+}
+
+.challenge-ended-title {
+  color: #30d158;
+
+  font-size: 14px;
+
+  font-weight: 750;
+
+  margin-bottom: 3px;
+}
+
+.challenge-ended-text {
+  color: #a1a1a6;
+
+  font-size: 13px;
+
+  line-height: 1.4;
+}
+
+.challenge-ended-text strong {
+  color: #f5f5f7;
+}
+
+.challenge-ended .scrabble-tile {
+  cursor: not-allowed;
+
+  opacity: .55;
+
+  filter: grayscale(.35);
+
+  transform: none !important;
+}
+
+.challenge-ended .scrabble-tile:hover {
+  transform: none !important;
+
+  box-shadow:
+    0 8px 16px rgba(0,0,0,.35),
+    inset 0 1px 2px rgba(255,255,255,.65);
+}
+
+.challenge-ended .submit-button {
+  background: #343434;
+
+  color: #8e8e93;
+
+  cursor: not-allowed;
 }
 
 
@@ -592,6 +854,8 @@ body {
   font-size: 13px;
 
   font-weight: 600;
+
+  cursor: pointer;
 }
 
 .small-button:hover {
@@ -608,6 +872,7 @@ body {
 
 .form-container {
   max-width: 620px;
+
   margin: 0 auto;
 }
 
@@ -651,6 +916,12 @@ input:focus {
     0 0 0 4px rgba(255,157,0,.08);
 }
 
+input:disabled {
+  opacity: .5;
+
+  cursor: not-allowed;
+}
+
 .submit-button {
   width: 100%;
 
@@ -676,7 +947,8 @@ input:focus {
 
   transition:
     transform .15s ease,
-    opacity .15s ease;
+    opacity .15s ease,
+    background .15s ease;
 }
 
 .submit-button:hover {
@@ -686,7 +958,9 @@ input:focus {
 
 .submit-button:disabled {
   opacity: .5;
+
   cursor: default;
+
   transform: none;
 }
 
@@ -757,6 +1031,7 @@ input:focus {
 
 .live-count {
   color: #ff9d00;
+
   font-size: 13px;
 }
 
@@ -794,7 +1069,7 @@ input:focus {
 
 
 /* =========================================================
-   HOW IT WAS MADE
+   HOW THE CHALLENGE WAS MADE
 ========================================================= */
 
 .made-section {
@@ -822,6 +1097,17 @@ input:focus {
 
   border:
     1px solid rgba(255,255,255,.07);
+
+  transition:
+    transform .2s ease,
+    border-color .2s ease;
+}
+
+.made-panel:hover {
+  transform: translateY(-3px);
+
+  border-color:
+    rgba(255,255,255,.12);
 }
 
 .made-number {
@@ -945,92 +1231,18 @@ input:focus {
 
 
 /* =========================================================
-   OTHER GAMES
-========================================================= */
-
-
-/* =========================================================
-   CHALLENGE ENDED
-========================================================= */
-
-.challenge-ended {
-  position: relative;
-}
-
-.challenge-ended-banner {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 26px;
-  padding: 15px 17px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, rgba(48,209,88,.12), rgba(255,255,255,.035));
-  border: 1px solid rgba(48,209,88,.24);
-}
-
-.challenge-ended-icon {
-  width: 34px;
-  height: 34px;
-  flex: 0 0 34px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: rgba(48,209,88,.16);
-  color: #30d158;
-  font-weight: 800;
-}
-
-.challenge-ended-title {
-  color: #f5f5f7;
-  font-size: 14px;
-  font-weight: 750;
-}
-
-.challenge-ended-text {
-  margin-top: 3px;
-  color: #8e8e93;
-  font-size: 13px;
-  line-height: 1.45;
-}
-
-.challenge-ended-text strong {
-  color: #d1d1d6;
-}
-
-.challenge-ended .scrabble-tile {
-  cursor: not-allowed;
-  opacity: .55;
-  filter: grayscale(.15);
-}
-
-.challenge-ended .scrabble-tile:hover {
-  transform: none;
-  box-shadow: 0 8px 16px rgba(0,0,0,.35);
-}
-
-.challenge-ended .submit-button {
-  opacity: .45;
-}
-
-/* =========================================================
    WINNER
 ========================================================= */
 
 .winner-screen {
-  display: none;
-
-  text-align: center;
-
   margin-top: 85px;
 
   padding:
-    55px 25px 50px;
+    55px 20px 20px;
 
-  border-radius: 30px;
+  text-align: center;
 
-  background: rgba(255,255,255,.035);
-
-  border: 1px solid rgba(255,255,255,.07);
+  scroll-margin-top: 30px;
 }
 
 .winner-screen.show {
@@ -1060,10 +1272,23 @@ input:focus {
 
   letter-spacing:
     -.065em;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff,
+      #bcbcc1
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-text-fill-color: transparent;
 }
 
 .winner-name {
   color: #a1a1a6;
+
   font-size: 20px;
 }
 
@@ -1173,45 +1398,6 @@ input:focus {
 }
 
 
-
-/* =========================================================
-   FEATURED CHALLENGE BUTTON
-========================================================= */
-
-.featured-button-wrap {
-  display: flex;
-  justify-content: center;
-  margin: 10px 0 28px;
-}
-
-.featured-button {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
-  cursor: pointer;
-  padding: 13px 20px;
-  border-radius: 999px;
-  background: rgba(255,157,0,.12);
-  border: 1px solid rgba(255,157,0,.35);
-  color: #f5f5f7;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 650;
-  box-shadow: 0 10px 30px rgba(0,0,0,.2);
-  transition: all .2s ease;
-}
-
-.featured-button strong {
-  color: #ff9d00;
-}
-
-.featured-button:hover {
-  transform: translateY(-2px);
-  background: rgba(255,157,0,.18);
-  border-color: rgba(255,157,0,.6);
-  box-shadow: 0 14px 35px rgba(0,0,0,.3);
-}
-
 /* =========================================================
    MOBILE
 ========================================================= */
@@ -1221,6 +1407,12 @@ input:focus {
   .page {
     padding:
       15px 15px 60px;
+  }
+
+  .featured-button {
+    width: 100%;
+
+    max-width: 340px;
   }
 
   .event-hero {
@@ -1267,6 +1459,7 @@ input:focus {
   .tile-value {
     right: 4px;
     bottom: 2px;
+
     font-size: 7px;
   }
 
@@ -1275,12 +1468,32 @@ input:focus {
       1fr;
   }
 
+  .letter-list {
+    grid-template-columns:
+      1fr;
+  }
+
+  .reveal-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+  .challenge-ended-banner {
+    text-align: left;
+  }
+
+}
+
 
 /* =========================================================
    REDUCED MOTION
 ========================================================= */
 
 @media(prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
 
   *,
   *::before,
@@ -1292,8 +1505,8 @@ input:focus {
     animation-iteration-count:
       1 !important;
 
-    scroll-behavior:
-      auto !important;
+    transition-duration:
+      .01ms !important;
   }
 
 }
@@ -1330,10 +1543,27 @@ input:focus {
 ======================================================== -->
 
 <div class="featured-button-wrap">
-  <button type="button" class="featured-button" onclick="document.getElementById('scrabble-challenge').scrollIntoView({behavior:'smooth', block:'start'});">
-    <span>🎃 Featured Challenge</span>
-    <strong>Click Here →</strong>
-  </button>
+
+  <a
+    href="#scrabble-challenge"
+    class="featured-button"
+    aria-label="Go to Featured Challenge"
+  >
+
+    <span class="featured-button-icon">
+      ✦
+    </span>
+
+    <span>
+      🎃 Featured Challenge
+    </span>
+
+    <strong>
+      Click Here →
+    </strong>
+
+  </a>
+
 </div>
 
 
@@ -1372,7 +1602,7 @@ input:focus {
     </div>
 
     <div class="event-pill">
-      🧩 Online Scrabble
+      🧩 Online Challenges
     </div>
 
     <div class="event-pill">
@@ -1402,8 +1632,8 @@ input:focus {
 
     <div class="info-text">
       Join your colleagues for a variety of
-      board games and activities
-      throughout the event.
+      board games and activities throughout
+      the event.
     </div>
 
   </div>
@@ -1439,9 +1669,9 @@ input:focus {
     </div>
 
     <div class="info-text">
-      Colleagues who participate in the
-      games and challenges can enjoy snacks
-      and drinks provided by the XB-IT teams.
+      Participants can enjoy snacks and
+      drinks provided by the XB-IT teams
+      during the event.
     </div>
 
   </div>
@@ -1453,7 +1683,10 @@ input:focus {
      SCRABBLE SECTION
 ======================================================== -->
 
-<section id="scrabble-challenge" class="section">
+<section
+  id="scrabble-challenge"
+  class="section"
+>
 
   <div class="section-eyebrow">
     Featured Challenge
@@ -1474,7 +1707,6 @@ input:focus {
 
 
   <div class="challenge">
-
 
     <div class="challenge-header">
 
@@ -1635,7 +1867,6 @@ input:focus {
 
     </div>
 
-
   </div>
 
 </section>
@@ -1658,9 +1889,9 @@ input:focus {
 
   <p class="section-description">
 
-    This challenge was designed specifically for
-    the XB-IT Halloween event. The board is more
-    than a collection of random letters.
+    This challenge was designed specifically
+    for the XB-IT Halloween event. The board is
+    more than a collection of random letters.
 
   </p>
 
@@ -1703,8 +1934,7 @@ input:focus {
         The challenge is intentionally designed
         so that finding a valid smaller word is
         not enough. Participants need to figure
-        out the one word that uses the available
-        letters to solve the challenge.
+        out the one word that solves the challenge.
       </p>
 
     </div>
@@ -1828,7 +2058,7 @@ input:focus {
 
       <div class="letter-item">
         <span class="story-letter">O</span>
-        One extra O
+        One extra O.
       </div>
 
     </div>
@@ -1923,7 +2153,7 @@ input:focus {
       </div>
 
       <div class="reveal-item">
-        O · One extra O
+        O · One extra O.
       </div>
 
     </div>
@@ -2063,20 +2293,146 @@ function createBoard() {
   board.innerHTML = "";
 
 
+  /*
+    21 total spaces
+
+    14 Scrabble tiles
+    7 background spaces
+  */
+
   const layout = [
 
-    null, 0, null, 2, null, 4, null,
+    null,
+    0,
+    null,
+    2,
+    null,
+    4,
+    null,
 
-    5, null, 7, null, 8, null, 6,
+    5,
+    null,
+    7,
+    null,
+    8,
+    null,
+    6,
 
-    null, 9, null, 10, null, 11, null,
-
-    12, null, 13, null, 3, null, 1
+    null,
+    9,
+    null,
+    10,
+    12,
+    11,
+    13
 
   ];
 
 
-  layout.forEach(
+  /*
+    Add remaining tiles into the final
+    available positions while keeping
+    the rack visually scrambled.
+  */
+
+  const fixedLayout = [
+
+    null,
+    0,
+    null,
+    2,
+    null,
+    4,
+    5,
+
+    null,
+    7,
+    null,
+    8,
+    null,
+    6,
+    null,
+
+    9,
+    null,
+    10,
+    12,
+    null,
+    11,
+    13
+
+  ];
+
+
+  /*
+    Make sure every one of the 14
+    tiles appears exactly once.
+  */
+
+  const finalLayout = [
+
+    null,
+    0,
+    null,
+    2,
+    null,
+    4,
+    5,
+
+    7,
+    null,
+    8,
+    null,
+    6,
+    9,
+    null,
+
+    10,
+    null,
+    12,
+    11,
+    null,
+    13,
+    3
+
+  ];
+
+
+  /*
+    The final tile is added separately
+    so the board contains all 14 tiles.
+  */
+
+  const boardLayout = [
+
+    null,
+    0,
+    null,
+    2,
+    null,
+    4,
+    5,
+
+    7,
+    null,
+    8,
+    null,
+    6,
+    9,
+    3,
+
+    10,
+    null,
+    12,
+    11,
+    null,
+    13,
+    1
+
+  ];
+
+
+  boardLayout.forEach(
     function(tileIndex) {
 
       if (tileIndex === null) {
@@ -2117,11 +2473,20 @@ function createBoard() {
         tileIndex;
 
 
+      button.setAttribute(
+        "aria-label",
+        "Letter " + tile.letter
+      );
+
+
       button.innerHTML = `
+
         ${tile.letter}
+
         <span class="tile-value">
           ${tile.value}
         </span>
+
       `;
 
 
@@ -2206,7 +2571,9 @@ function updateAnswer() {
     selectedTiles
       .map(
         function(index) {
+
           return tiles[index].letter;
+
         }
       )
       .join("");
@@ -2215,9 +2582,11 @@ function updateAnswer() {
   if (!word) {
 
     answerDisplay.innerHTML = `
+
       <span class="answer-placeholder">
         Select letters from the board
       </span>
+
     `;
 
   } else {
@@ -2244,6 +2613,11 @@ document
   .addEventListener(
     "click",
     function() {
+
+      if (gameOver) {
+        return;
+      }
+
 
       selectedTiles = [];
 
@@ -2282,6 +2656,11 @@ document
   .addEventListener(
     "click",
     function() {
+
+      if (gameOver) {
+        return;
+      }
+
 
       if (!selectedTiles.length) {
         return;
@@ -2334,6 +2713,11 @@ wordInput.addEventListener(
   "input",
   function() {
 
+    if (gameOver) {
+      return;
+    }
+
+
     const typed =
       wordInput.value
         .replace(
@@ -2351,7 +2735,9 @@ wordInput.addEventListener(
       selectedTiles
         .map(
           function(index) {
+
             return tiles[index].letter;
+
           }
         )
         .join("");
@@ -2436,6 +2822,7 @@ function updateLiveActivity(
   ) {
 
     activity.innerHTML = `
+
       <div class="activity-row">
 
         <span class="activity-name">
@@ -2443,6 +2830,7 @@ function updateLiveActivity(
         </span>
 
       </div>
+
     `;
 
     return;
@@ -2455,6 +2843,7 @@ function updateLiveActivity(
         function(item) {
 
           return `
+
             <div class="activity-row">
 
               <span class="activity-name">
@@ -2466,6 +2855,7 @@ function updateLiveActivity(
               </span>
 
             </div>
+
           `;
 
         }
@@ -2485,26 +2875,32 @@ function escapeHtml(
   return String(
     value || ""
   )
+
     .replace(
       /&/g,
       "&amp;"
     )
+
     .replace(
       /</g,
       "&lt;"
     )
+
     .replace(
       />/g,
       "&gt;"
     )
+
     .replace(
       /"/g,
       "&quot;"
     )
+
     .replace(
       /'/g,
       "&#039;"
     );
+
 }
 
 
@@ -2632,11 +3028,10 @@ form.addEventListener(
     try {
 
       /*
-        IMPORTANT
+        GET is intentional.
 
-        Submission uses GET instead of POST.
-        This avoids the GitHub Pages to
-        Google Apps Script cross-origin issue.
+        This avoids the GitHub Pages →
+        Google Apps Script POST/CORS issue.
       */
 
       const submissionUrl =
@@ -2676,7 +3071,7 @@ form.addEventListener(
 
 
       /* -----------------------------------------
-         GAME ALREADY OVER
+         CHALLENGE ALREADY ENDED
       ----------------------------------------- */
 
       if (
@@ -2738,7 +3133,6 @@ form.addEventListener(
         "error"
       );
 
-
     } finally {
 
       if (!gameOver) {
@@ -2766,102 +3160,190 @@ function showWinner(
   word
 ) {
 
+  if (gameOver) {
+    return;
+  }
+
+
   gameOver =
     true;
+
 
   const winningWord =
     word ||
     "HOMEWORK";
 
+
   winnerWord.textContent =
     winningWord;
+
 
   winnerName.textContent =
     name +
     " found the winning word.";
 
-  /* -----------------------------------------
-     KEEP THE WEBSITE OPEN
 
-     Only the Scrabble challenge is locked.
-     The event page, information and
-     challenge story remain accessible.
+  /* -----------------------------------------
+     LOCK ONLY THE SCRABBLE CHALLENGE
   ----------------------------------------- */
 
   const challenge =
-    document.querySelector(".challenge");
+    document.querySelector(
+      ".challenge"
+    );
+
 
   if (challenge) {
 
-    challenge.classList.add("challenge-ended");
+    challenge.classList.add(
+      "challenge-ended"
+    );
+
+
+    /*
+      Create the ended banner.
+    */
 
     const existingBanner =
-      document.getElementById("challengeEndedBanner");
+      document.getElementById(
+        "challengeEndedBanner"
+      );
+
 
     if (!existingBanner) {
 
       const banner =
-        document.createElement("div");
+        document.createElement(
+          "div"
+        );
+
 
       banner.id =
         "challengeEndedBanner";
 
+
       banner.className =
         "challenge-ended-banner";
 
+
       banner.innerHTML = `
-        <div class="challenge-ended-icon">✓</div>
-        <div>
-          <div class="challenge-ended-title">Challenge Ended</div>
-          <div class="challenge-ended-text">
-            <strong>${escapeHtml(name)}</strong> won the Halloween Word Challenge with <strong>${escapeHtml(winningWord)}</strong>.
-          </div>
+
+        <div class="challenge-ended-icon">
+          ✓
         </div>
+
+        <div>
+
+          <div class="challenge-ended-title">
+            Challenge Ended
+          </div>
+
+          <div class="challenge-ended-text">
+
+            <strong>
+              ${escapeHtml(name)}
+            </strong>
+
+            won the Halloween Word Challenge
+            with
+
+            <strong>
+              ${escapeHtml(winningWord)}
+            </strong>.
+
+          </div>
+
+        </div>
+
       `;
+
 
       challenge.insertBefore(
         banner,
         challenge.firstElementChild
       );
+
     }
 
-    /* Lock only the Scrabble controls */
-    document
-      .querySelectorAll(".scrabble-tile")
-      .forEach(function(tile) {
-        tile.disabled = true;
-        tile.classList.remove("selected");
-      });
+
+    /*
+      Disable Scrabble tiles.
+    */
 
     document
       .querySelectorAll(
-        ".challenge input, .challenge button"
+        ".scrabble-tile"
       )
-      .forEach(function(control) {
-        control.disabled = true;
-      });
+      .forEach(
+        function(tile) {
+
+          tile.disabled =
+            true;
+
+          tile.classList.remove(
+            "selected"
+          );
+
+        }
+      );
+
+
+    /*
+      Disable ONLY controls
+      inside the challenge.
+    */
+
+    challenge
+      .querySelectorAll(
+        "input, button"
+      )
+      .forEach(
+        function(control) {
+
+          control.disabled =
+            true;
+
+        }
+      );
+
+
+    submitButton.textContent =
+      "Challenge Ended";
+
 
     setStatus(
       "Challenge ended. The winner has been announced.",
       "success"
     );
 
-    submitButton.textContent =
-      "Challenge Ended";
   }
 
-  /* Show the winner announcement without
-     hiding the rest of the webpage. */
+
+  /*
+    IMPORTANT:
+
+    Do NOT hide the webpage.
+
+    The event hero,
+    event information,
+    letter story,
+    and everything else remain
+    accessible.
+  */
+
   winnerScreen.classList.add(
     "show"
   );
+
 
   winnerScreen.scrollIntoView({
     behavior: "smooth",
     block: "start"
   });
 
+
   createConfetti();
+
 }
 
 
