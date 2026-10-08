@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -9,9 +10,13 @@
   content="width=device-width, initial-scale=1.0, viewport-fit=cover"
 >
 
-<title>Halloween Word Challenge</title>
+<title>XB × IT Halloween Team Event</title>
 
 <style>
+
+/* =========================================================
+   BASE
+========================================================= */
 
 * {
   box-sizing: border-box;
@@ -23,6 +28,7 @@ html {
 
 body {
   margin: 0;
+
   font-family:
     -apple-system,
     BlinkMacSystemFont,
@@ -32,15 +38,15 @@ body {
     Arial,
     sans-serif;
 
+  color: #f5f5f7;
+
   background:
     radial-gradient(
       circle at 50% 0%,
-      #202020 0%,
-      #0d0d0d 45%,
+      #262626 0%,
+      #101010 42%,
       #050505 100%
     );
-
-  color: #f5f5f7;
 
   min-height: 100vh;
 
@@ -49,14 +55,16 @@ body {
 
 .page {
   width: 100%;
-  max-width: 1100px;
+  max-width: 1180px;
   margin: auto;
-  padding: 30px 22px 70px;
+
+  padding:
+    24px 22px 80px;
 }
 
 
 /* =========================================================
-   NAV
+   NAVIGATION
 ========================================================= */
 
 .nav {
@@ -64,7 +72,8 @@ body {
   align-items: center;
   justify-content: space-between;
 
-  padding: 5px 0 30px;
+  padding:
+    5px 0 25px;
 
   color: #a1a1a6;
 
@@ -72,78 +81,319 @@ body {
 }
 
 .logo {
-  font-weight: 600;
   color: #f5f5f7;
+
+  font-weight: 700;
+
+  letter-spacing: -.02em;
 }
 
 .nav-right {
-  opacity: .7;
+  opacity: .65;
 }
 
 
 /* =========================================================
-   HERO
+   EVENT HERO
 ========================================================= */
 
-.hero {
+.event-hero {
+  position: relative;
+
+  overflow: hidden;
+
   text-align: center;
-  padding: 50px 0 30px;
+
+  padding:
+    70px 30px 65px;
+
+  border-radius: 32px;
+
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(255,157,0,.14),
+      transparent 45%
+    ),
+    rgba(255,255,255,.035);
+
+  border:
+    1px solid rgba(255,255,255,.08);
+
+  box-shadow:
+    0 35px 100px rgba(0,0,0,.35);
 }
 
-.eyebrow {
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: .08em;
-  text-transform: uppercase;
+.event-hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 320px;
+  height: 320px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,157,0,.06);
+
+  filter:
+    blur(40px);
+
+  top: -170px;
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+}
+
+.event-eyebrow {
+  position: relative;
 
   color: #ff9d00;
 
-  margin-bottom: 18px;
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing:
+    .13em;
+
+  text-transform:
+    uppercase;
+
+  margin-bottom: 20px;
 }
 
-h1 {
+.event-title {
+  position: relative;
+
   margin: 0;
 
   font-size:
-    clamp(44px, 8vw, 82px);
+    clamp(46px, 8vw, 88px);
 
-  line-height: .95;
+  line-height: .94;
 
-  letter-spacing: -.055em;
+  letter-spacing:
+    -.065em;
 
-  font-weight: 700;
+  font-weight: 750;
 }
 
-.subtitle {
-  max-width: 650px;
-
-  margin: 25px auto 0;
-
-  font-size:
-    clamp(17px, 2vw, 21px);
-
-  line-height: 1.45;
+.event-title span {
+  display: block;
 
   color: #a1a1a6;
 }
 
+.event-description {
+  position: relative;
 
-/* =========================================================
-   SCRABBLE BOARD
-========================================================= */
+  max-width: 760px;
 
-.board-wrap {
-  margin: 55px auto 40px;
+  margin:
+    28px auto 0;
 
-  display: flex;
-  justify-content: center;
+  color: #a1a1a6;
 
-  overflow: hidden;
+  font-size:
+    clamp(17px, 2vw, 21px);
 
-  padding: 10px;
+  line-height: 1.5;
 }
 
-.board {
+.event-meta {
+  position: relative;
+
+  display: flex;
+
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-top: 30px;
+}
+
+.event-pill {
+  padding:
+    9px 14px;
+
+  border-radius: 100px;
+
+  background:
+    rgba(255,255,255,.07);
+
+  border:
+    1px solid rgba(255,255,255,.08);
+
+  color: #d1d1d6;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   EVENT INFO
+========================================================= */
+
+.info-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 15px;
+
+  margin:
+    20px 0 80px;
+}
+
+.info-card {
+  padding: 25px;
+
+  min-height: 180px;
+
+  border-radius: 22px;
+
+  background:
+    rgba(255,255,255,.035);
+
+  border:
+    1px solid rgba(255,255,255,.07);
+}
+
+.info-icon {
+  font-size: 27px;
+
+  margin-bottom: 18px;
+}
+
+.info-title {
+  font-size: 18px;
+
+  font-weight: 650;
+
+  margin-bottom: 9px;
+}
+
+.info-text {
+  color: #8e8e93;
+
+  line-height: 1.5;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   SECTION HEADERS
+========================================================= */
+
+.section {
+  margin-top: 80px;
+}
+
+.section-eyebrow {
+  color: #ff9d00;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing:
+    .12em;
+
+  text-transform:
+    uppercase;
+
+  margin-bottom: 12px;
+}
+
+.section-title {
+  margin: 0;
+
+  font-size:
+    clamp(34px, 5vw, 58px);
+
+  line-height: 1;
+
+  letter-spacing:
+    -.05em;
+}
+
+.section-description {
+  max-width: 680px;
+
+  margin-top: 18px;
+
+  color: #8e8e93;
+
+  font-size: 17px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   SCRABBLE CHALLENGE
+========================================================= */
+
+.challenge {
+  margin-top: 35px;
+
+  padding:
+    35px;
+
+  border-radius: 30px;
+
+  background:
+    rgba(255,255,255,.045);
+
+  border:
+    1px solid rgba(255,255,255,.08);
+
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.25);
+}
+
+.challenge-header {
+  text-align: center;
+
+  margin-bottom: 30px;
+}
+
+.challenge-title {
+  font-size: 27px;
+
+  font-weight: 700;
+}
+
+.challenge-subtitle {
+  color: #8e8e93;
+
+  margin-top: 8px;
+}
+
+
+/* =========================================================
+   INTERACTIVE BOARD
+========================================================= */
+
+.board-area {
+  display: flex;
+
+  justify-content: center;
+
+  padding:
+    20px 5px 35px;
+
+  overflow-x: auto;
+}
+
+.scrabble-board {
   display: grid;
 
   grid-template-columns:
@@ -154,93 +404,122 @@ h1 {
 
   gap: 8px;
 
-  transform:
-    rotate(-2deg)
-    perspective(600px)
-    rotateX(3deg);
+  padding: 15px;
 
-  animation:
-    boardFloat 5s ease-in-out infinite;
-}
-
-@keyframes boardFloat {
-
-  0%,100% {
-    transform:
-      rotate(-2deg)
-      perspective(600px)
-      rotateX(3deg)
-      translateY(0);
-  }
-
-  50% {
-    transform:
-      rotate(-1deg)
-      perspective(600px)
-      rotateX(3deg)
-      translateY(-6px);
-  }
-
-}
-
-.board-square {
-  border-radius: 8px;
+  border-radius: 20px;
 
   background:
     linear-gradient(
       145deg,
-      #262626,
-      #111
+      #1d1d1d,
+      #0b0b0b
     );
 
-  border: 1px solid #333;
+  border:
+    1px solid rgba(255,255,255,.07);
 
   box-shadow:
-    inset 0 1px rgba(255,255,255,.08),
-    0 7px 18px rgba(0,0,0,.35);
+    0 25px 60px rgba(0,0,0,.5);
+
+  transform:
+    rotate(-1deg);
 }
 
 
 /* =========================================================
-   TILES
+   BOARD SQUARES
 ========================================================= */
 
-.tile {
+.board-square {
   width: 58px;
   height: 58px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  position: relative;
 
   border-radius: 8px;
 
   background:
     linear-gradient(
       145deg,
-      #f4d6a1,
-      #cba66d
+      #282828,
+      #111111
     );
 
-  color: #171717;
+  border:
+    1px solid #343434;
+}
+
+
+/* =========================================================
+   LETTER TILES
+========================================================= */
+
+.scrabble-tile {
+  position: relative;
+
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 0;
+
+  border-radius: 8px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f5d9a5,
+      #c69e65
+    );
+
+  color: #151515;
 
   font-size: 29px;
 
-  font-weight: 700;
+  font-weight: 750;
+
+  cursor: pointer;
 
   box-shadow:
-    0 8px 15px rgba(0,0,0,.35),
+    0 8px 16px rgba(0,0,0,.35),
     inset 0 1px 2px rgba(255,255,255,.65);
 
-  border: 1px solid rgba(0,0,0,.2);
-
-  animation:
-    tileFloat 3.5s ease-in-out infinite;
+  transition:
+    transform .16s ease,
+    box-shadow .16s ease,
+    filter .16s ease;
 }
 
-.tile small {
+.scrabble-tile:hover {
+  transform:
+    translateY(-4px)
+    scale(1.04);
+
+  box-shadow:
+    0 13px 25px rgba(0,0,0,.45);
+}
+
+.scrabble-tile:active {
+  transform:
+    scale(.94);
+}
+
+.scrabble-tile.selected {
+  transform:
+    translateY(-7px)
+    scale(1.06);
+
+  filter:
+    brightness(1.2);
+
+  box-shadow:
+    0 0 0 3px rgba(255,157,0,.65),
+    0 15px 30px rgba(0,0,0,.5);
+}
+
+.tile-value {
   position: absolute;
 
   right: 6px;
@@ -248,177 +527,190 @@ h1 {
 
   font-size: 10px;
 
-  font-weight: 700;
-}
-
-.tile:nth-child(2) {
-  animation-delay: .15s;
-}
-
-.tile:nth-child(3) {
-  animation-delay: .3s;
-}
-
-.tile:nth-child(4) {
-  animation-delay: .45s;
-}
-
-.tile:nth-child(5) {
-  animation-delay: .6s;
-}
-
-.tile:nth-child(6) {
-  animation-delay: .75s;
-}
-
-.tile:nth-child(7) {
-  animation-delay: .9s;
-}
-
-.tile:nth-child(8) {
-  animation-delay: 1.05s;
-}
-
-.tile:nth-child(9) {
-  animation-delay: 1.2s;
-}
-
-.tile:nth-child(10) {
-  animation-delay: 1.35s;
-}
-
-.tile:nth-child(11) {
-  animation-delay: 1.5s;
-}
-
-.tile:nth-child(12) {
-  animation-delay: 1.65s;
-}
-
-.tile:nth-child(13) {
-  animation-delay: 1.8s;
-}
-
-.tile:nth-child(14) {
-  animation-delay: 1.95s;
-}
-
-@keyframes tileFloat {
-
-  0%,100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-4px);
-  }
-
+  font-weight: 800;
 }
 
 
 /* =========================================================
-   GAME CARD
+   ANSWER BUILDER
 ========================================================= */
 
-.card {
-  max-width: 620px;
+.answer-builder {
+  max-width: 700px;
 
-  margin: 30px auto 0;
+  margin:
+    0 auto 30px;
 
-  padding: 30px;
+  text-align: center;
+}
 
-  border-radius: 26px;
+.answer-label {
+  color: #8e8e93;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    .1em;
+
+  margin-bottom: 10px;
+}
+
+.answer-display {
+  min-height: 67px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding:
+    12px 18px;
+
+  border-radius: 16px;
 
   background:
-    rgba(255,255,255,.055);
+    rgba(0,0,0,.35);
 
   border:
-    1px solid rgba(255,255,255,.09);
+    1px solid rgba(255,255,255,.08);
 
-  box-shadow:
-    0 25px 70px rgba(0,0,0,.35);
+  font-size: 30px;
 
-  backdrop-filter:
-    blur(20px);
+  font-weight: 700;
+
+  letter-spacing:
+    .08em;
+
+  color: #f5f5f7;
+
+  word-break:
+    break-all;
 }
 
-.card-title {
-  font-size: 24px;
+.answer-placeholder {
+  color: #48484a;
 
-  font-weight: 650;
+  font-size: 15px;
 
-  margin-bottom: 8px;
-}
-
-.card-description {
-  color: #a1a1a6;
-
-  line-height: 1.5;
-
-  margin-bottom: 25px;
+  letter-spacing: 0;
 }
 
 
 /* =========================================================
-   FORM
+   BUILDER BUTTONS
 ========================================================= */
+
+.builder-controls {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  margin-top: 12px;
+}
+
+.small-button {
+  width: auto;
+
+  margin: 0;
+
+  padding:
+    9px 15px;
+
+  border-radius: 10px;
+
+  background:
+    rgba(255,255,255,.07);
+
+  color: #d1d1d6;
+
+  border:
+    1px solid rgba(255,255,255,.08);
+
+  box-shadow: none;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+.small-button:hover {
+  background:
+    rgba(255,255,255,.11);
+
+  transform: none;
+}
+
+
+/* =========================================================
+   GAME FORM
+========================================================= */
+
+.form-container {
+  max-width: 620px;
+
+  margin:
+    0 auto;
+}
 
 label {
   display: block;
 
-  font-size: 13px;
+  margin:
+    17px 0 8px;
 
   color: #a1a1a6;
 
-  margin:
-    18px 0 8px;
+  font-size: 13px;
 }
 
 input {
   width: 100%;
 
-  border: 0;
-  outline: 0;
+  padding:
+    16px 17px;
 
   border-radius: 14px;
-
-  padding: 16px 17px;
-
-  background:
-    rgba(255,255,255,.09);
-
-  color: white;
-
-  font-size: 17px;
 
   border:
     1px solid rgba(255,255,255,.08);
 
-  transition:
-    .2s ease;
+  outline: none;
+
+  background:
+    rgba(255,255,255,.07);
+
+  color: white;
+
+  font-size: 17px;
 }
 
 input:focus {
   border-color:
-    rgba(255,157,0,.75);
-
-  background:
-    rgba(255,255,255,.12);
+    rgba(255,157,0,.7);
 
   box-shadow:
     0 0 0 4px rgba(255,157,0,.08);
 }
 
-button {
+.submit-button {
   width: 100%;
 
-  margin-top: 22px;
+  margin-top: 20px;
+
+  padding:
+    16px;
 
   border: 0;
 
   border-radius: 14px;
-
-  padding: 16px;
 
   background:
     #ff9d00;
@@ -427,53 +719,38 @@ button {
 
   font-size: 17px;
 
-  font-weight: 700;
+  font-weight: 750;
 
   cursor: pointer;
 
   transition:
     transform .15s ease,
     opacity .15s ease;
-
-  box-shadow:
-    0 10px 30px rgba(255,157,0,.18);
 }
 
-button:hover {
+.submit-button:hover {
   transform:
     translateY(-1px);
 }
 
-button:active {
-  transform:
-    scale(.98);
+.submit-button:disabled {
+  opacity: .5;
+
+  cursor: default;
+
+  transform: none;
 }
-
-button:disabled {
-  opacity: .55;
-
-  cursor:
-    default;
-
-  transform:
-    none;
-}
-
-
-/* =========================================================
-   STATUS
-========================================================= */
 
 .status {
-  min-height: 25px;
+  min-height: 24px;
 
-  margin-top: 17px;
+  margin-top: 16px;
 
   text-align: center;
 
-  color: #a1a1a6;
-
   font-size: 14px;
+
+  color: #8e8e93;
 }
 
 .status.error {
@@ -492,7 +769,8 @@ button:disabled {
 .live {
   max-width: 620px;
 
-  margin: 25px auto 0;
+  margin:
+    25px auto 0;
 
   padding:
     18px 20px;
@@ -509,8 +787,7 @@ button:disabled {
 .live-header {
   display: flex;
 
-  justify-content:
-    space-between;
+  justify-content: space-between;
 
   align-items: center;
 
@@ -518,17 +795,17 @@ button:disabled {
 }
 
 .live-title {
-  font-size: 13px;
+  font-size: 12px;
 
-  font-weight: 600;
+  font-weight: 700;
 
-  color: #a1a1a6;
-
-  text-transform:
-    uppercase;
+  color: #8e8e93;
 
   letter-spacing:
     .08em;
+
+  text-transform:
+    uppercase;
 }
 
 .live-count {
@@ -540,8 +817,7 @@ button:disabled {
 .activity {
   display: flex;
 
-  flex-direction:
-    column;
+  flex-direction: column;
 
   gap: 8px;
 }
@@ -549,14 +825,13 @@ button:disabled {
 .activity-row {
   display: flex;
 
-  justify-content:
-    space-between;
+  justify-content: space-between;
 
   gap: 15px;
 
-  font-size: 13px;
-
   color: #8e8e93;
+
+  font-size: 13px;
 }
 
 .activity-name {
@@ -574,6 +849,213 @@ button:disabled {
 
 
 /* =========================================================
+   HOW IT WAS MADE
+========================================================= */
+
+.made-section {
+  margin-top: 85px;
+}
+
+.made-card {
+  margin-top: 30px;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 20px;
+}
+
+.made-panel {
+  padding: 30px;
+
+  border-radius: 25px;
+
+  background:
+    rgba(255,255,255,.035);
+
+  border:
+    1px solid rgba(255,255,255,.07);
+}
+
+.made-number {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 35px;
+  height: 35px;
+
+  border-radius: 50%;
+
+  background:
+    #ff9d00;
+
+  color: #111;
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  margin-bottom: 18px;
+}
+
+.made-panel h3 {
+  margin:
+    0 0 10px;
+
+  font-size: 21px;
+}
+
+.made-panel p {
+  margin: 0;
+
+  color: #8e8e93;
+
+  line-height: 1.6;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   LETTER STORY
+========================================================= */
+
+.letter-story {
+  margin-top: 25px;
+
+  padding: 30px;
+
+  border-radius: 25px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,157,0,.09),
+      rgba(255,255,255,.025)
+    );
+
+  border:
+    1px solid rgba(255,255,255,.07);
+}
+
+.letter-story-title {
+  font-size: 21px;
+
+  font-weight: 700;
+
+  margin-bottom: 20px;
+}
+
+.letter-list {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 9px;
+}
+
+.letter-item {
+  display: flex;
+
+  align-items: center;
+
+  padding: 9px 11px;
+
+  border-radius: 10px;
+
+  background:
+    rgba(255,255,255,.04);
+
+  color: #d1d1d6;
+
+  font-size: 14px;
+}
+
+.story-letter {
+  width: 29px;
+  height: 29px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 9px;
+
+  border-radius: 6px;
+
+  background:
+    #cba66d;
+
+  color: #111;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   OTHER GAMES
+========================================================= */
+
+.games-section {
+  margin-top: 85px;
+}
+
+.games-card {
+  margin-top: 30px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 15px;
+}
+
+.game-card {
+  padding: 25px;
+
+  min-height: 190px;
+
+  border-radius: 22px;
+
+  background:
+    rgba(255,255,255,.035);
+
+  border:
+    1px solid rgba(255,255,255,.07);
+}
+
+.game-card-icon {
+  font-size: 32px;
+
+  margin-bottom: 18px;
+}
+
+.game-card h3 {
+  margin:
+    0 0 8px;
+
+  font-size: 18px;
+}
+
+.game-card p {
+  margin: 0;
+
+  color: #8e8e93;
+
+  line-height: 1.5;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
    WINNER
 ========================================================= */
 
@@ -582,7 +1064,8 @@ button:disabled {
 
   text-align: center;
 
-  padding: 25px 0 50px;
+  padding:
+    80px 0 40px;
 }
 
 .winner-screen.show {
@@ -592,53 +1075,41 @@ button:disabled {
 .winner-eyebrow {
   color: #30d158;
 
-  font-size: 14px;
+  font-size: 13px;
 
   font-weight: 700;
 
+  letter-spacing:
+    .12em;
+
   text-transform:
     uppercase;
-
-  letter-spacing:
-    .1em;
 }
 
 .winner-word {
+  margin:
+    15px 0;
+
   font-size:
-    clamp(55px, 12vw, 110px);
+    clamp(58px, 12vw, 115px);
 
   font-weight: 800;
 
   letter-spacing:
-    -.06em;
-
-  margin:
-    18px 0;
-
-  background:
-    linear-gradient(
-      135deg,
-      #fff,
-      #aaa
-    );
-
-  -webkit-background-clip:
-    text;
-
-  -webkit-text-fill-color:
-    transparent;
+    -.065em;
 }
 
 .winner-name {
-  font-size: 21px;
-
   color: #a1a1a6;
+
+  font-size: 20px;
 }
 
 .reveal {
-  max-width: 620px;
+  max-width: 650px;
 
-  margin: 40px auto 0;
+  margin:
+    40px auto 0;
 
   padding: 25px;
 
@@ -652,17 +1123,19 @@ button:disabled {
 }
 
 .reveal-title {
-  font-size: 13px;
+  color: #8e8e93;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  letter-spacing:
+    .1em;
 
   text-transform:
     uppercase;
 
-  letter-spacing:
-    .08em;
-
-  color: #8e8e93;
-
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .reveal-grid {
@@ -671,7 +1144,7 @@ button:disabled {
   grid-template-columns:
     repeat(2, 1fr);
 
-  gap: 10px;
+  gap: 9px;
 
   text-align: left;
 }
@@ -684,45 +1157,9 @@ button:disabled {
   background:
     rgba(255,255,255,.04);
 
-  color: #d1d1d6;
-
   font-size: 14px;
-}
 
-.reveal-letter {
-  display: inline-flex;
-
-  align-items: center;
-  justify-content: center;
-
-  width: 28px;
-  height: 28px;
-
-  margin-right: 7px;
-
-  border-radius: 6px;
-
-  background:
-    #cba66d;
-
-  color: #111;
-
-  font-weight: 700;
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-.footer {
-  text-align: center;
-
-  margin-top: 55px;
-
-  color: #636366;
-
-  font-size: 12px;
+  color: #d1d1d6;
 }
 
 
@@ -733,17 +1170,17 @@ button:disabled {
 .confetti {
   position: fixed;
 
+  top: -20px;
+
   width: 8px;
   height: 12px;
 
-  top: -20px;
-
   pointer-events: none;
+
+  z-index: 999;
 
   animation:
     confettiFall 2.8s linear forwards;
-
-  z-index: 999;
 }
 
 @keyframes confettiFall {
@@ -760,59 +1197,117 @@ button:disabled {
 
 
 /* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+  text-align: center;
+
+  margin-top: 80px;
+
+  color: #636366;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
    MOBILE
 ========================================================= */
 
-@media(max-width: 600px) {
+@media(max-width: 700px) {
 
   .page {
     padding:
-      20px 16px 50px;
+      15px 15px 60px;
   }
 
-  .hero {
-    padding-top: 35px;
+  .event-hero {
+    padding:
+      55px 20px;
   }
 
-  .board-wrap {
-    margin-top: 40px;
-  }
-
-  .board {
+  .info-grid {
     grid-template-columns:
-      repeat(7, 40px);
+      1fr;
+
+    margin-bottom: 55px;
+  }
+
+  .challenge {
+    padding:
+      22px 16px;
+  }
+
+  .scrabble-board {
+    grid-template-columns:
+      repeat(7, 43px);
 
     grid-template-rows:
-      repeat(3, 40px);
+      repeat(3, 43px);
 
     gap: 5px;
+
+    padding: 10px;
   }
 
-  .tile {
-    width: 40px;
-    height: 40px;
-
-    font-size: 20px;
-
-    border-radius: 6px;
+  .board-square,
+  .scrabble-tile {
+    width: 43px;
+    height: 43px;
   }
 
-  .tile small {
-    font-size: 7px;
+  .scrabble-tile {
+    font-size: 21px;
+  }
 
+  .tile-value {
     right: 4px;
     bottom: 2px;
+
+    font-size: 7px;
   }
 
-  .card {
-    padding: 22px;
+  .made-card {
+    grid-template-columns:
+      1fr;
+  }
 
-    border-radius: 21px;
+  .games-card {
+    grid-template-columns:
+      1fr;
+  }
+
+  .letter-list {
+    grid-template-columns:
+      1fr;
   }
 
   .reveal-grid {
     grid-template-columns:
       1fr;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration:
+      .01ms !important;
+
+    animation-iteration-count:
+      1 !important;
+
+    scroll-behavior:
+      auto !important;
   }
 
 }
@@ -827,167 +1322,238 @@ button:disabled {
 <div class="page">
 
 
-  <!-- NAV -->
+<!-- =======================================================
+     NAV
+======================================================== -->
 
-  <div class="nav">
+<div class="nav">
 
-    <div class="logo">
-      XB × IT
+  <div class="logo">
+    XB × IT
+  </div>
+
+  <div class="nav-right">
+    Halloween Team Event · 2026
+  </div>
+
+</div>
+
+
+<!-- =======================================================
+     EVENT INTRO
+======================================================== -->
+
+<section class="event-hero">
+
+  <div class="event-eyebrow">
+    Welcome to the XB × IT Team Event
+  </div>
+
+  <h1 class="event-title">
+    Halloween
+    <span>starts here.</span>
+  </h1>
+
+  <p class="event-description">
+
+    This is our team space for the Halloween event.
+    Come together with colleagues, play games,
+    take on challenges, and enjoy the day with the
+    XB-IT teams.
+
+  </p>
+
+  <div class="event-meta">
+
+    <div class="event-pill">
+      🎃 Halloween Event
     </div>
 
-    <div class="nav-right">
-      Halloween 2026
+    <div class="event-pill">
+      🎲 Board Games
+    </div>
+
+    <div class="event-pill">
+      🧩 Online Challenges
+    </div>
+
+    <div class="event-pill">
+      🍿 Snacks & Drinks
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     EVENT INFO
+======================================================== -->
+
+<section class="info-grid">
+
+  <div class="info-card">
+
+    <div class="info-icon">
+      🎲
+    </div>
+
+    <div class="info-title">
+      Play
+    </div>
+
+    <div class="info-text">
+      Join your colleagues for a variety of
+      board games and team challenges
+      throughout the event.
     </div>
 
   </div>
 
 
-  <!-- MAIN GAME -->
+  <div class="info-card">
 
-  <main id="game">
+    <div class="info-icon">
+      🧠
+    </div>
+
+    <div class="info-title">
+      Challenge
+    </div>
+
+    <div class="info-text">
+      Take on our online Scrabble challenge
+      and see if you can be the first person
+      to solve it.
+    </div>
+
+  </div>
 
 
-    <!-- HERO -->
+  <div class="info-card">
 
-    <section class="hero">
+    <div class="info-icon">
+      🍿
+    </div>
 
-      <div class="eyebrow">
-        Halloween Word Challenge
+    <div class="info-title">
+      Enjoy
+    </div>
+
+    <div class="info-text">
+      Colleagues who participate in the
+      games and challenges can enjoy snacks
+      and drinks provided by the XB-IT teams.
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     SCRABBLE SECTION
+======================================================== -->
+
+<section class="section">
+
+  <div class="section-eyebrow">
+    Featured Challenge
+  </div>
+
+  <h2 class="section-title">
+    The Halloween<br>
+    Word Challenge.
+  </h2>
+
+  <p class="section-description">
+
+    Select letters from the board below to build
+    your answer. There is only one winning word.
+    The first person to find it wins.
+
+  </p>
+
+
+  <div class="challenge">
+
+
+    <div class="challenge-header">
+
+      <div class="challenge-title">
+        Build your word
       </div>
 
-      <h1>
-        Think bigger.
-      </h1>
+      <div class="challenge-subtitle">
+        Tap the tiles to add letters to your answer.
+      </div>
 
-      <p class="subtitle">
-        Enter the largest word you can create
-        from the letters below.
-        Only one word wins the game.
-      </p>
-
-    </section>
+    </div>
 
 
-    <!-- SCRABBLE BOARD -->
+    <!-- ANSWER -->
 
-    <section class="board-wrap">
+    <div class="answer-builder">
 
-      <div class="board">
+      <div class="answer-label">
+        Your word
+      </div>
 
-        <div class="board-square"></div>
+      <div
+        id="answerDisplay"
+        class="answer-display"
+      >
 
-        <div class="tile">
-          S
-          <small>1</small>
-        </div>
-
-        <div class="board-square"></div>
-
-        <div class="tile">
-          O
-          <small>1</small>
-        </div>
-
-        <div class="board-square"></div>
-
-        <div class="tile">
-          W
-          <small>4</small>
-        </div>
-
-        <div class="board-square"></div>
-
-
-        <div class="tile">
-          H
-          <small>4</small>
-        </div>
-
-        <div class="board-square"></div>
-
-        <div class="tile">
-          E
-          <small>1</small>
-        </div>
-
-        <div class="board-square"></div>
-
-        <div class="tile">
-          G
-          <small>2</small>
-        </div>
-
-        <div class="board-square"></div>
-
-        <div class="tile">
-          H
-          <small>4</small>
-        </div>
-
-
-        <div class="board-square"></div>
-
-        <div class="tile">
-          G
-          <small>2</small>
-        </div>
-
-        <div class="board-square"></div>
-
-        <div class="tile">
-          K
-          <small>5</small>
-        </div>
-
-        <div class="board-square"></div>
-
-        <div class="tile">
-          R
-          <small>1</small>
-        </div>
-
-        <div class="board-square"></div>
-
-
-        <div class="tile">
-          M
-          <small>3</small>
-        </div>
-
-        <div class="board-square"></div>
-
-        <div class="tile">
-          V
-          <small>4</small>
-        </div>
-
-        <div class="board-square"></div>
-
-        <div class="tile">
-          O
-          <small>1</small>
-        </div>
-
-        <div class="board-square"></div>
+        <span class="answer-placeholder">
+          Select letters from the board
+        </span>
 
       </div>
 
-    </section>
+      <div class="builder-controls">
 
+        <button
+          type="button"
+          class="small-button"
+          id="backspaceButton"
+        >
+          ← Delete
+        </button>
 
-    <!-- GAME CARD -->
+        <button
+          type="button"
+          class="small-button"
+          id="clearButton"
+        >
+          Clear
+        </button>
 
-    <section class="card">
-
-      <div class="card-title">
-        Make your move
       </div>
 
-      <div class="card-description">
-        Enter your name and submit the largest word
-        you can create from the available letters.
+    </div>
+
+
+    <!-- INTERACTIVE BOARD -->
+
+    <div class="board-area">
+
+      <div
+        id="scrabbleBoard"
+        class="scrabble-board"
+      >
+
+        <!--
+          Board generated by JavaScript
+        -->
+
       </div>
 
+    </div>
+
+
+    <!-- FORM -->
+
+    <div class="form-container">
 
       <form id="gameForm">
 
@@ -1006,8 +1572,13 @@ button:disabled {
         >
 
 
+        <!--
+          Hidden manual input.
+          Users can still type their answer.
+        -->
+
         <label for="word">
-          Your word
+          Your answer
         </label>
 
         <input
@@ -1017,13 +1588,14 @@ button:disabled {
           maxlength="30"
           autocomplete="off"
           autocapitalize="characters"
-          placeholder="Enter your word"
+          placeholder="Build it above or type it here"
           required
         >
 
 
         <button
           id="submitButton"
+          class="submit-button"
           type="submit"
         >
           Submit Answer
@@ -1037,12 +1609,12 @@ button:disabled {
         class="status"
       ></div>
 
-    </section>
+    </div>
 
 
-    <!-- LIVE ACTIVITY -->
+    <!-- LIVE -->
 
-    <section class="live">
+    <div class="live">
 
       <div class="live-header">
 
@@ -1065,129 +1637,408 @@ button:disabled {
       >
 
         <div class="activity-row">
+
           <span class="activity-name">
             Waiting for players...
           </span>
-        </div>
 
-      </div>
-
-    </section>
-
-
-  </main>
-
-
-  <!-- WINNER -->
-
-  <section
-    id="winnerScreen"
-    class="winner-screen"
-  >
-
-    <div class="winner-eyebrow">
-      Challenge Complete
-    </div>
-
-    <div
-      id="winnerWord"
-      class="winner-word"
-    ></div>
-
-    <div
-      id="winnerName"
-      class="winner-name"
-    ></div>
-
-
-    <div class="reveal">
-
-      <div class="reveal-title">
-        Where the letters came from
-      </div>
-
-      <div class="reveal-grid">
-
-        <div class="reveal-item">
-          <span class="reveal-letter">S</span>
-          Adam S.
-        </div>
-
-        <div class="reveal-item">
-          <span class="reveal-letter">S</span>
-          Andrea S.
-        </div>
-
-        <div class="reveal-item">
-          <span class="reveal-letter">O</span>
-          Andres O.
-        </div>
-
-        <div class="reveal-item">
-          <span class="reveal-letter">W</span>
-          Anna W.
-        </div>
-
-        <div class="reveal-item">
-          <span class="reveal-letter">H</span>
-          Ayube H.
-        </div>
-
-        <div class="reveal-item">
-          <span class="reveal-letter">E</span>
-          Chiric E.
-        </div>
-
-        <div class="reveal-item">
-          <span class="reveal-letter">G</span>
-          Daniel G.
-        </div>
-
-        <div class="reveal-item">
-          <span class="reveal-letter">K</span>
-          Daniel K.
-        </div>
-
-        <div class="reveal-item">
-          <span class="reveal-letter">H</span>
-          Fabiana H.
-        </div>
-
-        <div class="reveal-item">
-          <span class="reveal-letter">R</span>
-          Juan R.
-        </div>
-
-        <div class="reveal-item">
-          <span class="reveal-letter">M</span>
-          Marisa M.
-        </div>
-
-        <div class="reveal-item">
-          <span class="reveal-letter">G</span>
-          Monica G.
-        </div>
-
-        <div class="reveal-item">
-          <span class="reveal-letter">V</span>
-          Raul V.
-        </div>
-
-        <div class="reveal-item">
-          <span class="reveal-letter">O</span>
-          One extra O
         </div>
 
       </div>
 
     </div>
 
-  </section>
 
-
-  <div class="footer">
-    XB × IT Halloween Word Challenge
   </div>
+
+</section>
+
+
+<!-- =======================================================
+     HOW THE CHALLENGE WAS MADE
+======================================================== -->
+
+<section class="made-section">
+
+  <div class="section-eyebrow">
+    Behind the Challenge
+  </div>
+
+  <h2 class="section-title">
+    How the Scrabble<br>
+    challenge was made.
+  </h2>
+
+  <p class="section-description">
+
+    This challenge was designed specifically for
+    the XB-IT Halloween event. The board is more
+    than a collection of random letters.
+
+  </p>
+
+
+  <div class="made-card">
+
+
+    <div class="made-panel">
+
+      <div class="made-number">
+        01
+      </div>
+
+      <h3>
+        The letters have a story.
+      </h3>
+
+      <p>
+        Each letter was created from the first
+        initial of the last name of members of
+        our XB-IT team. The result is a custom
+        letter rack created specifically for
+        our event.
+      </p>
+
+    </div>
+
+
+    <div class="made-panel">
+
+      <div class="made-number">
+        02
+      </div>
+
+      <h3>
+        One word wins.
+      </h3>
+
+      <p>
+        The challenge is intentionally designed
+        so that finding a valid smaller word is
+        not enough. Participants need to figure
+        out the one word that uses the available
+        letters to solve the challenge.
+      </p>
+
+    </div>
+
+
+    <div class="made-panel">
+
+      <div class="made-number">
+        03
+      </div>
+
+      <h3>
+        The board is interactive.
+      </h3>
+
+      <p>
+        Tap the physical-looking Scrabble tiles
+        on the screen to build your answer.
+        Selected tiles lift from the board,
+        making the challenge feel like a real
+        tabletop game.
+      </p>
+
+    </div>
+
+
+    <div class="made-panel">
+
+      <div class="made-number">
+        04
+      </div>
+
+      <h3>
+        The first player wins.
+      </h3>
+
+      <p>
+        Every submission is recorded. The first
+        participant to submit the winning answer
+        locks the challenge and becomes the
+        Halloween Word Challenge winner.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- LETTER STORY -->
+
+  <div class="letter-story">
+
+    <div class="letter-story-title">
+      The letters behind the challenge
+    </div>
+
+    <div class="letter-list">
+
+      <div class="letter-item">
+        <span class="story-letter">S</span>
+        Adam S.
+      </div>
+
+      <div class="letter-item">
+        <span class="story-letter">S</span>
+        Andrea S.
+      </div>
+
+      <div class="letter-item">
+        <span class="story-letter">O</span>
+        Andres O.
+      </div>
+
+      <div class="letter-item">
+        <span class="story-letter">W</span>
+        Anna W.
+      </div>
+
+      <div class="letter-item">
+        <span class="story-letter">H</span>
+        Ayube H.
+      </div>
+
+      <div class="letter-item">
+        <span class="story-letter">E</span>
+        Chiric E.
+      </div>
+
+      <div class="letter-item">
+        <span class="story-letter">G</span>
+        Daniel G.
+      </div>
+
+      <div class="letter-item">
+        <span class="story-letter">K</span>
+        Daniel K.
+      </div>
+
+      <div class="letter-item">
+        <span class="story-letter">H</span>
+        Fabiana H.
+      </div>
+
+      <div class="letter-item">
+        <span class="story-letter">R</span>
+        Juan R.
+      </div>
+
+      <div class="letter-item">
+        <span class="story-letter">M</span>
+        Marisa M.
+      </div>
+
+      <div class="letter-item">
+        <span class="story-letter">G</span>
+        Monica G.
+      </div>
+
+      <div class="letter-item">
+        <span class="story-letter">V</span>
+        Raul V.
+      </div>
+
+      <div class="letter-item">
+        <span class="story-letter">O</span>
+        One extra O
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     OTHER GAMES
+======================================================== -->
+
+<section class="games-section">
+
+  <div class="section-eyebrow">
+    More to Come
+  </div>
+
+  <h2 class="section-title">
+    More than<br>
+    one game.
+  </h2>
+
+  <p class="section-description">
+
+    The Halloween event is about getting
+    everyone together. Keep an eye out for
+    additional games and challenges happening
+    throughout the event.
+
+  </p>
+
+
+  <div class="games-card">
+
+
+    <div class="game-card">
+
+      <div class="game-card-icon">
+        🎲
+      </div>
+
+      <h3>
+        Board Games
+      </h3>
+
+      <p>
+        Grab some colleagues, choose a game,
+        and jump in.
+      </p>
+
+    </div>
+
+
+    <div class="game-card">
+
+      <div class="game-card-icon">
+        🏆
+      </div>
+
+      <h3>
+        Team Challenges
+      </h3>
+
+      <p>
+        Compete with your teammates and see
+        who can come out on top.
+      </p>
+
+    </div>
+
+
+    <div class="game-card">
+
+      <div class="game-card-icon">
+        🍿
+      </div>
+
+      <h3>
+        Snacks & Drinks
+      </h3>
+
+      <p>
+        Participate in the activities and enjoy
+        refreshments provided by the XB-IT teams.
+      </p>
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+<!-- =======================================================
+     WINNER
+======================================================== -->
+
+<section
+  id="winnerScreen"
+  class="winner-screen"
+>
+
+  <div class="winner-eyebrow">
+    Challenge Complete
+  </div>
+
+  <div
+    id="winnerWord"
+    class="winner-word"
+  ></div>
+
+  <div
+    id="winnerName"
+    class="winner-name"
+  ></div>
+
+
+  <div class="reveal">
+
+    <div class="reveal-title">
+      The letters behind the challenge
+    </div>
+
+    <div class="reveal-grid">
+
+      <div class="reveal-item">
+        S · Adam S.
+      </div>
+
+      <div class="reveal-item">
+        S · Andrea S.
+      </div>
+
+      <div class="reveal-item">
+        O · Andres O.
+      </div>
+
+      <div class="reveal-item">
+        W · Anna W.
+      </div>
+
+      <div class="reveal-item">
+        H · Ayube H.
+      </div>
+
+      <div class="reveal-item">
+        E · Chiric E.
+      </div>
+
+      <div class="reveal-item">
+        G · Daniel G.
+      </div>
+
+      <div class="reveal-item">
+        K · Daniel K.
+      </div>
+
+      <div class="reveal-item">
+        H · Fabiana H.
+      </div>
+
+      <div class="reveal-item">
+        R · Juan R.
+      </div>
+
+      <div class="reveal-item">
+        M · Marisa M.
+      </div>
+
+      <div class="reveal-item">
+        G · Monica G.
+      </div>
+
+      <div class="reveal-item">
+        V · Raul V.
+      </div>
+
+      <div class="reveal-item">
+        O · One extra O
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<div class="footer">
+  XB × IT Halloween Team Event · 2026
+</div>
+
 
 </div>
 
@@ -1195,7 +2046,7 @@ button:disabled {
 <script>
 
 /* =========================================================
-   CONFIGURATION
+   API
 ========================================================= */
 
 const API_URL =
@@ -1203,53 +2054,426 @@ const API_URL =
 
 
 /* =========================================================
+   TILE DATA
+========================================================= */
+
+const tiles = [
+  { letter: "S", value: 1 },
+  { letter: "S", value: 1 },
+  { letter: "O", value: 1 },
+  { letter: "O", value: 1 },
+  { letter: "W", value: 4 },
+  { letter: "H", value: 4 },
+  { letter: "H", value: 4 },
+  { letter: "E", value: 1 },
+  { letter: "G", value: 2 },
+  { letter: "G", value: 2 },
+  { letter: "K", value: 5 },
+  { letter: "R", value: 1 },
+  { letter: "M", value: 3 },
+  { letter: "V", value: 4 }
+];
+
+
+/* =========================================================
    ELEMENTS
 ========================================================= */
 
-const form =
-  document.getElementById("gameForm");
+const board =
+  document.getElementById(
+    "scrabbleBoard"
+  );
 
-const nameInput =
-  document.getElementById("name");
+const answerDisplay =
+  document.getElementById(
+    "answerDisplay"
+  );
 
 const wordInput =
-  document.getElementById("word");
+  document.getElementById(
+    "word"
+  );
+
+const nameInput =
+  document.getElementById(
+    "name"
+  );
+
+const form =
+  document.getElementById(
+    "gameForm"
+  );
 
 const submitButton =
-  document.getElementById("submitButton");
+  document.getElementById(
+    "submitButton"
+  );
 
 const status =
-  document.getElementById("status");
-
-const activity =
-  document.getElementById("activity");
+  document.getElementById(
+    "status"
+  );
 
 const liveCount =
-  document.getElementById("liveCount");
+  document.getElementById(
+    "liveCount"
+  );
 
-const game =
-  document.getElementById("game");
+const activity =
+  document.getElementById(
+    "activity"
+  );
 
 const winnerScreen =
-  document.getElementById("winnerScreen");
+  document.getElementById(
+    "winnerScreen"
+  );
 
 const winnerWord =
-  document.getElementById("winnerWord");
+  document.getElementById(
+    "winnerWord"
+  );
 
 const winnerName =
-  document.getElementById("winnerName");
+  document.getElementById(
+    "winnerName"
+  );
 
+
+let selectedTiles = [];
 
 let gameOver = false;
+
+
+/* =========================================================
+   CREATE BOARD
+========================================================= */
+
+function createBoard() {
+
+  board.innerHTML = "";
+
+  /*
+    Fixed board layout.
+    Letter tiles and decorative squares
+    are mixed to create a tabletop effect.
+  */
+
+  const layout = [
+    null, 0, null, 2, null, 4, null,
+    5, null, 7, null, 8, null, 6,
+    null, 9, null, 10, null, 11, null,
+    12, null, 13, null, 3, null, 1
+  ];
+
+
+  layout.forEach(function(tileIndex) {
+
+    if (tileIndex === null) {
+
+      const square =
+        document.createElement(
+          "div"
+        );
+
+      square.className =
+        "board-square";
+
+      board.appendChild(
+        square
+      );
+
+      return;
+    }
+
+
+    const tile =
+      tiles[tileIndex];
+
+
+    const button =
+      document.createElement(
+        "button"
+      );
+
+    button.type =
+      "button";
+
+    button.className =
+      "scrabble-tile";
+
+    button.dataset.index =
+      tileIndex;
+
+    button.innerHTML = `
+      ${tile.letter}
+      <span class="tile-value">
+        ${tile.value}
+      </span>
+    `;
+
+
+    button.addEventListener(
+      "click",
+      function() {
+
+        selectTile(
+          tileIndex,
+          button
+        );
+
+      }
+    );
+
+
+    board.appendChild(
+      button
+    );
+
+  });
+
+}
+
+
+/* =========================================================
+   SELECT TILE
+========================================================= */
+
+function selectTile(
+  tileIndex,
+  button
+) {
+
+  if (gameOver) {
+    return;
+  }
+
+
+  const existing =
+    selectedTiles.indexOf(
+      tileIndex
+    );
+
+
+  /*
+    Clicking a selected tile removes it.
+  */
+
+  if (existing !== -1) {
+
+    selectedTiles.splice(
+      existing,
+      1
+    );
+
+    button.classList.remove(
+      "selected"
+    );
+
+  } else {
+
+    selectedTiles.push(
+      tileIndex
+    );
+
+    button.classList.add(
+      "selected"
+    );
+
+  }
+
+
+  updateAnswer();
+}
+
+
+/* =========================================================
+   UPDATE ANSWER
+========================================================= */
+
+function updateAnswer() {
+
+  const word =
+    selectedTiles
+      .map(function(index) {
+        return tiles[index].letter;
+      })
+      .join("");
+
+
+  if (!word) {
+
+    answerDisplay.innerHTML = `
+      <span class="answer-placeholder">
+        Select letters from the board
+      </span>
+    `;
+
+  } else {
+
+    answerDisplay.textContent =
+      word;
+
+  }
+
+
+  /*
+    Keep the regular input synchronized.
+  */
+
+  wordInput.value =
+    word;
+}
+
+
+/* =========================================================
+   CLEAR
+========================================================= */
+
+document
+  .getElementById("clearButton")
+  .addEventListener(
+    "click",
+    function() {
+
+      selectedTiles = [];
+
+      document
+        .querySelectorAll(
+          ".scrabble-tile.selected"
+        )
+        .forEach(function(tile) {
+
+          tile.classList.remove(
+            "selected"
+          );
+
+        });
+
+
+      wordInput.value = "";
+
+      updateAnswer();
+
+    }
+  );
+
+
+/* =========================================================
+   BACKSPACE
+========================================================= */
+
+document
+  .getElementById("backspaceButton")
+  .addEventListener(
+    "click",
+    function() {
+
+      if (!selectedTiles.length) {
+        return;
+      }
+
+
+      selectedTiles.pop();
+
+
+      const selected =
+        document.querySelectorAll(
+          ".scrabble-tile"
+        );
+
+
+      selected.forEach(
+        function(tile) {
+
+          const index =
+            Number(
+              tile.dataset.index
+            );
+
+
+          if (
+            selectedTiles.indexOf(index)
+            === -1
+          ) {
+
+            tile.classList.remove(
+              "selected"
+            );
+
+          }
+
+        }
+      );
+
+
+      updateAnswer();
+
+    }
+  );
+
+
+/* =========================================================
+   MANUAL INPUT
+========================================================= */
+
+wordInput.addEventListener(
+  "input",
+  function() {
+
+    /*
+      If the user types manually,
+      deselect board tiles.
+    */
+
+    if (
+      wordInput.value !==
+      selectedTiles
+        .map(function(index) {
+          return tiles[index].letter;
+        })
+        .join("")
+    ) {
+
+      selectedTiles = [];
+
+      document
+        .querySelectorAll(
+          ".scrabble-tile.selected"
+        )
+        .forEach(function(tile) {
+
+          tile.classList.remove(
+            "selected"
+          );
+
+        });
+
+    }
+
+    wordInput.value =
+      wordInput.value
+        .replace(
+          /[^a-zA-Z]/g,
+          ""
+        )
+        .toUpperCase();
+
+  }
+);
 
 
 /* =========================================================
    STATUS
 ========================================================= */
 
-function setStatus(message, type = "") {
+function setStatus(
+  message,
+  type = ""
+) {
 
-  status.textContent = message;
+  status.textContent =
+    message;
 
   status.className =
     "status " + type;
@@ -1268,14 +2492,24 @@ function updateLiveActivity(data) {
 
 
   const attempts =
-    Number(data.attempts || 0);
+    Number(
+      data.attempts || 0
+    );
+
 
   liveCount.textContent =
     attempts +
-    (attempts === 1 ? " attempt" : " attempts");
+    (
+      attempts === 1
+        ? " attempt"
+        : " attempts"
+    );
 
 
-  if (!data.recent || !data.recent.length) {
+  if (
+    !data.recent ||
+    !data.recent.length
+  ) {
 
     activity.innerHTML = `
       <div class="activity-row">
@@ -1290,64 +2524,60 @@ function updateLiveActivity(data) {
 
 
   activity.innerHTML =
-    data.recent.map(function(item) {
+    data.recent
+      .map(function(item) {
 
-      return `
-        <div class="activity-row">
-          <span class="activity-name">
-            ${escapeHtml(item.name)}
-          </span>
+        return `
+          <div class="activity-row">
 
-          <span class="activity-word">
-            ${escapeHtml(item.word)}
-          </span>
-        </div>
-      `;
+            <span class="activity-name">
+              ${escapeHtml(item.name)}
+            </span>
 
-    }).join("");
+            <span class="activity-word">
+              ${escapeHtml(item.word)}
+            </span>
+
+          </div>
+        `;
+
+      })
+      .join("");
 }
 
 
 /* =========================================================
-   ESCAPE HTML
+   HTML ESCAPE
 ========================================================= */
 
 function escapeHtml(value) {
 
   return String(value || "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+    .replace(
+      /</g,
+      "&lt;"
+    )
+    .replace(
+      />/g,
+      "&gt;"
+    )
+    .replace(
+      /"/g,
+      "&quot;"
+    )
+    .replace(
+      /'/g,
+      "&#039;"
+    );
 }
 
 
 /* =========================================================
-   SHOW WINNER
-========================================================= */
-
-function showWinner(name, word) {
-
-  gameOver = true;
-
-  winnerWord.textContent =
-    word || "HOMEWORK";
-
-  winnerName.textContent =
-    name + " found the winning word.";
-
-  game.style.display =
-    "none";
-
-  winnerScreen.classList.add("show");
-
-  createConfetti();
-}
-
-
-/* =========================================================
-   CHECK STATUS
+   GAME STATUS
 ========================================================= */
 
 async function checkGameStatus() {
@@ -1378,7 +2608,9 @@ async function checkGameStatus() {
       await response.json();
 
 
-    updateLiveActivity(data);
+    updateLiveActivity(
+      data
+    );
 
 
     if (data.gameOver) {
@@ -1397,6 +2629,7 @@ async function checkGameStatus() {
     );
 
   }
+
 }
 
 
@@ -1419,8 +2652,11 @@ form.addEventListener(
     const name =
       nameInput.value.trim();
 
+
     const word =
-      wordInput.value.trim();
+      wordInput.value
+        .trim()
+        .toUpperCase();
 
 
     if (!name) {
@@ -1439,32 +2675,24 @@ form.addEventListener(
     if (!word) {
 
       setStatus(
-        "Please enter a word.",
+        "Please build a word first.",
         "error"
       );
-
-      wordInput.focus();
 
       return;
     }
 
 
-    /* -----------------------------------------
-       FAST UI RESPONSE
-    ----------------------------------------- */
-
-    submitButton.disabled = true;
+    submitButton.disabled =
+      true;
 
     submitButton.textContent =
       "Checking...";
 
+
     setStatus(
       "Checking your answer..."
     );
-
-
-    const startTime =
-      Date.now();
 
 
     try {
@@ -1480,10 +2708,11 @@ form.addEventListener(
                 "text/plain;charset=utf-8"
             },
 
-            body: JSON.stringify({
-              name: name,
-              word: word
-            })
+            body:
+              JSON.stringify({
+                name: name,
+                word: word
+              })
           }
         );
 
@@ -1492,11 +2721,11 @@ form.addEventListener(
         await response.json();
 
 
-      /* ---------------------------------------
-         GAME ALREADY OVER
-      --------------------------------------- */
+      /* GAME ALREADY OVER */
 
-      if (data.gameOver) {
+      if (
+        data.gameOver
+      ) {
 
         showWinner(
           data.winner,
@@ -1507,11 +2736,11 @@ form.addEventListener(
       }
 
 
-      /* ---------------------------------------
-         WINNER
-      --------------------------------------- */
+      /* WINNER */
 
-      if (data.winner) {
+      if (
+        data.winner
+      ) {
 
         showWinner(
           data.name,
@@ -1522,9 +2751,7 @@ form.addEventListener(
       }
 
 
-      /* ---------------------------------------
-         WRONG ANSWER
-      --------------------------------------- */
+      /* WRONG ANSWER */
 
       setStatus(
         data.message ||
@@ -1536,54 +2763,29 @@ form.addEventListener(
       wordInput.select();
 
 
-      /* Update live activity */
-
       checkGameStatus();
 
 
     } catch (error) {
 
-      console.error(error);
+      console.error(
+        error
+      );
 
       setStatus(
         "Unable to connect. Please try again.",
         "error"
       );
 
-
     } finally {
-
-      /* ---------------------------------------
-         RESTORE BUTTON
-      --------------------------------------- */
 
       if (!gameOver) {
 
-        const elapsed =
-          Date.now() - startTime;
+        submitButton.disabled =
+          false;
 
-        const minimumDisplayTime =
-          350;
-
-        const remaining =
-          Math.max(
-            0,
-            minimumDisplayTime - elapsed
-          );
-
-
-        setTimeout(
-          function() {
-
-            submitButton.disabled =
-              false;
-
-            submitButton.textContent =
-              "Submit Answer";
-
-          },
-          remaining
-        );
+        submitButton.textContent =
+          "Submit Answer";
 
       }
 
@@ -1594,22 +2796,89 @@ form.addEventListener(
 
 
 /* =========================================================
+   WINNER
+========================================================= */
+
+function showWinner(
+  name,
+  word
+) {
+
+  gameOver =
+    true;
+
+
+  winnerWord.textContent =
+    word ||
+    "HOMEWORK";
+
+
+  winnerName.textContent =
+    name +
+    " found the winning word.";
+
+
+  document
+    .querySelector(".event-hero")
+    .style.display =
+      "none";
+
+
+  document
+    .querySelector(".info-grid")
+    .style.display =
+      "none";
+
+
+  document
+    .querySelector(".section")
+    .style.display =
+      "none";
+
+
+  document
+    .querySelector(".made-section")
+    .style.display =
+      "none";
+
+
+  document
+    .querySelector(".games-section")
+    .style.display =
+      "none";
+
+
+  winnerScreen.classList.add(
+    "show"
+  );
+
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+
+  createConfetti();
+}
+
+
+/* =========================================================
    CONFETTI
 ========================================================= */
 
 function createConfetti() {
 
-  const pieces = 90;
-
-
   for (
     let i = 0;
-    i < pieces;
+    i < 90;
     i++
   ) {
 
     const piece =
-      document.createElement("div");
+      document.createElement(
+        "div"
+      );
 
 
     piece.className =
@@ -1617,11 +2886,13 @@ function createConfetti() {
 
 
     piece.style.left =
-      Math.random() * 100 + "%";
+      Math.random() * 100 +
+      "%";
 
 
     piece.style.animationDelay =
-      Math.random() * .8 + "s";
+      Math.random() * .8 +
+      "s";
 
 
     piece.style.transform =
@@ -1637,7 +2908,9 @@ function createConfetti() {
 
     setTimeout(
       function() {
+
         piece.remove();
+
       },
       3500
     );
@@ -1648,14 +2921,16 @@ function createConfetti() {
 
 
 /* =========================================================
-   INITIAL STATUS CHECK
+   INITIALIZE
 ========================================================= */
+
+createBoard();
 
 checkGameStatus();
 
 
 /* =========================================================
-   LIGHT POLLING
+   LIVE POLLING
 ========================================================= */
 
 setInterval(
@@ -1666,4 +2941,5 @@ setInterval(
 </script>
 
 </body>
+
 </html>
